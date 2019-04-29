@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Duc was here
-=======
 var path = require('path');
 
 const express = require('express');
@@ -24,4 +21,4 @@ app.use((req,res,next) => {
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
->>>>>>> b134fc84dd00e817b24f27cd5d2fccceaf79ecfc
+

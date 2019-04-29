@@ -17,7 +17,6 @@ var myGameArea = {
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
         document.getElementById("temp").appendChild(this.canvas);
-        // document.appendChild(this.canvas);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
         },
@@ -61,6 +60,7 @@ function component(width, height, color, x, y, type) {
             this.gravitySpeed = 0;
         }
     }
+
     this.crashWith = function(otherobj) {
         var myleft = this.x;
         var myright = this.x + (this.width);
@@ -78,11 +78,13 @@ function component(width, height, color, x, y, type) {
     }
 }
 
+
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
-            return;
+            location.reload();
+
         } 
     }
     myGameArea.clear();
@@ -108,6 +110,8 @@ function updateGameArea() {
     myGamePiece.update();
 }
 
+
+
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
@@ -116,3 +120,5 @@ function everyinterval(n) {
 function accelerate(n) {
     myGamePiece.gravity = n;
 }
+
+

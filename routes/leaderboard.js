@@ -4,7 +4,7 @@ const router = express.Router();
 
 const rootDir = require('../util/path');
 
-router.use('/leaderboard', (req,res,next) => {
+router.get('/leaderboard', (req,res,next) => {
   res.sendFile(path.join(rootDir, '/public/html', 'leaderboard.html'));
 })
 

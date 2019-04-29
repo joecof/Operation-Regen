@@ -23,7 +23,6 @@ app.use(leaderboardRoutes);
 app.use(settingsRoutes);
 app.use(profileRoutes);
 
-
 app.use((req,res) => {
   res.status(404).sendFile(path.join(__dirname, '/public/html', '404.html'));
 })

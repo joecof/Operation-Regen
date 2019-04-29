@@ -12,6 +12,7 @@
     <h1>Operation Regen</h1>
     <h2>Coming Soon...</h2>
     <p> Meanwhile enjoy this mini-game</p>
+    <p> Press <b>SpaceBar</b> to Fly</p>
     <div id = "temp"> 
       <script>
         $(document).ready(function(){
@@ -19,6 +20,20 @@
         });
       </script>
     </div>
-    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
+    <script>
+      document.body.onkeydown = function(e){
+        if(e.keyCode == 32){
+          accelerate(-0.2);
+        }
+      }
+
+      document.body.onkeyup = function(e){
+        if(e.keyCode == 32){
+          accelerate(0.05);
+        }
+      }
+    </script>
   </body>
 </html>
+
+

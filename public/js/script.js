@@ -1,116 +1,118 @@
-$('document').ready(function(){
-  
-  let gameDone = false;
-  const tableRow = 3; 
-  const tableCol = 3;
-  let id = 0;
-  let turn = 'X';
-  var arr = [];
-  matrix(tableRow,tableCol,"");
+var myGamePiece;
+var myObstacles = [];
+var myScore;
 
-  function matrix(rows, cols, defaultValue){
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece.gravity = 0.05;
+    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myGameArea.start();
+}
 
-    // Creates all lines:
-    for(var i=0; i < rows; i++){
-  
-        // Creates an empty line
-        arr.push([]);
-        var tr = document.createElement('tr');
-  
-        // Adds cols to the empty line:
-        arr[i].push(new Array(cols));
-  
-        for(var j=0; j < cols; j++){
-          // Initializes:
-          arr[i][j] = defaultValue;
-          var td = document.createElement('td');
-          td.setAttribute('id', id++)
+var myGameArea = {
 
-          table.appendChild(tr);
-          tr.appendChild(td);
-          td.innerHTML = defaultValue;
-        }
-    }
-  return arr;
-  }
-
-  let counter = 0;
-  $('td').click(function () {
-        
-    //alternate color on click 
-    if(counter % 2 == 0) {
-        $(this).html(turn);
-        $(this).css({color:"red"});
-    } else {
-      $(this).html(turn);
-      $(this).css({color:"blue"});
-    }
-    changeTurn();
-    checkWinner();
-    counter++
-});
- 
-  function changeTurn() {
-    if(turn == 'X') {
-        turn = 'O';
-    } else {
-        turn = 'X';
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.getElementById("temp").appendChild(this.canvas);
+        // document.appendChild(this.canvas);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 
-  function checkWinner() {
-    
-    let zero = document.getElementById('0');
-    let one = document.getElementById('1');
-    let two = document.getElementById('2');
-    let three = document.getElementById('3');
-    let four = document.getElementById('4');
-    let five = document.getElementById('5');
-    let six = document.getElementById('6');
-    let seven = document.getElementById('7');
-    let eight = document.getElementById('8');
-
-
-    if(gameDone == false) {
-      if(zero.innerHTML == 'X' && one.innerHTML == 'X' && two.innerHTML == 'X'
-        || zero.innerHTML == 'X' && three.innerHTML == 'X' && six.innerHTML == 'X'
-        || six.innerHTML == 'X' && seven.innerHTML == 'X' && eight.innerHTML == 'X'
-        || two.innerHTML == 'X' && five.innerHTML == 'X' && eight.innerHTML == 'X'
-        || one.innerHTML == 'X' && four.innerHTML == 'X' && seven.innerHTML == 'X'
-        || three.innerHTML == 'X' && four.innerHTML == 'X' && five.innerHTML == 'X'
-        || zero.innerHTML == 'X' && four.innerHTML == 'X' && eight.innerHTML == 'X'
-        || two.innerHTML == 'X' && four.innerHTML == 'X' && six.innerHTML == 'X') {
-        $('#result').html('X Wins!');
-        $('#result').css("display", "block");
-
-        gameDone = true;
-        } else if (zero.innerHTML == 'O' && one.innerHTML == 'O' && two.innerHTML == 'O'
-        || zero.innerHTML == 'O' && three.innerHTML == 'O' && six.innerHTML == 'O'
-        || six.innerHTML == 'O' && seven.innerHTML == 'O' && eight.innerHTML == 'O'
-        || two.innerHTML == 'O' && five.innerHTML == 'O' && eight.innerHTML == 'O'
-        || one.innerHTML == 'O' && four.innerHTML == 'O' && seven.innerHTML == 'O'
-        || three.innerHTML == 'O' && four.innerHTML == 'O' && five.innerHTML == 'O'
-        || zero.innerHTML == 'O' && four.innerHTML == 'O' && eight.innerHTML == 'O'
-        || two.innerHTML == 'O' && four.innerHTML == 'O' && six.innerHTML == 'O') {
-        $('#result').html('O Wins!');
-        $('#result').css("display", "block");
-          gameDone = true;
-        }
-
-        function tryAgain() {
-          if(gameDone == true) {
-            $('#clear').css({display:"block"});
-          }
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.score = 0;
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;
+    this.gravity = 0;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
         }
     }
-    tryAgain();
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+        this.hitBottom();
+    }
+    this.hitBottom = function() {
+        var rockbottom = myGameArea.canvas.height - this.height;
+        if (this.y > rockbottom) {
+            this.y = rockbottom;
+            this.gravitySpeed = 0;
+        }
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
 
+function updateGameArea() {
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            return;
+        } 
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+        x = myGameArea.canvas.width;
+        minHeight = 20;
+        maxHeight = 200;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+        myObstacles.push(new component(10, height, "green", x, 0));
+        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].x += -1;
+        myObstacles[i].update();
+    }
+    myScore.text="SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
 
-    //clears the table
-    $('#clear').click(function () {
-      history.go(0);
-    })
-  
-  }
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
 
-})
+function accelerate(n) {
+    myGamePiece.gravity = n;
+}

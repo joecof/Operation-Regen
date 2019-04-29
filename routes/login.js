@@ -11,7 +11,7 @@ router.get('/login', (req, res, next) => {
 
 router.post('/',(req, res, next) => {
   console.log(req.body);
-  res.redirect('/');
+  res.redirect('profile');
 })
 
 module.exports = router;

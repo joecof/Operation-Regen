@@ -1,59 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Advent+Pro|Luckiest+Guy|Monoton');
-
-#wrapper{
-  height:700px;
-  width:600px;
-  margin:0 auto;
-}
-
-h1 {
+body {
   text-align:center;
-  font-size:50pt;
 }
 
-#table, tr, td {
-  border: 5px solid #b3d9ff;
-  border-collapse:collapse;
+canvas {
+  border:1px solid #d3d3d3;
+  background-color: #f1f1f1;
 }
-
-#table {
-  margin:0 auto;
-}
-td {
-  font-family: 'Luckiest Guy', cursive;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  width:175px;
-  height:175px;
-  text-align:center;
-  font-size:70pt;
-}
-#t3 {
-  font-family: 'Monoton', cursive;
-  text-align:center;
-  font-size:30pt;
-  margin:0px;
-  background: red;
-  background: -webkit-linear-gradient(left, orange , yellow, red, blue, blue, violet);
-  background: -o-linear-gradient(right, orange, yellow, red, blue, blue, violet);
-  background: -moz-linear-gradient(right, orange, yellow, red, blue, blue, violet);
-  background: linear-gradient(to right, orange , yellow, red, blue, blue, violet);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-#clear {
-  font-family: 'Advent Pro', sans-serif;
-  position: relative;
-  top:30px;
-  margin: 0  auto;
-  text-align:center;
-  width:300px;
-  border:1px solid black;
-  display:none;
-  cursor:pointer;
-  font-size:25pt;
-  background-color:black;
-  border-radius: 10px;
-  color: white;
-}
-
-

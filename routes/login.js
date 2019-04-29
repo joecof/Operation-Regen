@@ -5,13 +5,13 @@ const router = express.Router();
 
 const rootDir = require('../util/path');
 
-router.get('/', (req, res, next) => {
+router.use('/login', (req, res, next) => {
   res.sendFile(path.join(rootDir, '/public/html', 'login.html'))
 });
 
 router.post('/',(req, res, next) => {
   console.log(req.body);
-  res.redirect('index');
+  res.redirect('profile');
 })
 
 module.exports = router;

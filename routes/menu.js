@@ -4,7 +4,7 @@ const router = express.Router();
 
 const rootDir = require('../util/path');
 
-router.use('/menu', (req,res,next) => {
+router.use('/', (req,res,next) => {
   res.sendFile(path.join(rootDir, '/public/html', 'menu.html'));
 })
 

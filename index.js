@@ -3,7 +3,7 @@ var path = require('path');
 const express = require('express');
 const loginRoutes = require('./routes/login');
 const gameRoutes = require('./routes/game');
-
+const dbConnection = require('./routes/db_connection.js');
 
 const bodyParser = require('body-parser');
 const app = express();

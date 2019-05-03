@@ -1,0 +1,10 @@
+.MenuItem {
+  border: 2px solid white;
+  /* height:50px;
+  width: 500px; */
+}
+
+.MenuItem-Link {
+  color:white;
+  text-decoration:none;
+}

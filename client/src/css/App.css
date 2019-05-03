@@ -12,3 +12,18 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.App-Container {
+  width:80%;
+}
+
+.App-Menu {
+  width:49%;
+  display:inline-block;
+}
+
+.App-View {
+  height:500px;
+  width:49%;
+  display:inline-block;
+}

@@ -4,7 +4,6 @@ const express = require('express');
 
 const loginRoutes = require('./routes/login');
 const gameRoutes = require('./routes/game');
-const dbConnection = require('./routes/db_connection.js');
 
 
 // const loginRoutes = require('./routes/login');

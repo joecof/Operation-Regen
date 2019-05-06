@@ -5,7 +5,7 @@ const router = express.Router();
 
 const rootDir = require('../util/path');
 
-router.use('/login', (req, res, next) => {
+router.get('/login', (req, res, next) => {
   res.sendFile(path.join(rootDir, '/public/html', 'login.html'))
 });
 

@@ -43,7 +43,12 @@ app.use((req,res) => {
   res.status(404).sendFile(path.join(__dirname, '/public/html', '404.html'));
 })
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+// app.listen(3001, () => {
+//   console.log("Server running on port 3001");
+// });
+
+app.listen(process.env.PORT || 3001, function(){
+  console.log('Your node js server is running');
 });
+
 

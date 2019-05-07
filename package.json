@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node index.js",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,13 @@
   },
   "homepage": "https://gitlab.com/hojoolee81/operation-regen#readme",
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "nodemon": "^1.18.11"
   },
   "dependencies": {
-    "express": "^4.16.4"
-  }
+    "create-react-app": "^3.0.0",
+    "express": "^4.16.4",
+    "mysql": "^2.17.1"
+  },
+  "proxy": "http://localhost:3001/"
 }

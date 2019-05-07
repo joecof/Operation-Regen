@@ -14,7 +14,6 @@ class App extends Component {
         <Route exact path = '/' component = {Wrapper} />
         <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />
       </div>
- 
     );
   }
 }

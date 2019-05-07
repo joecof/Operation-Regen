@@ -6,14 +6,11 @@
   font-size: 25px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
   
 }
 
 .LeaderBoardItem-ul {
-  height: 50px;
-  line-height: 50px;
-  font-size: 15px;
-
   list-style: none;
   padding-bottom: 20px;
   padding-right: 25px;
@@ -24,33 +21,31 @@
   line-height: 75px;
   margin: 10px auto;
   font-size: 20px;
-  border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
 .LeaderBoardItem-li {
 
-  width: 450px;
+  width: 800px;
   font-weight: bold;
   color: black;
 
 }
 
-.score {
-  display:inline-block;
-  width:33%;
-}
-
 .rank {
-  color: gold;
+  color: rgb(255, 115, 0);
   display:inline-block;
-  width:33%;
-  
-
+  width:35%;
 }
 .name {
   display:inline-block;
-  width:33%;
+  width:50%;
 }
+
+.score {
+  display:inline-block;
+  width:10%;
+}
+
 
 

@@ -1,0 +1,10 @@
+.Post-Input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 15px;
+  width: 100%;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+}

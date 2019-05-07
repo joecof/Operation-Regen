@@ -5,7 +5,6 @@ import {Route} from "react-router-dom";
 import Wrapper from './Wrapper';
 import LeaderBoardBox from './LeaderBoardBox';
 
-
 class App extends Component {
 
   render() {
@@ -14,7 +13,6 @@ class App extends Component {
         <Route exact path = '/' component = {Wrapper} />
         <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />
       </div>
- 
     );
   }
 }

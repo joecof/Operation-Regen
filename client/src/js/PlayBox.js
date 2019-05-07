@@ -1,28 +1,22 @@
 import React, { Component } from 'react'
 import '../css/PlayBox.css';
+
 import {Link} from "react-router-dom";
+import Post from './Post';
+
 
 class PlayBox extends Component {
   render() {
     return (
       <div className = "PlayBox">
-
-        <form className ="PlayBox-Form">
-
-          <input className="PlayBox-Input" type = "text" placeholder = "Username"/>
-
+        <div className ="PlayBox-Form">
+        <p className = "PlayBox-Header">Username</p>
+          <Post />
           <div className="PlayBox-Btn">
-            <button className="PlayBox-PlayBtn">PLAY </button>
-            <button className ="PlayBox-Login" to="">LOGIN </button>
+            <Link className ="PlayBox-PlayBtn" to = "/">PLAY</Link>
+            <Link className ="PlayBox-LeaderBoardBtn" to = "LeaderBoard">LEADERBOARD</Link>
           </div>
-
-        </form> 
-
-        <div className ="PlayBox-Links">
-          <Link className ="PlayBox-LeaderBoard" to="/LeaderBoard">LEADERBOARD</Link>
-          <Link className ="PlayBox-Register" to="/">REGISTER</Link>
-        </div>
-       
+        </div>      
       </div>
       
     )

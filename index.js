@@ -31,10 +31,10 @@ app.post('/', (req, res) => {
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
-  })
+  // app.use(express.static(path.join(__dirname, 'client/build')));
+  // app.get('*', (req, res) => {
+  //   res.sendfile(path.join(__dirname = 'client/build/index.html'));
+  // })
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -24,7 +24,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   height: 15px;
-  width: 90%;
+  width: 100%;
   padding: 20px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -57,7 +57,6 @@
 .PlayBox-Login {
   float: right;
   width: 45%;
-  margin-right: 10px;
   background-color: rgb(221, 85, 85);
   border-color: rgb(221, 85, 85);
   color: #fff;

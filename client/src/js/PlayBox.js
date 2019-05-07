@@ -19,7 +19,7 @@ class PlayBox extends Component {
         </form> 
 
         <div className ="PlayBox-Links">
-          <Link className ="PlayBox-LeaderBoard" to="/">LEADERBOARD</Link>
+          <Link className ="PlayBox-LeaderBoard" to="/LeaderBoard">LEADERBOARD</Link>
           <Link className ="PlayBox-Register" to="/">REGISTER</Link>
         </div>
        

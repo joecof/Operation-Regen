@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../css/PlayBox.css';
-import {Route, Switch, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class PlayBox extends Component {
   render() {
@@ -19,7 +19,7 @@ class PlayBox extends Component {
         </form> 
 
         <div className ="PlayBox-Links">
-          <Link className ="PlayBox-LeaderBoard" to="/">LEADERBOARD</Link>
+          <Link className ="PlayBox-LeaderBoard" to="/LeaderBoard">LEADERBOARD</Link>
           <Link className ="PlayBox-Register" to="/">REGISTER</Link>
         </div>
        

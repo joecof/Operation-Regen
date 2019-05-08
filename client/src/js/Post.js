@@ -48,8 +48,7 @@ class Post extends Component {
             onSubmit = {this.handleSubmit}            
             className = "Post-Input"
             type="text"
-            placeholder = "Username"
-            value={this.state.post}
+            placeholder = "Enter Your Hero Name"
             onChange={e => this.setState({ post: e.target.value })}
             />
           </form>

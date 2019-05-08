@@ -3,6 +3,7 @@ import '../css/PlayBox.css';
 
 import {Link} from "react-router-dom";
 import Post from './Post';
+import CharacterSelection from './CharacterSelection'
 
 
 class PlayBox extends Component {
@@ -10,13 +11,15 @@ class PlayBox extends Component {
     return (
       <div className = "PlayBox">
         <div className ="PlayBox-Form">
-        <p className = "PlayBox-Header">Username</p>
+          <CharacterSelection />
           <Post />
           <div className="PlayBox-Btn">
             <Link className ="PlayBox-PlayBtn" to = "/">PLAY</Link>
             <Link className ="PlayBox-LeaderBoardBtn" to = "LeaderBoard">LEADERBOARD</Link>
           </div>
         </div>      
+
+
       </div>
       
     )

@@ -1,12 +1,15 @@
 .PlayBox{
-  width: 400px;
-  height: 200px;
+  width: 800px;
+  height: 400px;
   margin: 20px auto;
   background-color: #fff;
   padding: 18px;
 
   border: 1px solid silver;
   border-radius: 4px;
+
+  background-color: rgba(255, 255, 255, 0.95);
+
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
@@ -35,6 +38,7 @@
   height: 45px;
   margin-top:15px;
   margin-bottom: 20px;
+  
 }
 
 .PlayBox-PlayBtn {
@@ -49,41 +53,33 @@
   height: 45px;
   border-radius: 5px;
   border: 0;
-  color: #FFF;
+  color: white;
   font-size: 18px;
   font-weight: 900;
 
   padding-top:10px;
   text-align:center;
   text-decoration:none;
-  color:white;
   font-weight: 900;
 }
 
 .PlayBox-PlayBtn:hover {
   text-decoration:none;
+
 }
-
-
-
 
 .PlayBox-LeaderBoardBtn {
   width: 45%;
-
   float: right;
   margin-right: 10px;
-
   background-color: rgb(221, 85, 85);
   border-color: rgb(221, 85, 85);
-  color: #fff;
-
+  color: black;
   height: 45px;
   border-radius: 5px;
   border: 0;
-  color: #FFF;
   font-size: 18px;
   font-weight: 900;
-
   padding-top:10px;
   text-align:center;
   text-decoration:none;

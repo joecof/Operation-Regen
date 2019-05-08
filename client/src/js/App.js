@@ -7,9 +7,13 @@ import LeaderBoardBox from './LeaderBoardBox';
 import Game from './Game';
 
 
+
+
 class App extends Component {
 
   render() {
+
+
 
     return (
       <div className="App">
@@ -17,6 +21,11 @@ class App extends Component {
         <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />
         <Route exact path = '/Play' component = {Game} />
       </div>
+
+   
+
+
+
     );
   }
 }

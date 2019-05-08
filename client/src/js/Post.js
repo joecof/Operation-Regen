@@ -7,7 +7,7 @@ class Post extends Component {
 
   state = {
     response: ' ',
-    post: ' ',
+    user: ' ',
     responseToPost: ' ',
   };
 
@@ -32,7 +32,7 @@ class Post extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({post: this.state.post}),
+      body: JSON.stringify({user: this.state.post}),
     });
 
     const body = await response.text();

@@ -4,6 +4,36 @@ import LeaderBoardItem from './LeaderBoardItem';
 import LeaderBoardHeader from './LeaderBoardHeader';
 import '../css/LeaderBoardBox.css'
 
+/*
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "test"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Leaderboard - Connected!");
+});
+
+var queries = {
+	users: 'SELECT * FROM leaderboard ORDER BY score DESC, name'
+};
+
+const getList = (queryName, queryParams) => {
+	return new Promise(function(resolve, reject){
+		con.query(queries[queryName], queryParams, function(err, result, fields){
+			if (!err) resolve(JSON.parse(JSON.stringify(result))); // Hacky solution
+			else reject(err);
+		});
+	});
+};
+
+console.log(getList)
+*/
 
 class LeaderBoardBox extends Component {
   render() {

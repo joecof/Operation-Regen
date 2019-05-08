@@ -4,6 +4,9 @@ import LeaderBoardItem from './LeaderBoardItem';
 import LeaderBoardHeader from './LeaderBoardHeader';
 import '../css/LeaderBoardBox.css'
 
+
+
+
 class LeaderBoardBox extends Component {
   render() {
     return(

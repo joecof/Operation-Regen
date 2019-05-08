@@ -5,7 +5,6 @@ import {Route} from "react-router-dom";
 import Wrapper from './Wrapper';
 import LeaderBoardBox from './LeaderBoardBox';
 
-
 class App extends Component {
 
   render() {

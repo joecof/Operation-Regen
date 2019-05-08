@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import '../css/PlayBoxPost.css';
+
+
 class Post extends Component {
 
   state = {
@@ -40,19 +43,15 @@ class Post extends Component {
   render() {
     return (
       <div>
-        <p>{this.state.response}</p>
           <form onSubmit={this.handleSubmit}>
-            <p>
-              <strong>Post to Server:</strong>
-            </p>
             <input
+            onSubmit = {this.handleSubmit}            
+            className = "Post-Input"
             type="text"
-            value={this.state.post}
+            placeholder = "Enter Your Hero Name"
             onChange={e => this.setState({ post: e.target.value })}
-            /><br/>
-            <button type="submit">Submit</button>
+            />
           </form>
-          <p>{this.state.responseToPost}</p>
       </div>
     )
   }

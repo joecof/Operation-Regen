@@ -4,7 +4,6 @@ import LeaderBoardItem from './LeaderBoardItem';
 import LeaderBoardHeader from './LeaderBoardHeader';
 import '../css/LeaderBoardBox.css'
 
-
 class LeaderBoardBox extends Component {
   render() {
     return(
@@ -24,7 +23,7 @@ class LeaderBoardBox extends Component {
         />
         <LeaderBoardItem 
           rank = "3"
-          name = "Ho Joo"
+          name = "Ho Joo Lee"
           score = "800"
         />
         <LeaderBoardItem 

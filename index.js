@@ -17,11 +17,7 @@ app.post('/', (req, res) => {
 
   app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('/', (req, res) => {
-<<<<<<< HEAD
     res.sendFile(path.join(__dirname = 'client/build/index.html'));
-=======
-    res.sendfile(path.join(__dirname = 'client/build/index.html'));
->>>>>>> c99eceb71c13fbdba9ac17814f30bedf0bcf9134
   })
 
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -24,6 +24,11 @@
   },
   "dependencies": {
     "create-react-app": "^3.0.0",
+<<<<<<< HEAD
     "express": "^4.16.4"
+=======
+    "express": "^4.16.4",
+    "react-addons-css-transition-group": "^15.6.2"
+>>>>>>> c99eceb71c13fbdba9ac17814f30bedf0bcf9134
   }
 }

@@ -1,0 +1,27 @@
+.Game {
+  width: 700px;
+  height:700px;
+}
+
+.Game-BtnContainer {
+  text-align:center;
+}
+
+.Game-Btn{
+  border-radius: 10px;
+}
+
+.Game-Btn:hover{
+  background-color: rgba(255, 255, 255, 0.7);
+  
+}
+
+.Game-BtnStyle {
+  text-decoration: none;
+  color:black;
+}
+
+.Game-BtnStyle:hover {
+  text-decoration: none;
+  color:black;
+}

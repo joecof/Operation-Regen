@@ -1,54 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import LeaderBoardItem from './LeaderBoardItem';
 import LeaderBoardHeader from './LeaderBoardHeader';
-import '../css/LeaderBoardBox.css'
-
-/*
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "test"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Leaderboard - Connected!");
-});
-
-var queries = {
-	users: 'SELECT * FROM leaderboard ORDER BY score DESC, name'
-};
-
-const getList = (queryName, queryParams) => {
-	return new Promise(function(resolve, reject){
-		con.query(queries[queryName], queryParams, function(err, result, fields){
-			if (!err) resolve(JSON.parse(JSON.stringify(result))); // Hacky solution
-			else reject(err);
-		});
-	});
-};
-
-console.log(getList)
-*/
-
+import '../css/LeaderBoardBox.css';
 
 
 class LeaderBoardBox extends Component {
+  // Initializes leaderboard array
+  constructor() {
+    super();
+    this.state = {
+      leaderboard: []
+    };
+  }
+
+  // Fetch leaderboard query result
+  componentDidMount() {
+    fetch('/LeaderBoard')
+      .then(res => res.json())
+      .then(leaderboard => (this.setState({leaderboard}))
+      )
+  }
+
   render() {
+    // Stores leaderboard query result
+    let list = this.state.leaderboard;
+
     return(
       <div className = "LeaderBoardBox"> 
 
       <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
         <LeaderBoardHeader />
-        <LeaderBoardItem 
-          rank = "1"
-          name = "Duc Pham"
-          score = "1000"
-        />
+        {
+          list.map(temp => (
+            <h2><span>1</span> <span>{temp.name}</span> <span>{temp.score}</span></h2>
+          ))
+        }
         <LeaderBoardItem 
           rank = "2"
           name = "Brendon Horning"

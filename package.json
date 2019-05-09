@@ -2,11 +2,11 @@
   "name": "operation-regen",
   "version": "1.0.0",
   "description": "op_regen",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node index.js",
+    "server": "cd server && node main.js",
     "client": "cd client && npm start"
   },
   "repository": {

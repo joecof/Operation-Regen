@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+
 .App {
- 
-  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: 'Architects Daughter', cursive;
 
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .App-Container {

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
+import '../css/PlayBoxPost.css';
+
+
 class Post extends Component {
 
   state = {
     response: ' ',
-    post: ' ',
+    user: ' ',
     responseToPost: ' ',
   };
 
@@ -29,7 +32,7 @@ class Post extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({post: this.state.post}),
+      body: JSON.stringify({user: this.state.post}),
     });
 
     const body = await response.text();
@@ -40,19 +43,15 @@ class Post extends Component {
   render() {
     return (
       <div>
-        <p>{this.state.response}</p>
           <form onSubmit={this.handleSubmit}>
-            <p>
-              <strong>Post to Server:</strong>
-            </p>
             <input
+            onSubmit = {this.handleSubmit}            
+            className = "Post-Input"
             type="text"
-            value={this.state.post}
+            placeholder = "Enter Your Hero Name"
             onChange={e => this.setState({ post: e.target.value })}
-            /><br/>
-            <button type="submit">Submit</button>
+            />
           </form>
-          <p>{this.state.responseToPost}</p>
       </div>
     )
   }

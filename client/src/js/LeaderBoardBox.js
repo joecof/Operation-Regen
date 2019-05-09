@@ -35,6 +35,8 @@ const getList = (queryName, queryParams) => {
 console.log(getList)
 */
 
+
+
 class LeaderBoardBox extends Component {
   render() {
     return(
@@ -54,7 +56,7 @@ class LeaderBoardBox extends Component {
         />
         <LeaderBoardItem 
           rank = "3"
-          name = "Ho Joo"
+          name = "Ho Joo Lee"
           score = "800"
         />
         <LeaderBoardItem 

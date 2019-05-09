@@ -1,19 +1,22 @@
-/* body {
-  background: #69c6ce url("../img/background.png") no-repeat;
-  background-size: cover;
-} */
-
 .PlayBox{
-  width: 400px;
-  height: 200px;
+  width: 800px;
+  height: 400px;
   margin: 20px auto;
   background-color: #fff;
   padding: 18px;
 
   border: 1px solid silver;
   border-radius: 4px;
+
+  background-color: rgba(255, 255, 255, 0.95);
+
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.PlayBox-Header {
+  color:black;
+  font-size: 10pt;
 }
 
 .PlayBox-Form{
@@ -35,12 +38,13 @@
   height: 45px;
   margin-top:15px;
   margin-bottom: 20px;
+  
 }
 
 .PlayBox-PlayBtn {
-  float: left;
+
   width: 45%;
-  margin-right: 10px;
+  float: left;
   background-color: #449d44;
   border-color: #398439;
   color: #fff;
@@ -49,40 +53,40 @@
   height: 45px;
   border-radius: 5px;
   border: 0;
-  color: #FFF;
-  font-size: 13px;
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+
+  padding-top:10px;
+  text-align:center;
+  text-decoration:none;
   font-weight: 900;
 }
 
-.PlayBox-Login {
-  float: right;
+.PlayBox-PlayBtn:hover {
+  text-decoration:none;
+
+}
+
+.PlayBox-LeaderBoardBtn {
   width: 45%;
+  float: right;
+  margin-right: 10px;
   background-color: rgb(221, 85, 85);
   border-color: rgb(221, 85, 85);
-  color: #fff;
-
-
+  color: black;
   height: 45px;
   border-radius: 5px;
   border: 0;
-  color: #FFF;
-  font-size: 13px;
+  font-size: 18px;
+  font-weight: 900;
+  padding-top:10px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
   font-weight: 900;
 }
 
-.PlayBox-LeaderBoard {
-  color: #009cff;
-  font-size: 16px;
-  float: right;
-  font-weight: 900;
-}
-
-
-
-.PlayBox-Register {
-  color: #009cff;
-  font-size: 16px;
-  margin-right: 10px;
-  float: left;
-  font-weight: 900;
+.PlayBox-LeaderBoardBtn:hover {
+  text-decoration:none;
 }

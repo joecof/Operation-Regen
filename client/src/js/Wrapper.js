@@ -15,6 +15,7 @@ class Wrapper extends Component {
 
         <Header />
         <PlayBox />
+        
       </div>
     )
   }

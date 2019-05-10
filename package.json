@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && nodemon main.js",
+    "server": "cd server && node main.js",
     "client": "cd client && npm start"
   },
   "repository": {
@@ -21,7 +21,7 @@
   "homepage": "https://gitlab.com/hojoolee81/operation-regen#readme",
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.0"
   },
   "dependencies": {
     "create-react-app": "^3.0.0",

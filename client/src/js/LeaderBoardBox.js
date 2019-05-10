@@ -25,37 +25,22 @@ class LeaderBoardBox extends Component {
   render() {
     // Stores leaderboard query result
     let list = this.state.leaderboard;
+    // Initiate rank to 0
+    let value = 0;
 
     return(
       <div className = "LeaderBoardBox"> 
-
-      <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
+        <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
         <LeaderBoardHeader />
         {
           list.map(temp => (
-            <h2><span>1</span> <span>{temp.userName}</span> <span>{temp.score}</span></h2>
+            <LeaderBoardItem 
+              rank = {++value}
+              name = {temp.userName}
+              score = {temp.score}
+            />
           ))
         }
-        <LeaderBoardItem 
-          rank = "2"
-          name = "Brendon Horning"
-          score = "900"
-        />
-        <LeaderBoardItem 
-          rank = "3"
-          name = "Ho Joo Lee"
-          score = "800"
-        />
-        <LeaderBoardItem 
-          rank = "4"
-          name = "Ivan Chen"
-          score = "700"
-        />
-        <LeaderBoardItem 
-          rank = "5"
-          name = "Joe Fong"
-          score = "600"
-        />
 
         <div className="LeaderBoardBox-BtnContainer">
           <button className="LeaderBoardBox-Btn">

@@ -23,7 +23,7 @@ connection.connect(function(err) {
 
 // Includes leaderboard query result in the URL
 app.get('/LeaderBoard', (req, res) => {
-  connection.query('SELECT userName, score, heroNo, levelNo FROM leaderboard WHERE score = (SELECT MAX(score) FROM leaderboard)', function(err, result) {
+  connection.query('SELECT userName, score, heroNo, levelNo FROM leaderboard ORDER BY score DESC, userName LIMIT 5', function(err, result) {
     if (!err) {
       res.json(result);
     } else {

@@ -4,6 +4,12 @@ import '../css/LeaderBoardItem.css';
 
 
 class LeaderBoardItem extends Component {
+  static defaultProps = {
+    rank: "999",
+    name: "Uncle K",
+    score: "0"
+  }
+
   render() {
     return (
       <div className = "LeaderBoardItem">

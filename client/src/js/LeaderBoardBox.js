@@ -33,7 +33,7 @@ class LeaderBoardBox extends Component {
         <LeaderBoardHeader />
         {
           list.map(temp => (
-            <h2><span>1</span> <span>{temp.name}</span> <span>{temp.score}</span></h2>
+            <h2><span>1</span> <span>{temp.userName}</span> <span>{temp.score}</span></h2>
           ))
         }
         <LeaderBoardItem 

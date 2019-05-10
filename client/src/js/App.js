@@ -21,11 +21,14 @@ class App extends Component {
         <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />
         <Route exact path = '/Play' component = {Game} />
       </div>
+<<<<<<< HEAD
 
    
 
 
 
+=======
+>>>>>>> 3829459d60f98354837f7c163e300ddf638911ed
     );
   }
 }

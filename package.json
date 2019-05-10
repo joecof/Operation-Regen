@@ -27,6 +27,12 @@
   "dependencies": {
     "create-react-app": "^3.0.0",
     "express": "^4.16.4",
+<<<<<<< HEAD
     "react-addons-css-transition-group": "^15.6.2"
   }
+=======
+    "mysql": "^2.17.1"
+  },
+  "proxy": "http://localhost:3001/"
+>>>>>>> 3829459d60f98354837f7c163e300ddf638911ed
 }

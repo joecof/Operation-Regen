@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 var path = require('path');
 
 const express = require('express');

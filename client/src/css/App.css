@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
 .App {
+  font-family: 'Architects Daughter', cursive;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  font-family: 'Architects Daughter', cursive;
 
     background-image: url("../img/bg.jpg");
     background-repeat: no-repeat;

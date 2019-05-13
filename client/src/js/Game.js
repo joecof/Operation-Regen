@@ -1,30 +1,19 @@
-import {Link} from "react-router-dom";
-import '../css/Game.css';
+import * as Phaser from 'phaser';
+import GameScene from './GameScene';
+import GameScene2 from './GameScene2';
 
+export default class Game extends Phaser.Game {
+  constructor(react) {
 
-
-import React, { Component } from 'react'
-
-class Game extends Component {
-  render() {
-    return (
-      <div className = "Game">
-
-
-
-
-
-
-
-
-        <div className="Game-BtnContainer">
-          <button className="Game-Btn">
-            <Link className = "Game-BtnStyle" to="/">Back To Main</Link>
-          </button>
-        </div>
-      </div>
-    )
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: 800,
+      height: 600,
+      scene:  [GameScene, GameScene2]
+    }
+    super(config);
+    this.react = react;
   }
-}
 
-export default Game;
+}

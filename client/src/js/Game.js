@@ -1,9 +1,7 @@
+import React, { Component } from 'react'
 import Snake from 'react-snake-game';
 import {Link} from "react-router-dom";
 import '../css/Game.css';
-
-
-import React, { Component } from 'react'
 
 class Game extends Component {
   render() {

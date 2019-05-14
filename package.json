@@ -2,13 +2,18 @@
   "name": "operation-regen",
   "version": "1.0.0",
   "description": "op_regen",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run server\" \"npm run client\"",
+<<<<<<< HEAD
     "server": "node index.js",
     "client": "cd client && npm start",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+=======
+    "server": "cd server && node main.js",
+    "client": "cd client && npm start"
+>>>>>>> f9fdaf18d74cb40897e1fcca953b401715a2681b
   },
   "repository": {
     "type": "git",
@@ -22,11 +27,12 @@
   "homepage": "https://gitlab.com/hojoolee81/operation-regen#readme",
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.0"
   },
   "dependencies": {
     "create-react-app": "^3.0.0",
     "express": "^4.16.4",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "react-addons-css-transition-group": "^15.6.2"
   }
@@ -35,4 +41,12 @@
   },
   "proxy": "http://localhost:3001/"
 >>>>>>> 3829459d60f98354837f7c163e300ddf638911ed
+=======
+    "mysql": "^2.17.1",
+    "phaser": "^3.17.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-snake-game": "^1.0.9"
+  },
+  "proxy": "http://localhost:3001/"
+>>>>>>> f9fdaf18d74cb40897e1fcca953b401715a2681b
 }

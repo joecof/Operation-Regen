@@ -1,23 +1,36 @@
-import Snake from 'react-snake-game';
-import {Link} from "react-router-dom";
-import '../css/Game.css';
+import * as Phaser from 'phaser';
+import GameScene from './GameScene';
+import GameScene2 from './GameScene2';
+
+import titleScene from './titleScene';
+import LoadingScene from './LoadingScene';
+import TransitionScene from './TransitionScene';
 
 
-import React, { Component } from 'react'
 
-class Game extends Component {
-  render() {
-    return (
-      <div className = "Game">
-        <Snake />
-        <div className="Game-BtnContainer">
-          <button className="Game-Btn">
-            <Link className = "Game-BtnStyle" to="/">Back To Main</Link>
-          </button>
-        </div>
-      </div>
-    )
+export default class Game extends Phaser.Game {
+  constructor(react) {
+
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: 800,
+      height: 600,
+      render: {
+        pixalArt: true
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+      scene:  [LoadingScene, titleScene, GameScene2, TransitionScene, GameScene]
+    }
+
+    super(config);
+    this.react = react;
   }
-}
 
-export default Game;
+}

@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import '../css/Game.css';
 import Game from './Game';
 
-
 class GameContainer extends Component {
 
   constructor(props) {
@@ -24,6 +23,10 @@ class GameContainer extends Component {
   componentDidUpdate() {
     return false;
   }
+
+  componentUnmount() {
+   this.setState({game: null})
+}
 
   render() {
     return (

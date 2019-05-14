@@ -4,15 +4,6 @@ let platforms;
 let player;
 let cursors;
 let trash = 12;
-var gameWidth   = 800;
-var gameHeight  = 600;  
-var instruction;
-
-var speed       = gameWidth/135;
-var randNum     = Math.random() * 1700 + 100;
-
-var instr   = false;    
-
 
 export default class GameScene extends Phaser.Scene {  
   
@@ -22,8 +13,7 @@ export default class GameScene extends Phaser.Scene {
 
   preload() {
 
-    this.load.image('img', '../img/sky.png');
-
+    this.load.image('img', '../img/river4.png');
     this.load.image('ground', '../img/platform.png');
     this.load.image('trash', '../img/trash.png');
     this.load.image('bomb', '../img/bomb.png');
@@ -96,16 +86,11 @@ export default class GameScene extends Phaser.Scene {
           if(trash === 0) {
             this.scene.start('TransitionScene');
           }
-      
-          // score += 10;
-          // scoreText.setText('Score: ' + score);
+
       }
 
       this.physics.add.collider(stars, platforms);
       this.physics.add.overlap(player, stars, collectTrash, null, this);
-
-
-
 
   }
 

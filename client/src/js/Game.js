@@ -6,16 +6,15 @@ import titleScene from './titleScene';
 import LoadingScene from './LoadingScene';
 import TransitionScene from './TransitionScene';
 
-
-
 export default class Game extends Phaser.Game {
   constructor(react) {
 
     const config = {
       type: Phaser.AUTO,
       parent: 'gameContainer',
-      width: 800,
-      height: 600,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      autoCenter: Phaser.Scale.CENTER_BOTH,
       render: {
         pixalArt: true
       },

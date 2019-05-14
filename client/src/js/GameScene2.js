@@ -21,11 +21,12 @@ export default class GameScene2 extends Phaser.Scene {
   }
 
   preload(){
+
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
     this.load.image('instruction', '../img/Instruction.png');
-
+    
   }
 
   drawBull(){
@@ -102,7 +103,6 @@ export default class GameScene2 extends Phaser.Scene {
         }            
     });
   }
-
 
   update (){     
     if(instr === false && win === false && lose === false){

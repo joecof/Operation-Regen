@@ -13,7 +13,6 @@ export default class LoadingScene extends Phaser.Scene {
       this.load.image('logo'+i, '../img/logo.png');
   }
 
-
     var progressBar = this.add.graphics();
     var progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);

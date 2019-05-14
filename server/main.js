@@ -50,9 +50,7 @@ app.post('/', (req, res) => {
     res.sendfile(path.join(__dirname = '/../client/build/index.html'));
   })
   
-
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 app.use((req,res) => {
   res.status(404).sendFile(path.join(__dirname, '/../public/html', '404.html'));

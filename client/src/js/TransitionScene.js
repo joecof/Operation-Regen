@@ -17,10 +17,9 @@ export default class TransitionScene extends Phaser.Scene {
     this.load.image('hearts1', "../img/lives4.png");
 
     this.load.image('regen1', "../img/regen.png");
-
     this.load.image('giveup1', "../img/giveup.png");
 
-    // this.load.audio('sound', "../img/temp.mp3");
+    this.load.audio('sound', "../img/temp.mp3");
 
   }
 
@@ -45,9 +44,9 @@ export default class TransitionScene extends Phaser.Scene {
       this.scene.start('GameScene');
     })
 
-    // this.sound.add("sound",{
-    //   loop: true
-    // })
+    this.sound.add("sound",{
+      loop: true
+    })
 
 
     // reset.setInteractive();

@@ -6,6 +6,7 @@ import PlayBoxContainer from './PlayBoxContainer';
 import LeaderBoardBox from './LeaderBoardBox';
 import GameContainer from './GameContainer';
 import Credits from './Credits';
+import Transition from './Transition';
 
 class App extends Component {
 
@@ -16,7 +17,8 @@ class App extends Component {
         <Switch>
           <Route exact path = '/' component = {PlayBoxContainer} />
           <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />
-          <Route exact path = '/Play' component = {GameContainer} />
+          {/* <Route exact path = '/Play' component = {GameContainer} /> */}
+          <Route exact path = '/Play' component = {Transition} />
           <Route exact path = '/' component = {Credits} />
           <Route render = {() =>  <h1> 404 Not Found </h1>}/>
         </Switch>  

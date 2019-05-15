@@ -1,6 +1,10 @@
-.Game {
-  width: 700px;
-  height:700px;
+.GameContainer {
+  min-height: 100vh;
+}
+
+#gameContainer {
+  margin:0px;
+  padding: 0px;
 }
 
 .Game-BtnContainer {
@@ -13,7 +17,6 @@
 
 .Game-Btn:hover{
   background-color: rgba(255, 255, 255, 0.7);
-  
 }
 
 .Game-BtnStyle {

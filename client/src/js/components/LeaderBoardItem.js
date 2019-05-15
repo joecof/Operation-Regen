@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../css/LeaderBoardItem.css';
+import '../../css/LeaderBoardItem.css';
 
 
 class LeaderBoardItem extends Component {

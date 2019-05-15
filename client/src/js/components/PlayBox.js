@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/PlayBox.css';
+import '../../css/PlayBox.css';
 
 import {Link} from "react-router-dom";
 import Post from './Post';

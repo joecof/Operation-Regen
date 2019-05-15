@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 import PlayBox from './PlayBox';
 import Header from './Header';
 
-import '../css/Wrapper.css';
+import '../../css/Wrapper.css';
 
 
 
-class Wrapper extends Component {
+class PlayBoxContainer extends Component {
   render() {
   
     return(
@@ -21,4 +21,4 @@ class Wrapper extends Component {
   }
 }
 
-export default Wrapper
+export default PlayBoxContainer;

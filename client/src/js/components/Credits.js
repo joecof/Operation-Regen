@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../css/Credits.css';
+import '../../css/Credits.css';
 
 export default class Credits extends Component {
   render() {

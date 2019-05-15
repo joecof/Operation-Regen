@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/LeaderBoardHeader.css';
+import '../../css/LeaderBoardHeader.css';
 
 
 class LeaderBoardHeader extends Component {

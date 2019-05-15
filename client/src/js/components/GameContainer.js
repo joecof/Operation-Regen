@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 import {Link} from "react-router-dom";
-import '../css/Game.css';
-import Game from './Game';
+import '../../css/GameContainer.css';
+import Game from '../phaser/Game';
 
 class GameContainer extends Component {
 
@@ -15,9 +15,7 @@ class GameContainer extends Component {
   }
 
   componentDidMount() {
-
     this.setState({game: new Game(this)})
-
   }
 
   componentDidUpdate() {
@@ -33,9 +31,9 @@ class GameContainer extends Component {
       <div className = "GameContainer">
         <div id="gameContainer" />
         <div className="Game-BtnContainer">
-          <button className="Game-Btn">
+          {/* <button className="Game-Btn">
             <Link className = "Game-BtnStyle" to="/">Back To Main</Link>
-          </button>
+          </button> */}
         </div>
       </div>
     )

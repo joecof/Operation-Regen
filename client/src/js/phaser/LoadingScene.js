@@ -1,6 +1,5 @@
 import * as Phaser from 'phaser'
 
-
 export default class LoadingScene extends Phaser.Scene {
   constructor() {
     super({ key: 'LoadingScene'})
@@ -54,7 +53,6 @@ export default class LoadingScene extends Phaser.Scene {
     });
     
     this.load.on('complete', function () {
-      // this.scene.start('GameScene');
       progressBar.destroy();
       progressBox.destroy();
       loadingText.destroy();

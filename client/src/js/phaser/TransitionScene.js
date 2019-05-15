@@ -1,24 +1,17 @@
 import * as Phaser from 'phaser'
 
-var score = 0;
-var scoreText;
-
 export default class TransitionScene extends Phaser.Scene {  
   constructor() {
     super({ key: 'TransitionScene'})
   }
 
   preload() {
-    // console.log(this.isVisible(this.scene))
 
     this.load.image('bg1', "../img/river4.png");
     this.load.image('hero1', "../img/hero5H.png");
-
     this.load.image('hearts1', "../img/lives4.png");
-
     this.load.image('regen1', "../img/regen.png");
     this.load.image('giveup1', "../img/giveup.png");
-
     this.load.audio('sound', "../img/temp.mp3");
 
   }
@@ -30,8 +23,7 @@ export default class TransitionScene extends Phaser.Scene {
     this.add.text(this.game.renderer.width / 3, this.game.renderer.height * 0.2, "Level 2: Warm Up", { fontSize: '32px', fill: '#000' }).setDepth(2);
     this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.4, "hearts1").setDepth(2).setScale(0.75, 0.75);
     this.add.image(400,300,'bg1').setDepth(0).setScale(0.6);
-
-    scoreText = this.add.text(16, 16, 'score: 100', { fontSize: '32px', fill: '#000' });
+    this.add.text(16, 16, 'score: 100', { fontSize: '32px', fill: '#000' });
     
     playButton.setInteractive();
     playButton.on('pointover', () => {
@@ -47,21 +39,5 @@ export default class TransitionScene extends Phaser.Scene {
     this.sound.add("sound",{
       loop: true
     })
-
-
-    // reset.setInteractive();
-
-    // reset.on('pointover', () => {
-    // })
-
-    // reset.on('pointerout', () => {
-    // })
-
-    // reset.on('pointerdown', () => {
-    //   this.sound.stopAll(true)
-    // });
-
-
-    // this.sound.play("sound");
   }
 } 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../css/CharacterSelection.css';
+import '../../css/CharacterSelection.css';
 import CharacterSelectionItem from './CharacterSelectionItem';
 
 

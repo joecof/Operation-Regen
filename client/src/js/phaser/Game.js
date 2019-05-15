@@ -1,10 +1,13 @@
 import * as Phaser from 'phaser';
+
 import GameScene from './GameScene';
 import GameScene2 from './GameScene2';
 
-import titleScene from './titleScene';
+import TitleScene from './TitleScene';
 import LoadingScene from './LoadingScene';
 import TransitionScene from './TransitionScene';
+
+let scene = [LoadingScene, TitleScene, GameScene2, TransitionScene, GameScene];
 
 export default class Game extends Phaser.Game {
   constructor(react) {
@@ -14,22 +17,23 @@ export default class Game extends Phaser.Game {
       parent: 'gameContainer',
       width: window.innerWidth,
       height: window.innerHeight,
-      autoCenter: Phaser.Scale.CENTER_BOTH,
+      scale: {
+        mode: Phaser.Scale.NONE,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      },
       render: {
         pixalArt: true
       },
-      physics: {
+      physicsConfig: {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
             debug: false
         }
     },
-      scene:  [LoadingScene, titleScene, GameScene2, TransitionScene, GameScene]
+      scene:  scene
     }
-
     super(config);
     this.react = react;
   }
-
 }

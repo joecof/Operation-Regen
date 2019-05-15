@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "concurrently \"npm run server\" \"npm run client\"",
 <<<<<<< HEAD
     "server": "node index.js",
@@ -14,6 +15,10 @@
     "server": "cd server && node main.js",
     "client": "cd client && npm start"
 >>>>>>> f9fdaf18d74cb40897e1fcca953b401715a2681b
+=======
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+>>>>>>> fe269e3fd5e3525d055122e94cb9af64eb5d73dd
   },
   "repository": {
     "type": "git",

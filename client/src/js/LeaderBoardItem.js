@@ -25,5 +25,4 @@ class LeaderBoardItem extends Component {
   }
 }
 
-
 export default LeaderBoardItem;

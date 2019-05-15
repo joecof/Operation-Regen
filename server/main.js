@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -34,8 +34,9 @@ app.get('/LeaderBoard', (req, res) => {
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use('/', express.static(__dirname + '/../public'));
+app.use(bodyParser.json()); 
+app.use('/', express.static(path.join(__dirname,'../', 'public')));
+
 
 app.post('/', (req, res) => {
   console.log(req.body);
@@ -48,14 +49,13 @@ app.post('/', (req, res) => {
   app.get('/', (req, res) => {
     res.sendfile(path.join(__dirname = '/../client/build/index.html'));
   })
-
+  
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 app.use((req,res) => {
   res.status(404).sendFile(path.join(__dirname, '/../public/html', '404.html'));
 })
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log('Server running on port', port);
 });

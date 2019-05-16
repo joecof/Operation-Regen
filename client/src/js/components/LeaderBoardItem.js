@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-
 import '../../css/LeaderBoardItem.css';
 //import { throwStatement } from '@babel/types';
-
 
 class LeaderBoardItem extends Component {
   static defaultProps = {

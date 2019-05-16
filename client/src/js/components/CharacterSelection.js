@@ -1,32 +1,33 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 import '../../css/CharacterSelection.css';
 import CharacterSelectionItem from './CharacterSelectionItem';
 
 
 class CharacterSelection extends Component {
   render() {
+    var selected = 0;
+
     return (
       <div className ="CharacterSelection">
         <h1 className = "CharacterSelection-Header">Select Your Hero</h1>
         <div className = "CharacterSelection-Box">
           <CharacterSelectionItem 
-            img = "hero1H"
+            hero = "1"
           />
           <CharacterSelectionItem 
-            img = "hero2H"
+            hero = "2"
           />
           <CharacterSelectionItem 
-            img = "hero3H"
+            hero = "3"
           />
           <CharacterSelectionItem 
-            img = "hero4H"
+            hero = "4"
           />
           <CharacterSelectionItem 
-            img = "hero5H"
+            hero = "5"
           />
           <CharacterSelectionItem 
-            img = "hero6H"
+            hero = "6"
           />
         </div>
       </div>

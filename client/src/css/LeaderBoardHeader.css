@@ -19,12 +19,12 @@
 
 .LeaderBoardHeader-Hero {
   display: inline-block;
-  width: 20%;
+  width: 15%;
 }
 
 .LeaderBoardHeader-Name {
   display: inline-block;
-  width: 30%;
+  width: 35%;
 }
 
 .LeaderBoardHeader-Level {

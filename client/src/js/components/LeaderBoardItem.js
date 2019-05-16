@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import '../../css/LeaderBoardItem.css';
+//import { throwStatement } from '@babel/types';
 
 
 class LeaderBoardItem extends Component {
@@ -18,7 +19,7 @@ class LeaderBoardItem extends Component {
         <ul className = "LeaderBoardItem-ul">
           <li className = "LeaderBoardItem-li">
             <div className="rank">{this.props.rank}</div>
-            <div className="hero">{this.props.hero}</div>
+            <div className="hero"><img src={"/../../img/hero" + this.props.hero + "H.png"} alt="hero"/></div>
             <div className="name">{this.props.name}</div>
             <div className="level">{this.props.level}</div>
             <div className="score">{this.props.score}</div>

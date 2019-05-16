@@ -1,11 +1,11 @@
 .Post-Input {
   border: 1px solid #ccc;
   border-radius: 4px;
-  height: 15px;
-  width: 90%;
-  padding: 20px;
+  height: 55px;
+  width: 100%;
+  /*padding: 20px;*/
   font-size: 25px;
-  line-height: 1.42857143;
+  /*line-height: 1.42857143;*/
   color: #555;
 }
 

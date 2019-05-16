@@ -1,5 +1,5 @@
 .PlayBox{
-  width: 800px;
+  /*width: 800px;*/
   height: 420px;
   margin: 20px auto;
   background-color: #fff;
@@ -27,7 +27,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   height: 15px;
-  width: 90%;
+  width: 100%;
   padding: 20px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -43,7 +43,7 @@
 
 .PlayBox-PlayBtn {
 
-  width: 45%;
+  width: 40%;
   float: left;
   background-color: #449d44;
   border-color: #398439;
@@ -54,7 +54,7 @@
   border-radius: 5px;
   border: 0;
   color: white;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 900;
 
   padding-top:10px;
@@ -69,16 +69,16 @@
 }
 
 .PlayBox-LeaderBoardBtn {
-  width: 45%;
+  width: 40%;
   float: right;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   background-color: rgb(221, 85, 85);
   border-color: rgb(221, 85, 85);
   color: black;
   height: 45px;
   border-radius: 5px;
   border: 0;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 900;
   padding-top:10px;
   text-align:center;

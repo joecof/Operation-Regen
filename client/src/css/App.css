@@ -9,8 +9,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 
-    background-image: url("../img/bg.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url("../img/bg_river_forest.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

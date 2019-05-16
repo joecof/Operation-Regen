@@ -1,8 +1,6 @@
 .Transition {
-  /* background-image: url("../img/transitionbase0.png"); */
-  background-image: url("../img/bg.jpg");
-
+  /* background-image: url("../img/transitionbase0.png") !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
 }

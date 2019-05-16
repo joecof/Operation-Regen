@@ -1,46 +1,56 @@
 .LeaderBoardItem {
-
   list-style: none;
-  padding-bottom: 20px;
-  padding-right: 25px;
+  /*padding-bottom: 20px;
+  padding-right: 25px;*/
 
-
-  width: 80%;
+  width: 100%;
   height: 75px;
   line-height: 75px;
   margin: 10px auto;
-  font-size: 25px;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 33px;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  
+  text-align: center;
+  font-weight: bold;
 }
 
 .LeaderBoardItem-ul {
   list-style: none;
-  padding-bottom: 20px;
-  padding-right: 25px;
+  padding: 0;
+  /*padding-bottom: 20px;
+  padding-right: 25px;*/
 }
 
 .LeaderBoardItem-li {
-  width: 800px;
-  font-weight: bold;
+  /*width: 800px;
+  font-weight: bold;*/
   color: black;
 }
 
 .rank {
   color: rgb(255, 115, 0);
   display:inline-block;
-  width:35%;
+  width:15%;
 }
+
+.hero {
+  display:inline-block;
+  width:20%;
+}
+
 .name {
   display:inline-block;
-  width:50%;
+  width:30%;
+}
+
+.level {
+  display:inline-block;
+  width:15%;
 }
 
 .score {
   display:inline-block;
-  width:10%;
+  width:20%;
 }
 
 

@@ -36,9 +36,9 @@ class LeaderBoardBox extends Component {
     var style = {
       backgroundImage: 'url(../img/bg_river_forest2.jpg)'
     }
-
+    
     return(
-      <div className = "LeaderBoardBoxContainer" style = {style}>
+      <div className = "LeaderBoardBoxContainer" style = {style} >
         <div className = "LeaderBoardBox"> 
           <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
           <LeaderBoardHeader />

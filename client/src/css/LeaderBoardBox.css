@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One');
+.LeaderBoardBoxContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.LeaderBoardBox {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.LeaderBoardBox-Header {
+  text-align: center;
+  /*padding: 2% 0 2%;*/
+  color: gold;
+  font: italic 2em 'Sigmar One', cursive;
+}
+
+.LeaderBoardBox-BtnContainer {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.LeaderBoardBox-Btn {
+  border-radius: 10px;
+}
+
+.LeaderBoardBox-Btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.LeaderBoardBox-BtnStyle {
+  text-decoration: none;
+  color: black;
+}
+
+.LeaderBoardBox-BtnStyle:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+    background-color: green;
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.8em;
+  }
+  .hero img {
+    height: 70px;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+    background-color: yellow;
+   
+
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.7em;
+  }
+
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+    background-color: pink;
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.5em;
+  }
+  .hero img {
+    height: 60px;
+  }
+  .LeaderBoardBox-Header {
+    font-size: 1.5em;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+    background-color: blue;
+  }
+  .hero img {
+    height: 50px;
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.4em;
+  }
+}
+
+/*for phone with 4.7 inch screen or 5.5 inch screen*/
+
+@media (max-width: 450px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+    background-color: blue;
+  }
+}

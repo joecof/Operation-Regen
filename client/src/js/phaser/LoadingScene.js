@@ -6,7 +6,7 @@ export default class LoadingScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', '../img/logo.png');
+    this.load.image('logo'+i, '../img/icon.png');
 
     for (var i = 0; i < 200; i++) {
       this.load.image('logo'+i, '../img/logo.png');
@@ -28,6 +28,8 @@ export default class LoadingScene extends Phaser.Scene {
             fill: '#ffffff'
         }
     });
+
+    
     loadingText.setOrigin(0.5, 0.5);
 
     var percentText = this.make.text({
@@ -58,6 +60,7 @@ export default class LoadingScene extends Phaser.Scene {
       loadingText.destroy();
       percentText.destroy();
     });
+
   }
 
 }

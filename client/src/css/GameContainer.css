@@ -1,10 +1,6 @@
 .GameContainer {
-  min-height: 100vh;
-}
+  /* height:100vh; */
 
-#gameContainer {
-  margin:0px;
-  padding: 0px;
 }
 
 .Game-BtnContainer {

@@ -1,39 +1,27 @@
 import React, { Component } from 'react'
+import Credits from './Credits'
 
+import Header from './Header'
+import GameContainer from './GameContainer'
 import '../../css/Transition.css';
-import "../../img/transitionbase0.png"
 
 export default class Transition extends Component {
 
-  constructor(props) {
-    super(props);
-
-
-
-  }
-  
-
-  
   render() {
 
-    // const BackgroundHead = {
-    //   backgroundImage: `url(${"../../img/transitionbase0.png"})`,
-    //   backgroundSize: 'cover',
-    //   backgroundRepeat: 'no-repeat',
-    //   backgroundAttachment: 'fixeds'
-    //   }
+    const BackgroundHead = {
+      // backgroundImage: 'url(' + require('../../img/bg2.jpg') + ')',
+      // backgroundSize: 'cover',
+      // backgroundRepeat: 'no-repeat',
+      // backgroundAttachment: 'fixed',
+      backgroundColor: 'white'
+
+      }
       
-
-
     return (
-      <div className = "Transition" >
-
-        <button className = "button" onClick = {this.props.changeBg("../../img/transitionbase0.png")}> Click me </button>
-      
-
-        {/* <img className = "Transition" src={require('../../img/transitionbase0.png')} alt = "Operation Regen"/> */}
-
-
+      <div className = "Transition">
+        <GameContainer /> 
+        {/* <Credits /> */}
       </div>
     )
   }

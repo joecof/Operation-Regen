@@ -7,7 +7,7 @@ import TitleScene from './TitleScene';
 import LoadingScene from './LoadingScene';
 import TransitionScene from './TransitionScene';
 
-let scene = [LoadingScene, TitleScene, GameScene2, TransitionScene, GameScene];
+let scene = [GameScene];
 
 export default class Game extends Phaser.Game {
   constructor(react) {
@@ -15,16 +15,15 @@ export default class Game extends Phaser.Game {
     const config = {
       type: Phaser.AUTO,
       parent: 'gameContainer',
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: 1000,
+      height: 800,
       scale: {
-        mode: Phaser.Scale.NONE,
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
         pixalArt: true
       },
-      physicsConfig: {
+      physics: {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },

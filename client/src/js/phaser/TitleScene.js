@@ -17,12 +17,12 @@ export default class TitleScene extends Phaser.Scene {
   create() {
     this.add.image(this.game.renderer.width / 1.3, this.game.renderer.height * 0.8, "hero").setDepth(2).setScale(1.75);
     let playButton = this.add.image(this.game.renderer.width / 1.7, this.game.renderer.height * 0.85, "regen").setDepth(2);
-    this.add.image(this.game.renderer.width / 2.6, this.game.renderer.height * 0.85, "giveup").setDepth(2);
+    let reset = this.add.image(this.game.renderer.width / 2.6, this.game.renderer.height * 0.85, "giveup").setDepth(2);
     this.add.text(this.game.renderer.width / 3, this.game.renderer.height * 0.2, "Level 1: Warm Up", { fontSize: '32px', fill: '#000' }).setDepth(2);
     this.add.image(this.game.renderer.width / 2, this.game.renderer.height * 0.4, "hearts").setDepth(2).setScale(0.75, 0.75);
 
     this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-    this.add.tileSprite(this.game.renderer.width / 2, this.game.renderer.height / 2, 0, 0, 'bg');
+    this.add.image(500, 400, 'bg').setScale(0.70);
 
 
     playButton.setInteractive();
@@ -35,6 +35,22 @@ export default class TitleScene extends Phaser.Scene {
     playButton.on('pointerdown', () => {
       this.scene.start('GameScene2');
       console.log('regen');
+    })
+
+
+    reset.setInteractive();
+    reset.on('pointover', () => {
+    })
+
+    reset.on('pointerout', () => {
+    })
+
+    reset.on('pointerdown', () => {
+      if(this.scale.isFullscreen) {
+        this.scale.stopFullscreen();
+      } else {
+        this.scale.startFullscreen();
+      }
     })
   }
 } 

@@ -11,7 +11,7 @@ class PlayBoxContainer extends Component {
   render() {
   
     return(
-      <div className = 'Wrapper'> 
+      <div className = 'wrapper'> 
 
         <Header />
         <PlayBox />

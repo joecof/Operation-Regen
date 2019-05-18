@@ -4,7 +4,6 @@
 .CharacterSelectionItem-Img {
   display:inline-block;
   /* padding:30px; */
-
   width:100px;
   transition: .5s ease;
   backface-visibility: hidden;
@@ -12,5 +11,5 @@
 
 
 .CharacterSelectionItem-Img:hover {
-  width:18%;
+  width:108px;
 }

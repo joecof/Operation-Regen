@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+
+		<title>LeaderBoard</title>
+		<style>
+			ul,
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: url('../img/bg2.jpg') no-repeat;
+			}
+			.container {
+				text-align: center;
+			}
+			header h1 {
+				padding: 3% 0 3%;
+				letter-spacing: 2px;
+				color: gold;
+				font-size: 50px;
+				font-style: italic;
+			}
+
+			main ul li {
+				width: 80%;
+				height: 75px;
+				line-height: 75px;
+				margin: 10px auto;
+				font-size: 25px;
+				border-radius: 5px;
+				background-color: rgba(255, 255, 255, 0.7);
+			}
+			main li .rank {
+				float: left;
+				width: 15%;
+				color: gold;
+				font-weight: bold;
+			}
+			main li .name {
+				float: left;
+				width: 60%;
+				text-align: left;
+			}
+
+			main .name img {
+				width: 40px;
+			}
+			main .name span {
+				letter-spacing: 2px;
+			}
+			main li .score {
+				float: right;
+				width: 20%;
+			}
+			main .option .btn:hover{
+				background-color: rgba(255, 255, 255, 0.7);
+			}
+			@media (max-width: 575.98px) {
+				header h1 {
+					font-size: 30px;
+				}
+				main ul li {
+					height: 50px;
+					line-height: 50px;
+					font-size: 15px;
+					margin: 5px auto;
+				}
+				main .name span {
+					letter-spacing: 0px;
+				}
+				main .name img {
+					width: 20px;
+				}
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				var obj = [
+					{ img: '../img/mario.png', name: 'MARIO', score: '100' },
+					{ img: '../img/yoshi.png', name: 'YOSHI', score: '100' },
+					{ img: '../img/wario.png', name: 'WARIO', score: '100' },
+					{ img: '../img/mario.png', name: 'MARIO', score: '100' },
+					{ img: '../img/yoshi.png', name: 'YOSHI', score: '100' },
+					{ img: '../img/wario.png', name: 'WARIO', score: '100' },
+					{ img: '../img/yoshi.png', name: 'YOSHI', score: '100' },
+					{ img: '../img/wario.png', name: 'WARIO', score: '97' }
+				];
+				$('li').each(function(i, e) {
+					$(e)
+						.find('img')
+						.attr('src', obj[i].img)
+						.end()
+						.find('.name>span')
+						.text(obj[i].name)
+						.end()
+						.find('.score')
+						.text(obj[i].score);
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="container">
+			<h1>Leader Board</h1>
+		</header>
+
+		<main class="container">
+			<ul>
+				<li>
+					<div class="rank">1</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">2</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">3</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">4</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">5</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">6</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">7</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+				<li>
+					<div class="rank">8</div>
+					<div class="name">
+						<img src="" alt="" />
+						<span></span>
+					</div>
+					<div class="score"></div>
+				</li>
+			</ul>
+			<div class="option">
+				<button class="btn btn-outline-primary">
+					Back to Main
+				</button>
+			</div>
+		</main>
+	</body>
+</html>

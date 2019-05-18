@@ -1,0 +1,114 @@
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+    /* for homepage */
+    .wrapper {
+        background-color: green;
+    }
+    .CharacterSelection-Box {
+        height: 100%;
+    }
+    .CharacterSelectionItem-Img {
+        width: 100px;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+    /* for homepage */
+    .wrapper {
+        background-color: yellow;
+    }
+    .PlayBox {
+        height: 100%;
+    }
+    .CharacterSelection {
+        margin: 10px auto;
+    }
+    .CharacterSelectionItem-Img {
+        width: 85px;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+    /* for homepage */
+    .wrapper {
+        width: 80%;
+        background-color: pink;
+    }
+    .CharacterSelection-Box {
+        height: 100%;
+    }
+    .PlayBox {
+        height: 100%;
+    }
+    .CharacterSelectionItem-Img {
+        width: 70px;
+    }
+    .CharacterSelectionItem-Img:hover {
+        width: 80px;
+    }
+    .Post-Input {
+        height: 40px;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    /* for homepage */
+    .wrapper {
+        width: 80%;
+        background-color: blue;
+    }
+    .PlayBox {
+        height: 230px;
+    }
+    .CharacterSelection-Header {
+        margin-bottom: 25px;
+        font-size: 30px;
+    }
+    .CharacterSelectionItem-Img {
+        width: 50px;
+    }
+    .CharacterSelectionItem-Img:hover {
+        width: 55px;
+    }
+    .CharacterSelection-Box {
+        height: 60px;
+    }
+    .PlayBox-PlayBtn, .PlayBox-LeaderBoardBtn {
+        font-size: 16px;
+        height: 30px;
+    }
+    .Post-Input {
+        height: 35px;
+        font-size: 24px;
+    }
+}
+
+/*for phone with 4.7 inch screen or 5.5 inch screen*/
+
+@media (max-width: 450px) {
+    /* for homepage */
+    .wrapper {
+        width: 80%;
+        background-color: blue;
+    }
+    .PlayBox {
+        height: 220px;
+    }
+    .CharacterSelectionItem-Img {
+        width: 40px;
+    }
+    .PlayBox-PlayBtn, .PlayBox-LeaderBoardBtn {
+        font-size: 14px;
+        height: 25px;
+    }
+    .Post-Input {
+        font-size: 20px;
+    }
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import Credits from './Credits'
 
@@ -22,7 +23,22 @@ export default class Transition extends Component {
       <div className = "Transition">
         <GameContainer /> 
         {/* <Credits /> */}
+=======
+import React, { Component } from 'react';
+import '../../css/Transition.css';
+
+class Transition extends Component {
+  render() {
+    var style = {
+      backgroundImage: 'url(../img/bg_transition_brown.jpg)'
+    }
+
+    return (
+      <div className="Transition" style={style}>
+>>>>>>> dev
       </div>
     )
   }
 }
+
+export default Transition

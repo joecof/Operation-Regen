@@ -8,7 +8,9 @@ class LeaderBoardHeader extends Component {
       <div className = "LeaderBoardHeader"> 
         <div className = "LeaderBoardHeader-Wrapper">
           <div className = "LeaderBoardHeader-Rank">Rank</div>
+          <div className = "LeaderBoardHeader-Hero">Hero</div>
           <div className = "LeaderBoardHeader-Name">Name</div>
+          <div className = "LeaderBoardHeader-Level">Level</div>
           <div className = "LeaderBoardHeader-Score">Score</div>
         </div>
       </div>

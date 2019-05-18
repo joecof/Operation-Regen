@@ -11,12 +11,13 @@
 }
 
 .CharacterSelection-Box {
-  width:650px;
+  width: 100%;
   height:120px;
 }
 
 .CharacterSelection-Header {
-  margin-bottom:30px;
-  font-family:'Permanent Marker', cursive;
+  margin-bottom: 55px;
+  font-family: 'Permanent Marker', cursive;
+  line-height: 90%;
 }
 

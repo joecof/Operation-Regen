@@ -22,30 +22,43 @@ class LeaderBoardBox extends Component {
       )
   }
 
+  // Apply number format
+  formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
   render() {
     // Stores leaderboard query result
     let list = this.state.leaderboard;
     // Initiate rank to 0
     let value = 0;
 
-    return(
-      <div className = "LeaderBoardBox"> 
-        <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
-        <LeaderBoardHeader />
-        {
-          list.map(temp => (
-            <LeaderBoardItem 
-              rank = {++value}
-              name = {temp.userName}
-              score = {temp.score}
-            />
-          ))
-        }
+    var style = {
+      backgroundImage: 'url(../img/bg_river_forest2.jpg)'
+    }
 
-        <div className="LeaderBoardBox-BtnContainer">
-          <button className="LeaderBoardBox-Btn">
-            <Link className = "LeaderBoardBox-BtnStyle" to="/">Back To Main</Link>
-          </button>
+    return(
+      <div className = "LeaderBoardBoxContainer" style = {style}>
+        <div className = "LeaderBoardBox"> 
+          <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
+          <LeaderBoardHeader />
+          {
+            list.map(temp => (
+              <LeaderBoardItem 
+                rank = {++value}
+                hero = {temp.heroNo}
+                name = {temp.userName}
+                level = {temp.levelNo}
+                score = {this.formatNumber(temp.score)}
+              />
+            ))
+          }
+  
+          <div className="LeaderBoardBox-BtnContainer">
+            <button className="LeaderBoardBox-Btn">
+              <Link className = "LeaderBoardBox-BtnStyle" to="/">Back To Main</Link>
+            </button>
+          </div>
         </div>
       </div>
     )

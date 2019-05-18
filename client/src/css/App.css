@@ -9,9 +9,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 
+<<<<<<< HEAD
     background-image: url("../img/transitionbase9.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     /* background-color: #233D4D; */
+=======
+  /*background-image: url("../img/bg_river_forest.jpg");*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+>>>>>>> dev
 }

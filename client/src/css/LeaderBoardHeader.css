@@ -1,25 +1,38 @@
 .LeaderBoardHeader {
-  width: 1000px;
-  margin-left: 30px;
-  margin-top:30px;
+  /*width: 1000px;*/
+  /*margin-left: 30px;*/
+  margin: 0 auto;
+  /*margin-top:30px;*/
+  text-align: center;
+  font-size: 33px;
+  font-weight: bold;
 }
 
 .LeaderBoardHeader-Wrapper {
-  width: 80%;
-  margin: 10px auto;
+  width: 100%;
 }
 
 .LeaderBoardHeader-Rank {
-  display:inline-block;
-  width:35%;
+  display: inline-block;
+  width: 15%;
+}
+
+.LeaderBoardHeader-Hero {
+  display: inline-block;
+  width: 15%;
 }
 
 .LeaderBoardHeader-Name {
-  display:inline-block;
-  width:50%;
+  display: inline-block;
+  width: 35%;
+}
+
+.LeaderBoardHeader-Level {
+  display: inline-block;
+  width: 15%;
 }
 
 .LeaderBoardHeader-Score {
-  display:inline-block;
-  width:10%;
+  display: inline-block;
+  width: 20%;
 }

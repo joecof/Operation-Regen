@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Sigmar+One');
 
+.LeaderBoardBoxContainer {
+  width: 100%;
+  min-height: 100vh;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.LeaderBoardBox {
+  width: 1100px;
+  margin: 0 auto;
+}
 
 .LeaderBoardBox-Header {
   text-align:center;
-  padding: 2% 0 2%;
-  letter-spacing: 2px;
+  /*padding: 2% 0 2%;*/
   color: gold;
   font-size: 80px;
   font-style: italic;

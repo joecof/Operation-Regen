@@ -30,20 +30,15 @@
 }
 
 .LeaderBoardBox-Btn{
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
+  text-decoration: none;
+  color:black;
 }
 
 .LeaderBoardBox-Btn:hover{
   background-color: rgba(255, 255, 255, 0.7);
-  
-}
-
-.LeaderBoardBox-BtnStyle {
   text-decoration: none;
   color:black;
 }
 
-.LeaderBoardBox-BtnStyle:hover {
-  text-decoration: none;
-  color:black;
-}

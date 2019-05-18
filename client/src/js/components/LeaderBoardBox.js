@@ -55,10 +55,9 @@ class LeaderBoardBox extends Component {
           }
   
           <div className="LeaderBoardBox-BtnContainer">
-            <button className="LeaderBoardBox-Btn">
-              <Link className = "LeaderBoardBox-BtnStyle" to="/">Back To Main</Link>
-            </button>
+            <Link className = "LeaderBoardBox-Btn" to="/">Back To Main</Link>
           </div>
+          
         </div>
       </div>
     )

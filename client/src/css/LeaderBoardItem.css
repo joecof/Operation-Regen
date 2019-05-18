@@ -27,6 +27,7 @@
   /*width: 800px;
   font-weight: bold;*/
   color: black;
+  font-size: 1em;
 }
 
 .rank {
@@ -58,4 +59,5 @@
 .hero img {
   vertical-align: middle;
   margin: 2%;
+  height: 80px;
 }

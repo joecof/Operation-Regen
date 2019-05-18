@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/Transition.css';
+import {Link} from "react-router-dom";
+
 
 class Transition extends Component {
   render() {
@@ -9,6 +11,12 @@ class Transition extends Component {
 
     return (
       <div className="Transition" style={style}>
+      
+        <div className="Transition-Btn">
+          <Link className ="Transition-RegenBtn" to = "/Transition">REGEN</Link>
+          <Link className ="Transition-BackBtn" to = "/">BACK TO MAIN</Link>
+        </div>
+
       </div>
     )
   }

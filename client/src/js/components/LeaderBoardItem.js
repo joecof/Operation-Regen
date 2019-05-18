@@ -17,7 +17,7 @@ class LeaderBoardItem extends Component {
         <ul className = "LeaderBoardItem-ul">
           <li className = "LeaderBoardItem-li">
             <div className="rank">{this.props.rank}</div>
-            <div className="hero"><img src={"/../../img/hero" + this.props.hero + "H.png"} alt="hero"/></div>
+            <div className="hero"><img src = {require("../../img/hero" + this.props.hero + "H.png")} alt="hero"/></div>
             <div className="name">{this.props.name}</div>
             <div className="level">{this.props.level}</div>
             <div className="score">{this.props.score}</div>

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+
+.App {
+  font-family: 'Architects Daughter', cursive;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+  /*background-image: url("../img/bg_river_forest.jpg");*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

@@ -26,7 +26,6 @@ class App extends Component {
           <Route render = {() =>  <h1> 404 Not Found </h1>}/>
         </Switch>  
       </div>
-    
     );
   }
 }

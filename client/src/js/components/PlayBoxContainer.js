@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 
 import PlayBox from './PlayBox';
 import Header from './Header';
-import Credits from './Credits';
-
-
+// import Credits from './Credits';
 import '../../css/PlayBoxContainer.css';
 
 

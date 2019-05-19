@@ -113,6 +113,7 @@ export default class GameScene2 extends Phaser.Scene {
         this.victoryLoop();
     } else if(lose === true){
       this.scene.start('TransitionScene');
+      // export let wincondition = true;
         this.loserLoop();
     }
   }

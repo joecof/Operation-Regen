@@ -29,11 +29,7 @@ class GameContainer extends Component {
   render() {
     return (
       <div className = "GameContainer" id = "gameContainer">
-        {/* <div id = "gameContainer" / > */}
         <div className="Game-BtnContainer">
-          {/* <button className="Game-Btn">
-            <Link className = "Game-BtnStyle" to="/">Back To Main</Link>
-          </button> */}
         </div>
       </div>
     )

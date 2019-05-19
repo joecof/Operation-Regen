@@ -1,28 +1,34 @@
 import * as Phaser from 'phaser'
 
+
+let loadingDone = false;
+
+let randomQuotes = [
+  '"Peace begins with a smile.."',
+  '"Don’t Let Yesterday Take Up Too Much Of Today"' ,
+  '"Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough"',
+  '"Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do"'
+]
+
 export default class LoadingScene extends Phaser.Scene {
   constructor() {
     super({ key: 'LoadingScene'})
   }
 
+
   preload() {
     this.load.image('logo'+i, '../img/icon.png');
 
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i < 250; i++) {
       this.load.image('logo'+i, '../img/logo.png');
   }
-
-    var progressBar = this.add.graphics();
-    var progressBox = this.add.graphics();
-    progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(240, 270, 320, 50);
 
     var width = this.cameras.main.width;
     var height = this.cameras.main.height;
     var loadingText = this.make.text({
         x: width / 2,
         y: height / 2 - 50,
-        text: 'Saving the World Needs to Load...',
+        text: randomQuotes[Math.floor(Math.random() * randomQuotes.length)],
         style: {
             font: '20px monospace',
             fill: '#ffffff'
@@ -44,9 +50,6 @@ export default class LoadingScene extends Phaser.Scene {
     percentText.setOrigin(0.5, 0.5);
   
     this.load.on('progress', function (value) {
-      progressBar.clear();
-      progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(250, 280, 300 * value, 30);
       percentText.setText(parseInt(value * 100) + '%');
   });
                 
@@ -55,12 +58,19 @@ export default class LoadingScene extends Phaser.Scene {
     });
     
     this.load.on('complete', function () {
-      progressBar.destroy();
-      progressBox.destroy();
+
       loadingText.destroy();
       percentText.destroy();
-    });
 
+      loadingDone = true;
+    });
+  }
+
+  create() {
+
+    if(loadingDone === true) {
+      this.scene.start('GameScene');
+    }
   }
 
 }

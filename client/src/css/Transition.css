@@ -1,63 +1,23 @@
 .Transition {
-  width: 100%;
-  min-height: 100vh;
+  width: 60%;
+  height:700px;
+  margin: 0 auto;
+  margin-bottom:50px;
+  border: 2px solid black;
 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
 }
 
-.Transition-Btn {
-  margin:0 auto;
-  width: 800px;
-}
-
-.Transition-RegenBtn {
-
-  width: 40%;
-  float: left;
-  background-color: #449d44;
-  border-color: #398439;
-  color: #fff;
-
-
-  height: 45px;
-  border-radius: 5px;
-  border: 0;
-  color: white;
-  font-size: 24px;
-  font-weight: 900;
-
-  padding-top:10px;
+.Transition-Header {
   text-align:center;
-  text-decoration:none;
-  font-weight: 900;
 }
 
-.Transition-RegenBtn:hover {
-  text-decoration:none;
-
+.Transition-Hearts {
+  width:40%;
+  padding-bottom: 40px;
+  display:block;
 }
 
-.Transition-BackBtn {
-  width: 40%;
-  float: right;
-  /*margin-right: 10px;*/
-  background-color: rgb(221, 85, 85);
-  border-color: rgb(221, 85, 85);
-  color: black;
-  height: 45px;
-  border-radius: 5px;
-  border: 0;
-  font-size: 24px;
-  font-weight: 900;
-  padding-top:10px;
-  text-align:center;
-  text-decoration:none;
-  color:white;
-  font-weight: 900;
-}
-
-.Transition-BackBtn:hover {
-  text-decoration:none;
+.Transition-Hero {
+  margin-top: 300px;
+  width:150px;
 }

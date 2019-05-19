@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import '../../css/CharacterSelectionItem.css';
 
 class CharacterSelectionItem extends Component {
-  state = {
-    aniIndex: 6
-  }
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      imageIndex: 0,
+      aniIndex: 6,
+      selected: false
+    }
+
     var count = this.state.aniIndex;
     this.backgrounds = new Array(++count);
 
@@ -15,39 +18,54 @@ class CharacterSelectionItem extends Component {
       this.backgrounds[i] = require('../../img/hero' + this.props.hero + 'ani' + i + '.png');
     }
 
-    this.state = { imageIndex: 0 };
+    this.selectHero = this.selectHero.bind(this);
     this.toggleAnimate = this.toggleAnimate.bind(this);
   }
 
-  //componentDidMount () {
-  //  this.timeout = setTimeout(this.toggleAnimate, this.props.animDuration * 100);
-  //}
-  
-  //componentWillUnmount() {
-  // 	if (this.timeout) {
-  //    clearTimeout(this.timeout);
-  //  }
-  //}
+  componentWillReceiveProps() {
+    if (this.props.hero === this.props.cur && this.state.imageIndex === this.state.aniIndex) {
+      this.setState({ imageIndex: 0, selected: false });
+    }
+  }
 
   toggleAnimate() {
-    if (this.state.imageIndex !== 6) {  //this.stats.aniIndex
-      this.setState(({imageIndex}) => {
-        return { imageIndex: ++imageIndex };
-      }, () => {
-        this.timeout = setTimeout(
-          this.toggleAnimate,
-          this.props.animDuration * 100
-        )
-      })
+    //console.log("local selected: " + selected + ", this.selected: " + this.state.selected);
+    if (this.state.imageIndex !== this.state.aniIndex) {
+      this.setState(
+        ({ imageIndex }) => {
+          return { imageIndex: ++imageIndex };
+        }, () => {
+          this.timeout = setTimeout(this.toggleAnimate, this.props.animDuration * 100)
+        }
+      );
+      return true;
     } else {
+      return false;
+    }
+  }
 
+  /**
+   * When a hero is clicked, calls hero animation function and 
+   */
+  selectHero() {
+    let selected = this.toggleAnimate();
+    this.setState({ selected: selected });
+    
+    if (selected) {
+      this.props.last(this.props.hero);
     }
   }
 
   render() {
+    /*if () {
+      var style = {
+        backgroundImage: 'url(../img/bg_river_forest2.jpg)'
+      }
+    }*/
+
     return (
         <img className = "CharacterSelectionItem-Img" src = {this.backgrounds[this.state.imageIndex]}
-          alt = "hero" onClick = {this.toggleAnimate} />
+          alt = "hero" onClick = {() => this.selectHero()}/>
     )
   }
 }

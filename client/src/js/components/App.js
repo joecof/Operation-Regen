@@ -15,7 +15,6 @@ class App extends Component {
     var style = {
       backgroundImage: 'url(../img/bg_river_forest.jpg)'
       
-
     }
 
     return (

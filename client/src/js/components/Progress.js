@@ -9,6 +9,7 @@ import '../../img/lives5.png'
 class Progress extends Component {
   constructor(props) {
     super(props);
+    
   }
   render() {
     var style = {
@@ -18,7 +19,6 @@ class Progress extends Component {
     return (
       <div className="Progress" style={style}>
         <p className = "Transition-Header">Level One: Warm Up </p>
-
         <Transition />
         <p> "Peace begins with a smile.." - Ivan Chen </p>
         <div className="Progress-Btn">

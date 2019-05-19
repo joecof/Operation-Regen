@@ -3,10 +3,10 @@ import * as Phaser from 'phaser'
 var instr   = false;    
 var win     = false;
 var lose    = false;
-var gameWidth   = 800;
-var gameHeight  = 600;  
+var gameWidth   = window.innerWidth;
+var gameHeight  = window.innerHeight;  
 var angle       = 0;
-var speed       = gameWidth/135;
+var speed       = gameWidth/200;
 var randNum     = Math.random() * 1700 + 100;
 
 var bulldozer;
@@ -25,7 +25,7 @@ export default class GameScene2 extends Phaser.Scene {
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
-    this.load.image('instruction', '../img/Instruction.png');
+    instruction = this.load.image('instruction', '../img/Instruction.png');
     
   }
 
@@ -66,7 +66,6 @@ export default class GameScene2 extends Phaser.Scene {
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
     } else {
-      this.scene.start('TransitionScene');
     }
 
   }
@@ -83,16 +82,23 @@ export default class GameScene2 extends Phaser.Scene {
 
   create() {
 
-    bg          = this.add.image(0, 0, 'background').setOrigin(0,0);       
-    tree        = this.add.image(gameWidth*0.75, gameHeight/2, 'tree').setOrigin(0,0);
+    bg          = this.add.image(850, 500, 'background');
+    tree        = this.add.image(1200, gameHeight/2 + 80, 'tree');
     bulldozer   = this.add.image(-300, gameHeight/2 + 120, 'bull').setInteractive();
-    instruction = this.add.image(-700, gameHeight/2 - 250, 'instruction').setOrigin(0,0);        
+    instruction = this.add.image(-700, gameHeight/2 - 250, 'instruction');        
 
     var scaleY = gameHeight / 1080;
     var scaleX = gameWidth / 1776;
     bg.scaleY  = scaleY;
     bg.scaleX  = scaleX;
-    bulldozer.setScale(2);
+    bulldozer.setScale(2.5);
+
+    bulldozer.on('pointover', () => {
+    })
+
+    bulldozer.on('pointerout', () => {
+    })
+    
     bulldozer.on('pointerdown', function (pointer) {
         console.log(lose);
         if(lose === false){
@@ -112,7 +118,6 @@ export default class GameScene2 extends Phaser.Scene {
     } else if(win === true){
         this.victoryLoop();
     } else if(lose === true){
-      this.scene.start('TransitionScene');
       // export let wincondition = true;
         this.loserLoop();
     }

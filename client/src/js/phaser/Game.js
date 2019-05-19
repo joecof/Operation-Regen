@@ -2,12 +2,14 @@ import * as Phaser from 'phaser';
 
 import GameScene from './GameScene';
 import GameScene2 from './GameScene2';
+import GameScene3 from './GameScene3';
+import GameScene4 from './GameScene4';
 
 import TitleScene from './TitleScene';
 import LoadingScene from './LoadingScene';
 import TransitionScene from './TransitionScene';
 
-let scene = [LoadingScene, GameScene];
+let scene = [GameScene4];
 
 export default class Game extends Phaser.Game {
   constructor(react) {

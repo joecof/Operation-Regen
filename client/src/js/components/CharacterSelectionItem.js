@@ -7,14 +7,14 @@ class CharacterSelectionItem extends Component {
 
     this.state = {
       imageIndex: 0,
-      aniIndex: 6,
-      selected: false
+      aniIndex: 7,
+      selected: false,
+      display: "none"
     }
 
-    var count = this.state.aniIndex;
-    this.backgrounds = new Array(++count);
+    this.backgrounds = new Array(this.state.aniIndex + 1);
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < this.state.aniIndex + 1; i++) {
       this.backgrounds[i] = require('../../img/hero' + this.props.hero + 'ani' + i + '.png');
     }
 
@@ -23,14 +23,13 @@ class CharacterSelectionItem extends Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.hero === this.props.cur && this.state.imageIndex === this.state.aniIndex) {
-      this.setState({ imageIndex: 0, selected: false });
+    if (this.props.hero === this.props.cur) {
+      this.setState({ imageIndex: 0, selected: false, display: "none" });
     }
   }
 
   toggleAnimate() {
-    //console.log("local selected: " + selected + ", this.selected: " + this.state.selected);
-    if (this.state.imageIndex !== this.state.aniIndex) {
+    if (this.state.imageIndex < this.state.aniIndex) {
       this.setState(
         ({ imageIndex }) => {
           return { imageIndex: ++imageIndex };
@@ -38,18 +37,21 @@ class CharacterSelectionItem extends Component {
           this.timeout = setTimeout(this.toggleAnimate, this.props.animDuration * 100)
         }
       );
-      return true;
-    } else {
-      return false;
     }
   }
 
   /**
-   * When a hero is clicked, calls hero animation function and 
+   * When a hero is clicked, calls hero animation function
    */
   selectHero() {
-    let selected = this.toggleAnimate();
-    this.setState({ selected: selected });
+    if (this.state.selected) {
+      return 0;
+    }
+    
+    let selected = true;
+    this.setState({ selected: selected, display: "block" });
+    this.toggleAnimate();
+    console.log("hero: " + this.props.hero + ", selected: " + selected);
     
     if (selected) {
       this.props.last(this.props.hero);
@@ -57,15 +59,17 @@ class CharacterSelectionItem extends Component {
   }
 
   render() {
-    /*if () {
-      var style = {
-        backgroundImage: 'url(../img/bg_river_forest2.jpg)'
-      }
-    }*/
-
     return (
-        <img className = "CharacterSelectionItem-Img" src = {this.backgrounds[this.state.imageIndex]}
-          alt = "hero" onClick = {() => this.selectHero()}/>
+      <div className = "CharacterSelectionItem-Container">
+        <div className = "CharacterSelectionItem-TagBox">
+          <img className = "CharacterSelectionItem-Tag" src = {require("../../img/red_triangle.png")}
+            alt = "tag" style = {{display: this.state.display}}/>
+        </div>
+        <div className = "CharacterSelectionItem-ImgBox">
+          <img className = "CharacterSelectionItem-Img" src = {this.backgrounds[this.state.imageIndex]}
+            alt = "hero" onClick = {() => this.selectHero()}/>
+        </div>
+      </div>
     )
   }
 }

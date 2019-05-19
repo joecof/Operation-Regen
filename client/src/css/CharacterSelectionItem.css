@@ -1,15 +1,31 @@
-/* .CharacterSelectionItem {
-} */
+.CharacterSelectionItem-Container {
+  display: inline-block;
+}
+
+.CharacterSelectionItem-TagBox {
+  width: 100px;
+  height: 15px;
+  margin-bottom: 15px;
+}
+
+.CharacterSelectionItem-Tag {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.CharacterSelectionItem-ImgBox {
+  margin: 0 auto;
+}
 
 .CharacterSelectionItem-Img {
-  display:inline-block;
   /* padding:30px; */
-  width:100px;
+
+  width: 100px;
   transition: .5s ease;
   backface-visibility: hidden;
 }
 
-
 .CharacterSelectionItem-Img:hover {
-  width:108px;
+  width: 115px;
 }

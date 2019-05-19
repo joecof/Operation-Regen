@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../css/Progress.css';
-import GameContainer from './GameContainer';
 import Transition from './Transition';
 import {Link} from "react-router-dom";
 import '../../img/lives5.png'

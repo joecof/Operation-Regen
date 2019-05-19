@@ -9,7 +9,8 @@ import TitleScene from './TitleScene';
 import LoadingScene from './LoadingScene';
 import TransitionScene from './TransitionScene';
 
-let scene = [GameScene4];
+let scene = [GameScene2, GameScene3, GameScene4];
+let randomScene = Math.floor(Math.random() * scene.length);
 
 export default class Game extends Phaser.Game {
   constructor(react) {
@@ -32,7 +33,7 @@ export default class Game extends Phaser.Game {
             debug: false
         }
     },
-      scene:  scene
+      scene:  scene[randomScene]
     }
     super(config);
     this.react = react;

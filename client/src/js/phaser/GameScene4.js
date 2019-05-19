@@ -36,7 +36,6 @@ export default class GameScene4 extends Phaser.Scene {
     })
   }
 
-
   preload() {
     this.load.image('instruction', '../img/Instruction3.png');
     this.load.image('sink', '../img/sink.png');
@@ -111,7 +110,7 @@ export default class GameScene4 extends Phaser.Scene {
     instruction = this.add.image(gameWidth / 2, gameHeight / 1.3, 'instruction');
   }
 
-  upload() {
+  update() {
     if (instr === false) {
       this.instruct();
     } else if (timed === false && once === false) {

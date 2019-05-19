@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import '../../css/Transition.css';
-import {Link} from "react-router-dom";
 
 
-class Transition extends Component {
+export default class Transition extends Component {
   render() {
+
     var style = {
-      backgroundImage: 'url(../img/bg_transition_brown.jpg)'
+      backgroundImage: 'url(../img/transi.png)'
     }
 
     return (
-      <div className="Transition" style={style}>
-      
-        <div className="Transition-Btn">
-          <Link className ="Transition-RegenBtn" to = "/Transition">REGEN</Link>
-          <Link className ="Transition-BackBtn" to = "/">BACK TO MAIN</Link>
-        </div>
-
+      <div className = "Transition" style = { style }>
+        <img className = "Transition-Hearts "src = {require('../../img/lives5.png')}/>
+        <img className = "Transition-Hero "src = {require('../../img/hero1H.png')}/>
       </div>
     )
   }
 }
-
-export default Transition

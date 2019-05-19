@@ -1,0 +1,66 @@
+.Progress {
+  width: 100%;
+  min-height: 100vh;
+  text-align:center;
+
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+.Progress-Btn {
+  margin:0 auto;
+  width: 800px;
+}
+
+.Progress-RegenBtn {
+
+  width: 40%;
+  float: left;
+  background-color: #449d44;
+  border-color: #398439;
+  color: #fff;
+
+
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+
+  padding-top:10px;
+  text-align:center;
+  text-decoration:none;
+  font-weight: 900;
+}
+
+.Progress-RegenBtn:hover {
+  text-decoration:none;
+
+}
+
+.Progress-BackBtn {
+  width: 40%;
+  float: right;
+  /*margin-right: 10px;*/
+  background-color: rgb(221, 85, 85);
+  border-color: rgb(221, 85, 85);
+  color: black;
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+  font-weight: 900;
+  padding-top:10px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+  font-weight: 900;
+}
+
+.Progress-BackBtn:hover {
+  text-decoration:none;
+}

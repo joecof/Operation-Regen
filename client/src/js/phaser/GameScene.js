@@ -13,7 +13,7 @@ export default class GameScene extends Phaser.Scene {
 
   preload() {
 
-    this.load.image('img', '../img/river4.png');
+    this.load.image('img', '../img/transitionbase0.png');
     this.load.image('ground', '../img/platform.png');
     this.load.image('trash', '../img/trash.png');
     this.load.image('bomb', '../img/bomb.png');
@@ -25,15 +25,15 @@ export default class GameScene extends Phaser.Scene {
 
   create() {
 
-    this.add.image(400,300, 'img');
+    this.add.image(1200,600, 'img').setScale(1.2);
 
     platforms = this.physics.add.staticGroup();
 
-    platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+    // platforms.create(900, 568, 'ground').setScale(2).refreshBody();
 
-    platforms.create(600, 400, 'ground');
-    platforms.create(50, 250, 'ground');
-    platforms.create(750, 220, 'ground');
+    // platforms.create(600, 400, 'ground');
+    // platforms.create(50, 250, 'ground');
+    // platforms.create(750, 220, 'ground');
 
 
     player = this.physics.add.sprite(100, 450, 'dude');

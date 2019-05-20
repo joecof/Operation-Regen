@@ -1,169 +1,162 @@
-import * as Phaser from 'phaser'
+import * as Phaser from 'phaser';
 
-  var gameWidth   = window.innerWidth;
-  var gameHeight  = window.innerHeight;
-  var scaleY = gameHeight / 1080;
-  var scaleX = gameWidth / 1776;       
-  var bkgr;    
-  var truck;
-  var instruction;
-  var garbage;
+var gameWidth = window.innerWidth;
+var gameHeight = window.innerHeight;
 
-  var instr   = true;
-  var drag    = false;
-  var drop    = false;
-  var win     = false;
-  var lose    = false;
-  var back    = false;
-  var mult    = 1;
-  var LOOP    = 2;
-  var angle   = 0;
-  var target  = 5;
+var scaleY = gameHeight / 1080;
+var scaleX = gameWidth / 1920;
 
-  var initX   = -100;
-  var speed   = 5 + (Math.random() * 5);
-  var speedY  = 0;
-  var height  = gameHeight/1.15;
+var timed = false;
+var once = false;
+var instr = false;
+var control = false;
+var win = false;
+var instruction;
+var curLoop = 0;
+// var curAngle = 0;
+var LOOP = 3;
+var faucetY = gameHeight / 4;
 
+var handle;
+// var faucet;
+var bkgr;
+var water;
 
-export default class GameScene3 extends Phaser.Scene {
+var targetAngle = Math.floor(Math.random() * 150) + 30;
+var mult = 5; // Difficulty modifier here
+var range = [mult, mult + 5, mult + 15, mult + 25];
+console.log(targetAngle);
+
+export default class GameScene4 extends Phaser.Scene {
 
   constructor() {
-    super({ key: 'GameScene3'})
+    super({
+      key: 'GameScene3'
+    })
   }
 
   preload() {
-    this.load.spritesheet('background', '../img/riverSheet.png',{ frameWidth: 1776, frameHeight: 1080 });
-    this.load.spritesheet('backgroundLoss', '../img/riverSheetLoss.png',{ frameWidth: 1776, frameHeight: 1080 });
-    this.load.image('truck', '../img/Truck.png');
-    this.load.image('garbage', '../img/trash.png');
-    this.load.image('garbageP', '../img/trashPicked.png');
-    this.load.image('instruction', '../img/Instruction.png');
+    this.load.image('instruction', '../img/Instruction3.png');
+    this.load.image('sink', '../img/sink.png');
+    this.load.image('faucet', '../img/faucet.png');
+    this.load.image('handle', '../img/handle.png');
+    this.load.spritesheet('splash', '../img/water.png', {
+      frameWidth: 200,
+      frameHeight: 200
+    });
   }
 
   create() {
-
-    var config  = {
+    var config = {
       key: 'flow',
-      frames: this.anims.generateFrameNumbers('background'),
-      frameRate: 24,
+      frames: this.anims.generateFrameNumbers('splash'),
+      frameRate: 90,
       repeat: -1
     };
-
     this.anims.create(config);
 
-    bkgr  = this.add.sprite(0, 0, 'background').setOrigin(0,0);
-    bkgr.scaleY  = scaleY;
-    bkgr.scaleX  = scaleX;
-    bkgr.anims.load('flow');
-    bkgr.anims.play('flow');
+    bkgr = this.add.image(0, 0, 'sink').setOrigin(0, 0);
+    bkgr.scaleY = scaleY;
+    bkgr.scaleX = scaleX;
 
-    truck = this.add.image(gameWidth/7,gameHeight/1.65, 'truck');
-    truck.setScale(1.5);
+    water = this.add.sprite(gameWidth / 2, faucetY + 180, 'splash');
+    water.anims.load('flow');
+    water.anims.play('flow');
+    water.setScale(1.5);
 
-    instruction = this.add.image(gameWidth/2,(gameHeight - 45)/2, 'instruction');
+    this.add.image(gameWidth / 2, faucetY, 'faucet').setScale(0.6, 0.8);
+    handle = this.add.image(gameWidth / 2, gameHeight / 4.5, 'handle').setScale(0.75).setInteractive();
 
-    garbage = this.add.image(initX, gameHeight/1.15, 'garbage').setInteractive();        
-    garbage.setScale(1.25);
-    this.input.setDraggable(garbage);
-
+    this.input.setDraggable(handle);
     this.input.on('dragstart', function (pointer, gameObject) {
-        garbage.setTexture('garbageP');
-        drag = true;
+      if (control === true) {}
     });
 
+    function inZone(r) {
+      return handle.angle >= targetAngle - range[r] &&
+        handle.angle <= targetAngle + range[r];
+    }
+
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-        if(gameObject.x < truck.x + 192 && gameObject.x > truck.x - 192
-        && gameObject.y < truck.y + 62 && gameObject.y > truck.y - 62){
-            truck.setScale(2);
-        } else{
-            truck.setScale(1.5);
+      if (control === true) {
+        handle.angle = dragX;
+        if (inZone(3)) {
+          if (inZone(2)) {
+            if (inZone(1)) {
+              if (inZone(0)) {
+                water.setScale(0);
+              }
+            } else {
+              water.setScale(0.5);
+            }
+          } else {
+            water.setScale(1);
+          }
+        } else {
+          water.setScale(1.5);
         }
-        gameObject.x = dragX;
-        gameObject.y = dragY;
+      }
     });
 
     this.input.on('dragend', function (pointer, gameObject) {
-        if(gameObject.x < truck.x + 192 && gameObject.x > truck.x - 192
-        && gameObject.y < truck.y + 62 && gameObject.y > truck.y - 62){
-            truck.setScale(1.5);
-            target--;
-            if(target < 0){
-                win = true;
-            }                
-
-            var rand    = gameHeight/1.15 + (Math.random()*40 + 10);
-            height      = rand;
-            garbage.x   = initX;
-            garbage.y   = height;
-            speed       = 5 + (Math.random() * 5);                
+      if (control === true) {
+        if (inZone(0)) {
+          win = true;
         }
-        speedY  = 15;
-        drag    = false;
+      }
     });
 
+    instruction = this.add.image(gameWidth / 2, gameHeight / 1.3, 'instruction');
   }
 
   update() {
+    if (instr === false) {
+      this.instruct();
+    } else if (timed === false && once === false) {
+      this.time.delayedCall(1250, function () {
+        timed = true;
+      }, [], this);
+    } else if (timed === true && once === false) {
+      if (instruction.y < gameHeight + 150) {
+        instruction.y += 25;
+      } else {
+        timed = false;
+        once = true;
+      }
+    }
+    if (timed === false && once === true) {
+      control = true;
+    }
+    if (win === true) {
+      //Transition here
+    }
+  }
 
-    if(instr === true){
-        this.showInstruction();
-    } else if(drag === false && win === false && lose === false){            
-        this.throwTrash();
-    } else if(win === true){
-        if(truck.x > -250){
-            truck.x -= 5;
-            angle   += 3;
-            truck.y += (1.25*Math.cos(15 * angle));
+  instruct() {
+    if (curLoop <= LOOP) {
+      if (curLoop === 0 || curLoop === 2) {
+        if (instruction.angle !== -180) {
+          instruction.angle += 5;
         } else {
-
-            //Transition here
-        }            
-    } else if(lose == true){
-        bkgr.setTexture('backgroundLoss');
-        //Transition here
-    }
-  }
-
-  showInstruction(){
-    var speed = 0.04
-    var max = 2;
-    var min = 1;
-    if(instr === true){
-        if(mult < max && back === false){                
-            instruction.setScale(mult += speed);
-            if(mult >= max){
-                back = true;                                        
-            }                
+          curLoop++;
         }
-        if(mult > min && back === true){
-            instruction.setScale(mult -= speed);
-            if(mult <= min){
-                back = false;
-                LOOP--;
-            }
+      } else if (curLoop === 1) {
+        if (instruction.angle !== -95) {
+          instruction.angle -= 5;
+        } else {
+          curLoop++;
         }
-        if(LOOP < 0){
-            instr = false;
-            instruction.x = -1000;
+      } else if (curLoop === 3) {
+        if (instruction.angle !== 0) {
+          instruction.angle += 5;
+        } else {
+          curLoop++;
         }
-    }
-  }
-
-  throwTrash(){
-    if(garbage.y < height){
-        garbage.x -= speed;
-        garbage.y += speedY;
+      }
     } else {
-        garbage.setTexture('garbage');
-        speedY = 0;
+      instr = true;
     }
-    if(garbage.x < gameWidth + 30){            
-        garbage.x += speed;            
-    } else{            
-        garbage.x = initX;
-        garbage.y = height;
-        lose = true;
-    }
+
   }
+
 }

@@ -1,14 +1,13 @@
 import * as Phaser from 'phaser';
 
+import GameScene1 from './GameScene1';
 import GameScene2 from './GameScene2';
 import GameScene3 from './GameScene3';
-import GameScene4 from './GameScene4';
 
-import TitleScene from './TitleScene';
-import LoadingScene from './LoadingScene';
-import TransitionScene from './TransitionScene';
+// import LoadingScene from './LoadingScene';
 
-let scene = [GameScene2, GameScene3, GameScene4];
+
+let scene = [GameScene1, GameScene2, GameScene3];
 let randomScene = Math.floor(Math.random() * scene.length);
 
 export default class Game extends Phaser.Game {
@@ -32,7 +31,7 @@ export default class Game extends Phaser.Game {
             debug: false
         }
     },
-      scene:  scene[randomScene]
+      scene:  GameScene1
     }
     super(config);
     this.react = react;

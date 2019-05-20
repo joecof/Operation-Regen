@@ -17,9 +17,10 @@ export default class LoadingScene extends Phaser.Scene {
 
 
   preload() {
-    this.load.image('logo'+i, '../img/icon.png');
+    var i;
+    this.load.image('logo'+ i, '../img/icon.png');
 
-    for (var i = 0; i < 250; i++) {
+    for (i = 0; i < 250; i++) {
       this.load.image('logo'+i, '../img/logo.png');
   }
 

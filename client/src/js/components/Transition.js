@@ -19,6 +19,7 @@ export default class Transition extends Component {
 
     return (
       <div className = "Transition" style = { style }>
+        <span>Hero: {this.props.name}</span>
         <p className = "Transition-Score"> Score: {this.formatNumber(7777)} </p>
         <img className = "Transition-Hearts" src = {require('../../img/lives5.png')}/>
         <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")}/>

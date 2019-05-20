@@ -13,7 +13,7 @@ class Progress extends Component {
       hero: 99,
       name: " ",
       level: 1,
-      life: 1,
+      life: 0,
       score: 200,
       app1: 0,
       app2: 0,
@@ -76,7 +76,7 @@ class Progress extends Component {
           <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
         </div>
       </div>
-    )
+    );
   }
 }
 

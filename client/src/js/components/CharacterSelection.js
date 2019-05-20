@@ -12,6 +12,7 @@ class CharacterSelection extends Component {
 
   onChangeHero(hero) {
     this.setState({lastSelectedHero: hero});
+    this.props.hero(hero);
   }
 
   render() {

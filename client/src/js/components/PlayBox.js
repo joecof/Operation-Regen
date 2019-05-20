@@ -7,15 +7,31 @@ import CharacterSelection from './CharacterSelection'
 
 
 class PlayBox extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      selectedHero: null
+    }
+  }
+
+  // Sets state when a hero is selected
+  selectHero(hero) {
+    this.setState({selectedHero: hero});
+  }
+
   render() {
     return (
       <div className = "PlayBox">
         <div className ="PlayBox-Form">
-          <CharacterSelection />
+          <CharacterSelection hero = {this.selectHero.bind(this)}/>
           <Post />
           <div className="PlayBox-Btn">
-            <Link className ="PlayBox-PlayBtn" to = "/Transition">PLAY</Link>
-            <Link className ="PlayBox-LeaderBoardBtn" to = "LeaderBoard">LEADERBOARD</Link>
+            <Link className ="PlayBox-PlayBtn" to = {{
+              pathname: "/Transition",
+              state: {hero: this.state.selectedHero}
+            }}>PLAY</Link>
+            <Link className ="PlayBox-LeaderBoardBtn" to = "/LeaderBoard">LEADERBOARD</Link>
           </div>
         </div>      
       </div>

@@ -8,7 +8,7 @@ class Post extends Component {
     super();
 
     this.state = {
-      heroName: " "
+      heroName: ""
     };
   }
 

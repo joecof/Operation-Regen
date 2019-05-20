@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import Post from './Post';
 import CharacterSelection from './CharacterSelection'
 
-
 class PlayBox extends Component {
   constructor() {
     super();
@@ -14,6 +13,9 @@ class PlayBox extends Component {
       heroName: null,
       nameChange: false
     }
+
+    this.checkUserInput = this.checkUserInput.bind(this);
+    this.returnPath = this.returnPath.bind(this);
   }
 
   // Sets state when a hero is selected
@@ -26,6 +28,27 @@ class PlayBox extends Component {
     this.setState({heroName: name, nameChange: true});
   }
 
+  // Checks if user have selected hero and have entered hero name
+  checkUserInput() {
+    if (this.state.selectedHero === null) {
+      alert("Select your hero!");
+      return "";
+    } else if (this.state.heroName === null) {
+      alert("Enter your hero name!");
+      this.setState({nameChange: true});
+      return "";
+    }
+  }
+
+  // If hero is selected and name is entered, it returns path name for transition page
+  returnPath() {
+    if (this.state.heroName === null || this.state.selectedHero === null) {
+      return "";
+    } else {
+      return "/Transition";
+    }
+  }
+
   render() {
     return (
       <div className = "PlayBox">
@@ -33,8 +56,8 @@ class PlayBox extends Component {
           <CharacterSelection hero = {this.selectHero.bind(this)} flag = {this.state.nameChange}/>
           <Post name = {this.enterHeroName.bind(this)}/>
           <div className="PlayBox-Btn">
-            <Link className ="PlayBox-PlayBtn" to = {{
-              pathname: "/Transition",
+            <Link className ="PlayBox-PlayBtn" onClick = {this.checkUserInput} to = {{
+              pathname: this.returnPath(),
               state: {hero: this.state.selectedHero, name: this.state.heroName}
             }}>PLAY</Link>
             <Link className ="PlayBox-LeaderBoardBtn" to = "/LeaderBoard">LEADERBOARD</Link>

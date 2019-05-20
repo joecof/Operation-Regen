@@ -14,7 +14,7 @@ class PlayBox extends Component {
           <CharacterSelection />
           <Post />
           <div className="PlayBox-Btn">
-            <Link className ="PlayBox-PlayBtn" to = "/Transition">PLAY</Link>
+            <Link className ="PlayBox-PlayBtn" to = "/Game">PLAY</Link>
             <Link className ="PlayBox-LeaderBoardBtn" to = "LeaderBoard">LEADERBOARD</Link>
           </div>
         </div>      

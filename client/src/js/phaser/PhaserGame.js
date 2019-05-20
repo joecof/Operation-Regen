@@ -8,7 +8,7 @@ import GameScene3 from './GameScene3';
 
 
 let scene = [GameScene1, GameScene2, GameScene3];
-let randomScene = Math.floor(Math.random() * scene.length);
+// let randomScene = Math.floor(Math.random() * scene.length);
 
 export default class Game extends Phaser.Game {
   constructor(react) {

@@ -65,7 +65,7 @@ export default class GameScene1 extends Phaser.Scene {
         bulldozer.angle += 30;
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
-        this.game.react.setState({ lives: 4 })
+        // this.game.react.setState({ lives: 3 })
 
     } else {
     }
@@ -84,7 +84,7 @@ export default class GameScene1 extends Phaser.Scene {
 
   create() {
 
-    bg          = this.add.image(850, 500, 'background');
+    bg          = this.add.sprite(0, 0, 'background').setOrigin(0,0);
     tree        = this.add.image(1200, gameHeight/2 + 80, 'tree');
     bulldozer   = this.add.image(-300, gameHeight/2 + 120, 'bull').setInteractive();
     instruction = this.add.image(-700, gameHeight/2 - 250, 'instruction');        
@@ -106,8 +106,6 @@ export default class GameScene1 extends Phaser.Scene {
         if(lose === false){
             angle = 0;
             win = true;
-          
-            
         } else {
           
         }            
@@ -122,7 +120,6 @@ export default class GameScene1 extends Phaser.Scene {
     } else if(win === true){
         this.victoryLoop();
     } else if(lose === true){
-      // export let wincondition = true;
         this.loserLoop();
     }
   }

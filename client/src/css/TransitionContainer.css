@@ -1,21 +1,14 @@
-.Progress {
-  width: 100%;
-  min-height: 100vh;
-  text-align:center;
-
-
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  
+.TransitionContainer {
+  width: 60%;
+  margin: 0 auto;
 }
 
-.Progress-Btn {
+.TransitionContainer-Btn {
   margin:0 auto;
   width: 800px;
 }
 
-.Progress-RegenBtn {
+.TransitionContainer-RegenBtn {
 
   width: 40%;
   float: left;
@@ -37,15 +30,14 @@
   font-weight: 900;
 }
 
-.Progress-RegenBtn:hover {
+.TransitionContainer-RegenBtn:hover {
   text-decoration:none;
 
 }
 
-.Progress-BackBtn {
+.TransitionContainer-BackBtn {
   width: 40%;
   float: right;
-  /*margin-right: 10px;*/
   background-color: rgb(221, 85, 85);
   border-color: rgb(221, 85, 85);
   color: black;
@@ -61,6 +53,6 @@
   font-weight: 900;
 }
 
-.Progress-BackBtn:hover {
+.TransitionContainer-BackBtn:hover {
   text-decoration:none;
 }

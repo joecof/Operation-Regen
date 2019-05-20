@@ -13,8 +13,8 @@ class Progress extends Component {
       hero: 99,
       name: " ",
       level: 1,
-      life: 5,
-      score: 0
+      life: 3,
+      score: 200
     };
 
     
@@ -53,8 +53,8 @@ class Progress extends Component {
     
     return (
       <div className="Progress" style={style}>
-        <p className = "Transition-Header">Level One: Warm Up </p>
-        <Transition hero = {this.state.hero} name = {this.state.name}/>
+        <p className = "Transition-Header">Level {this.state.level} </p>
+        <Transition hero = {this.state.hero} name = {this.state.name} life = {this.state.life} score = {this.state.score}/>
         <div className = "Quote-Box">
           <p className = "Quote-Content">{randQuote.content}</p>
           <p className = "Quote-Person">{randQuote.person}</p>

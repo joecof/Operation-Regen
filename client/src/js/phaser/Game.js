@@ -1,6 +1,5 @@
 import * as Phaser from 'phaser';
 
-import GameScene from './GameScene';
 import GameScene2 from './GameScene2';
 import GameScene3 from './GameScene3';
 import GameScene4 from './GameScene4';

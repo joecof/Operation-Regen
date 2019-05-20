@@ -10,25 +10,25 @@ var gameOver = false;
 var scoreText;
 var target;
 
-export default class GameIvan extends Phaser.Scene {
+export default class GameScene4 extends Phaser.Scene {
     constructor() {
         super({ key: 'GameIvan' });
     }
     preload() {
         //load image
-        this.load.image('bgImg', ' ../img/parkBG.png');
+        this.load.image('bgImg', ' ../img/transitionbase9.png');
         this.load.image('platform', '../img/platform.png');
-        this.load.image('trash', '../img/trash.png');
+        this.load.image('trash', '../img/trashPicked.png');
         this.load.image('dude', '../img/garbageman.png');
         this.load.image('target', '../img/trashcan.png');
     }
 
     create() {
         //  add image
-        this.add.image(400, 300, 'bgImg');
+        this.add.image(0, 0, 'bgImg').setOrigin(0, 0);
         platforms = this.physics.add.staticGroup();
         // platforms.create(400, 568, 'platform').setScale(2).refreshBody();
-        platforms.create(400, 400, 'platform');
+        platforms.create(1200, 800, 'platform');
         platforms.create(50, 250, 'platform');
         platforms.create(750, 220, 'platform');
        // platforms.create(200, 250, 'platform');

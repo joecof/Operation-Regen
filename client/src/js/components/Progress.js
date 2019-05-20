@@ -16,8 +16,6 @@ class Progress extends Component {
       life: 5,
       score: 0
     };
-
-    
   }
 
   // Fetch quote query result

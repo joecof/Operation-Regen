@@ -51,7 +51,7 @@ class CharacterSelectionItem extends Component {
     let selected = true;
     this.setState({ selected: selected, display: "block" });
     this.toggleAnimate();
-    console.log("hero: " + this.props.hero + ", selected: " + selected);
+    //console.log("hero: " + this.props.hero + ", selected: " + selected);
     
     if (selected) {
       this.props.last(this.props.hero);

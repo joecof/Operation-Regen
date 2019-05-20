@@ -56,3 +56,18 @@
 .TransitionContainer-BackBtn:hover {
   text-decoration:none;
 }
+
+.Quote-Box {
+  font-size: 26px;
+  width: 85%;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.Quote-Content {
+  margin: 0;
+}
+
+.Quote-Person {
+  margin-top: 10px;
+}

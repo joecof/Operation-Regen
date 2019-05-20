@@ -42,7 +42,7 @@ class Post extends Component {
 
   render() {
     return (
-      <div>
+      <div className = "HeroNameInputBox">
           <form onSubmit={this.handleSubmit}>
             <input
             onSubmit = {this.handleSubmit}            

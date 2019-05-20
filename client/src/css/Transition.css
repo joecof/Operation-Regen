@@ -1,0 +1,49 @@
+.Transition {
+  width: 70%;
+  height: 650px;
+  margin: 0 auto;
+  margin-bottom:20px;
+  border: 2px solid black;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.Transition-Score {
+  /* display: inline-block; */
+  float:right;
+  font-size: 25pt;
+  margin-right:10px;
+  /* margin-right:40px; */
+}
+
+.Transition-Header {
+  text-align:center;
+}
+
+.Transition-Hearts {
+  margin-top:30px;
+  margin-bottom:46px;
+  margin-left: 15px;
+  width:20.7%;
+  float:left;
+
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  from {width: 20.7%;}
+  to {width: 21%;}
+}
+
+.Transition-Hero {
+  position: absolute;
+  top:600px;
+  left: 690px;
+  width:150px;
+}

@@ -9,23 +9,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 
-    background-image: url("../img/bg.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.App-Container {
-  width:80%;
-}
-
-.App-Menu {
-  width:49%;
-  display:inline-block;
-}
-
-.App-View {
-  height:500px;
-  width:49%;
-  display:inline-block;
+  /*background-image: url("../img/bg_river_forest.jpg");*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

@@ -1,15 +1,13 @@
 .Credits {
   width: 800px;
-  height: 80px;
-  margin: 20px auto;
+  height: 100px;
+  margin-top:20px;
   background-color: #fff;
-  padding: 18px;
   font-size: 10pt;
-  border: 1px solid silver;
-  border-radius: 4px;
+}
 
-  background-color: rgba(255, 255, 255, 0.95);
 
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+.Credits-header {
+  text-align: center;
+
 }

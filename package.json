@@ -1,57 +1,38 @@
 {
-  "name": "operation-regen",
-  "version": "1.0.0",
-  "description": "op_regen",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-<<<<<<< HEAD
-    "server": "node index.js",
-    "client": "cd client && npm start",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
-=======
-    "server": "cd server && node main.js",
-    "client": "cd client && npm start"
->>>>>>> f9fdaf18d74cb40897e1fcca953b401715a2681b
-=======
-    "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
->>>>>>> fe269e3fd5e3525d055122e94cb9af64eb5d73dd
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/hojoolee81/operation-regen.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/hojoolee81/operation-regen/issues"
-  },
-  "homepage": "https://gitlab.com/hojoolee81/operation-regen#readme",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.19.0"
-  },
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "create-react-app": "^3.0.0",
     "express": "^4.16.4",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "react-addons-css-transition-group": "^15.6.2"
-  }
-=======
-    "mysql": "^2.17.1"
-  },
-  "proxy": "http://localhost:3001/"
->>>>>>> 3829459d60f98354837f7c163e300ddf638911ed
-=======
     "mysql": "^2.17.1",
     "phaser": "^3.17.0",
+    "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.0",
     "react-snake-game": "^1.0.9"
   },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "proxy": "http://localhost:3001/"
->>>>>>> f9fdaf18d74cb40897e1fcca953b401715a2681b
 }

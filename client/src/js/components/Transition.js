@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
 import '../../css/Transition.css';
 
-
 export default class Transition extends Component {
   constructor() {
     super();
+
+    this.state = {
+      transitionImage: 10
+    };
+
+    this.backgrounds = new Array(this.state.transitionImage + 1);
+
+    for (let i = 0; i < this.state.transitionImage; i++) {
+      this.backgrounds[i] = "url(../../img/transitionbase" + i + ".png)";
+    }
   }
 
   // Apply number format
@@ -14,7 +23,7 @@ export default class Transition extends Component {
 
   render() {
     var style = {
-      backgroundImage: 'url(../img/transi5.png)'
+      backgroundImage: this.backgrounds[7]
     }
 
     return (

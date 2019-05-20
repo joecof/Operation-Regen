@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import '../../css/PlayBoxPost.css';
-
 
 class Post extends Component {
   constructor() {

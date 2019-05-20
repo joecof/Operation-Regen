@@ -11,8 +11,13 @@ class Progress extends Component {
     this.state = {
       quote: [],
       hero: 99,
-      name: " "
+      name: " ",
+      level: 1,
+      life: 5,
+      score: 0
     };
+
+    
   }
 
   // Fetch quote query result

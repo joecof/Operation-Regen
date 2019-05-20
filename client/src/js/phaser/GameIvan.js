@@ -16,11 +16,11 @@ export default class GameIvan extends Phaser.Scene {
     }
     preload() {
         //load image
-        this.load.image('bgImg', ' ../img/river4.png');
+        this.load.image('bgImg', ' ../img/parkBG.png');
         this.load.image('platform', '../img/platform.png');
         this.load.image('trash', '../img/trash.png');
-        this.load.image('dude', '../img/hero1ani2.png');
-        this.load.image('target', '../img/truck.png');
+        this.load.image('dude', '../img/garbageman.png');
+        this.load.image('target', '../img/trashcan.png');
     }
 
     create() {
@@ -28,13 +28,13 @@ export default class GameIvan extends Phaser.Scene {
         this.add.image(400, 300, 'bgImg');
         platforms = this.physics.add.staticGroup();
         // platforms.create(400, 568, 'platform').setScale(2).refreshBody();
-        platforms.create(600, 400, 'platform');
+        platforms.create(400, 400, 'platform');
         platforms.create(50, 250, 'platform');
         platforms.create(750, 220, 'platform');
-        platforms.create(200, 250, 'platform');
+       // platforms.create(200, 250, 'platform');
 
         player = this.physics.add.sprite(100, 0, 'dude').setScale(0.5);
-        target = this.physics.add.sprite(700, 0, 'target').setScale(0.6)
+        target = this.physics.add.sprite(700, 0, 'target').setScale(0.4)
 
         player.setCollideWorldBounds(true);
 
@@ -59,10 +59,12 @@ export default class GameIvan extends Phaser.Scene {
     update() {
         
         if(player.y>700){
+            alert('game over')
             this.physics.pause();
             player.setTint(0xff0000);
             gameOver = true;
         }
+     
         if (gameOver) {
             return;
         }

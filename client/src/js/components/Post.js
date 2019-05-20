@@ -4,53 +4,31 @@ import '../../css/PlayBoxPost.css';
 
 
 class Post extends Component {
+  constructor() {
+    super();
 
-  state = {
-    response: ' ',
-    user: ' ',
-    responseToPost: ' ',
-  };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({response: res.express}))
-      .catch(err => console.log(err));
+    this.state = {
+      heroName: " "
+    };
   }
 
-  callApi = async() => {
-    const response = await fetch('/');
-    const body = await response.text();
-
-    if (response.status !== 200) throw Error(body.message);
-    return body;
-  };
-
-  handleSubmit = async e => {
-    e.preventDefault(); 
-    const response = await fetch('/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({user: this.state.post}),
+  handleChange = (e) => {
+    this.setState({
+      heroName: e.target.value
     });
-
-    const body = await response.text();
-
-    this.setState({ responseToPost: body});
-  } 
+    this.props.name(e.target.value);
+  }
 
   render() {
     return (
       <div className = "HeroNameInputBox">
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <input
-            onSubmit = {this.handleSubmit}            
-            className = "Post-Input"
-            type="text"
-            maxLength = "15"
-            placeholder = "Enter Your Hero Name"
-            onChange={e => this.setState({ post: e.target.value })}
+              className = "Post-Input"
+              type = "text"
+              maxLength = "15"
+              placeholder = "Enter Your Hero Name"
+              onChange = {this.handleChange}
             />
           </form>
       </div>

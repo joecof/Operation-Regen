@@ -7,13 +7,17 @@ import '../../img/lives5.png'
 class Progress extends Component {
   constructor() {
     super();
+
     this.state = {
-      quote: []
+      quote: [],
+      hero: 99,
+      name: " "
     };
   }
 
   // Fetch quote query result
   componentDidMount() {
+    this.setState({hero: this.props.location.state.hero, name: this.props.location.state.name});
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({quote})));
@@ -45,7 +49,7 @@ class Progress extends Component {
     return (
       <div className="Progress" style={style}>
         <p className = "Transition-Header">Level One: Warm Up </p>
-        <Transition />
+        <Transition hero = {this.state.hero} name = {this.state.name}/>
         <div className = "Quote-Box">
           <p className = "Quote-Content">{randQuote.content}</p>
           <p className = "Quote-Person">{randQuote.person}</p>

@@ -22,8 +22,8 @@ class CharacterSelectionItem extends Component {
     this.toggleAnimate = this.toggleAnimate.bind(this);
   }
 
-  componentWillReceiveProps() {
-    if (this.props.hero === this.props.cur) {
+  componentWillReceiveProps(nextProps) {
+    if (this.props.hero === this.props.cur && !nextProps.flag) {
       this.setState({ imageIndex: 0, selected: false, display: "none" });
     }
   }
@@ -51,7 +51,6 @@ class CharacterSelectionItem extends Component {
     let selected = true;
     this.setState({ selected: selected, display: "block" });
     this.toggleAnimate();
-    //console.log("hero: " + this.props.hero + ", selected: " + selected);
     
     if (selected) {
       this.props.last(this.props.hero);

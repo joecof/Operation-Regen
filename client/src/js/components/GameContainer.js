@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import {Link} from "react-router-dom";
 import '../../css/GameContainer.css';
 import Game from '../phaser/Game';
 
@@ -10,16 +9,18 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-      game: null
+      game: null,
+      lives: 5
     }
   }
 
   componentDidMount() {
-    this.setState({game: new Game(this)})
+    this.game = new Game(this)
+
   }
 
   componentDidUpdate() {
-    return false;
+    return true;
   }
 
   componentUnmount() {

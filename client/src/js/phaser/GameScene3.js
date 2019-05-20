@@ -6,7 +6,6 @@ var gameHeight = window.innerHeight;
 var scaleY = gameHeight / 1080;
 var scaleX = gameWidth / 1920;
 
-var timedEvent;
 var timed = false;
 var once = false;
 var instr = false;
@@ -14,12 +13,12 @@ var control = false;
 var win = false;
 var instruction;
 var curLoop = 0;
-var curAngle = 0;
+// var curAngle = 0;
 var LOOP = 3;
 var faucetY = gameHeight / 4;
 
 var handle;
-var faucet;
+// var faucet;
 var bkgr;
 var water;
 
@@ -32,7 +31,7 @@ export default class GameScene4 extends Phaser.Scene {
 
   constructor() {
     super({
-      key: 'GameScene4'
+      key: 'GameScene3'
     })
   }
 
@@ -65,7 +64,7 @@ export default class GameScene4 extends Phaser.Scene {
     water.anims.play('flow');
     water.setScale(1.5);
 
-    faucet = this.add.image(gameWidth / 2, faucetY, 'faucet').setScale(0.6, 0.8);
+    this.add.image(gameWidth / 2, faucetY, 'faucet').setScale(0.6, 0.8);
     handle = this.add.image(gameWidth / 2, gameHeight / 4.5, 'handle').setScale(0.75).setInteractive();
 
     this.input.setDraggable(handle);
@@ -114,7 +113,7 @@ export default class GameScene4 extends Phaser.Scene {
     if (instr === false) {
       this.instruct();
     } else if (timed === false && once === false) {
-      timedEvent = this.time.delayedCall(1250, function () {
+      this.time.delayedCall(1250, function () {
         timed = true;
       }, [], this);
     } else if (timed === true && once === false) {

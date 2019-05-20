@@ -14,10 +14,10 @@ var bg;
 var instruction;
 var tree;
 
-export default class GameScene2 extends Phaser.Scene {
+export default class GameScene1 extends Phaser.Scene {
 
   constructor(){
-    super({key: "GameScene2"})
+    super({key: "GameScene1"})
   }
 
   preload(){
@@ -65,6 +65,8 @@ export default class GameScene2 extends Phaser.Scene {
         bulldozer.angle += 30;
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
+        this.game.react.setState({ lives: 4 })
+
     } else {
     }
 
@@ -100,10 +102,12 @@ export default class GameScene2 extends Phaser.Scene {
     })
     
     bulldozer.on('pointerdown', function (pointer) {
-        console.log(lose);
+
         if(lose === false){
             angle = 0;
             win = true;
+          
+            
         } else {
           
         }            

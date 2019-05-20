@@ -11,7 +11,6 @@ import * as Phaser from 'phaser'
 
   var instr   = true;
   var drag    = false;
-  var drop    = false;
   var win     = false;
   var lose    = false;
   var back    = false;
@@ -26,10 +25,10 @@ import * as Phaser from 'phaser'
   var height  = gameHeight/1.15;
 
 
-export default class GameScene3 extends Phaser.Scene {
+export default class GameScene2 extends Phaser.Scene {
 
   constructor() {
-    super({ key: 'GameScene3'})
+    super({ key: 'GameScene2'})
   }
 
   preload() {
@@ -119,7 +118,7 @@ export default class GameScene3 extends Phaser.Scene {
 
             //Transition here
         }            
-    } else if(lose == true){
+    } else if(lose === true){
         bkgr.setTexture('backgroundLoss');
         //Transition here
     }

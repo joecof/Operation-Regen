@@ -10,6 +10,7 @@ class Progress extends Component {
     super(props);
     
   }
+  
   render() {
     var style = {
       backgroundImage: 'url(../img/bg_transition_brown.jpg)'

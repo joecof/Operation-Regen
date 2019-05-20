@@ -4,7 +4,7 @@ import GameScene1 from './GameScene1';
 import GameScene2 from './GameScene2';
 import GameScene3 from './GameScene3';
 
-import LoadingScene from './LoadingScene';
+// import LoadingScene from './LoadingScene';
 
 
 let scene = [GameScene1, GameScene2, GameScene3];
@@ -31,7 +31,7 @@ export default class Game extends Phaser.Game {
             debug: false
         }
     },
-      scene:  scene[randomScene]
+      scene:  GameScene1
     }
     super(config);
     this.react = react;

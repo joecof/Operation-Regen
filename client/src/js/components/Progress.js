@@ -13,11 +13,14 @@ class Progress extends Component {
       hero: 99,
       name: " ",
       level: 1,
-      life: 3,
-      score: 200
+      life: 1,
+      score: 200,
+      app1: 0,
+      app2: 0,
+      app3: 0,
+      app4: 0,
+      app5: 0
     };
-
-    
   }
 
   // Fetch quote query result
@@ -41,6 +44,14 @@ class Progress extends Component {
       backgroundImage: 'url(../img/bg_transition_brown.jpg)'
     }
 
+    var regen = {
+      display: this.state.life === 0 ? "none" : "block"
+    }
+
+    var leaderboard = {
+      display: this.state.life === 0 ? "block" : "none"
+    }
+
     // Stores quote query result
     var list = this.state.quote;
     var randQuote;
@@ -52,7 +63,7 @@ class Progress extends Component {
     }
     
     return (
-      <div className="Progress" style={style}>
+      <div className="Progress" style = {style}>
         <p className = "Transition-Header">Level {this.state.level} </p>
         <Transition hero = {this.state.hero} name = {this.state.name} life = {this.state.life} score = {this.state.score}/>
         <div className = "Quote-Box">
@@ -60,11 +71,13 @@ class Progress extends Component {
           <p className = "Quote-Person">{randQuote.person}</p>
         </div>
         <div className="Progress-Btn">
-          <Link className ="Progress-RegenBtn" to = "/Game">REGEN</Link>
+          <Link className ="Progress-LeaderBoardBtn" to = "/LeaderBoard" style = {leaderboard}>LEADERBOARD</Link>
+          <Link className ="Progress-RegenBtn" to = "/Game" style = {regen}>REGEN</Link>
           <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
         </div>
       </div>
     )
   }
 }
+
 export default Progress;

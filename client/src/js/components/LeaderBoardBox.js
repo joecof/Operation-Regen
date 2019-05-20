@@ -18,8 +18,7 @@ class LeaderBoardBox extends Component {
   componentDidMount() {
     fetch('/LeaderBoard')
       .then(res => res.json())
-      .then(leaderboard => (this.setState({leaderboard}))
-      )
+      .then(leaderboard => (this.setState({leaderboard})));
   }
 
   // Apply number format

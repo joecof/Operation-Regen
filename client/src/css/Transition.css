@@ -30,6 +30,7 @@
   -webkit-animation-iteration-count: infinite;
   animation-name: example;
   animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes example {

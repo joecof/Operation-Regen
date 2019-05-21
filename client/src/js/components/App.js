@@ -4,7 +4,7 @@ import '../../css/App.css';
 import {Route, Switch} from "react-router-dom";
 import PlayBoxContainer from './PlayBoxContainer';
 import LeaderBoardBox from './LeaderBoardBox';
-import Progress from './Progress';
+import Progress from './Progress.jsx';
 // import Game from './Game123';
 
 import Credits from './Credits';

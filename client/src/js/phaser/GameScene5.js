@@ -1,7 +1,11 @@
 import * as Phaser from 'phaser';
+import { isTSAnyKeyword } from '@babel/types';
 
-var dx = [ 1, -1, 0, 0 ]; // move by x
-var dy = [ 0, 0, 1, -1 ]; // move by y
+// move by x
+var dx = [ 1, -1, 0, 0 ];
+
+// move by y
+var dy = [ 0, 0, 1, -1 ];
 
 // track all tiles for easy access
 var moves = 0;
@@ -14,11 +18,16 @@ for (let i = 0; i < boardSize; i++) {
 }
 
 // setup the game stage
-//var spaceBetweenTiles = 2;
-var gameWidth   = window.innerWidth;
-var gameHeight  = window.innerHeight; 
-//var width = boardSize * 227; //+ 2 * spaceBetweenTiles;
-//var height = boardSize * 227; //+ 2 * spaceBetweenTiles;
+var bgWidth = 2000;
+var bgHeight = 1080;
+var bgMoveX = 20;
+var bgMoveY = 10;
+var roomWidth = 227;
+var roomHeight = 227;
+var roomMoveX = 720;
+var roomMoveY = 356;
+var spaceBetweenRooms = 30;
+var gameOver = false;
 
 export default class GameScene5 extends Phaser.Scene {
   constructor() {
@@ -29,7 +38,8 @@ export default class GameScene5 extends Phaser.Scene {
   
   preload() {
     // load background
-    this.load.image('background', '../img/house0.png');
+    this.load.image('background0', '../img/house0.png');
+    this.load.image('background1', '../img/house1.png');
     
     // load on-off lights
     var roomNo = 1;
@@ -43,17 +53,19 @@ export default class GameScene5 extends Phaser.Scene {
   }
 
   create() {
-    background = this.add.image(965, 540, 'background');
-    background.scaleY = 1.0;
-    background.scaleX = 1.0;
+    if (boardSize === 2) {
+      background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background0');
+    } else if (boardSize === 3) {
+      background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background1');
+    }
 
   	// create the grid
     var countOff = 0;
    
   	for (var i = 0; i < boardSize; i++) {
   	  for (var j = 0; j < boardSize; j++) {
-  		  var x = i * 227; // + 692  + i * spaceBetweenTiles; 
-  		  var y = j * 227; // + 354  + j * spaceBetweenTiles;  
+  		  var x = i * roomWidth + roomMoveX + i * spaceBetweenRooms;
+  		  var y = j * roomHeight + roomMoveY + j * spaceBetweenRooms;
         var onOrOff = this.randomIntFromInterval(1, 2);
         
         if (onOrOff === 1) {
@@ -61,8 +73,6 @@ export default class GameScene5 extends Phaser.Scene {
         }
 
         var tile = this.add.sprite(x, y, (onOrOff === 1 ? 'on_' + i + j : 'off_' + i + j));
-        //tile.scaleX = 1.2;
-        //tile.scaleY = 1.2;
         
         // attach the pointer down event
         tile.setInteractive();
@@ -77,22 +87,22 @@ export default class GameScene5 extends Phaser.Scene {
   }
   
   update() {
+    if (gameOver) {
+      console.log("game over: " + gameOver);
+      //this.game.destroy();
+      gameOver = !gameOver;
+      this.game.react.props.toggleTransition();
+      this.game.destroy(true);
+    }
   }
-  
-  /*
-  toggle(tile, x, y) {
-    var newState = tile.texture.key === 'on_' + x + y ? 'off_' + x + y : 'on_' + x + y;
-    tile.setTexture(newState);
-  }
-  */
 
   randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   onTileClicked() {
-    var x = Math.floor(this.x / 227);
-  	var y = Math.floor(this.y / 227);
+    var x = Math.floor((this.x - roomMoveX) / roomWidth);
+  	var y = Math.floor((this.y - roomMoveY) / roomHeight);
     
     moves++;
     let toggle = this.texture.key === 'on_' + x + y ? 'off_' + x + y : 'on_' + x + y;
@@ -107,41 +117,23 @@ export default class GameScene5 extends Phaser.Scene {
         tilesMatrix[nx][ny].setTexture(newState);
   	  }
   	}
-    //this.checkGameOver();
-    var gameOver = true;// = this.areAllStatesOff();
+    
+    var countOn = 0;
     for (let i = 0; i < boardSize; i++) {
   	  for (let j = 0; j < boardSize; j++) {
-  		  if (tilesMatrix[i][j].key !== 'off_' + i + j) {
-          gameOver = false;
-          break;
+  		  if (tilesMatrix[i][j].texture.key === 'on_' + i + j) {
+          countOn++;
   		  }
   	  }
-  	}
-    
-  	if(gameOver) {
-  	  //alert('Moves: ' + moves);
-  	}
-  }
+    }
 
-  /*
-  areAllStatesOff() {
-  	for (let i = 0; i < boardSize; i++) {
-  	  for (let j = 0; j < boardSize; j++) {
-  		  if (tilesMatrix[i][j].key !== 'off_' + i + j) {
-  	  	  return false;
-  		  }
-  	  }
-  	}
-  	return true;
+    if (countOn === 0) {
+      gameOver = true;
+    }
+    
+  	/*if(gameOver) {
+  	  this.game.destroy();
+      this.game.react.props.toggleTransition();
+  	}*/
   }
-  */
-  
-  /*
-  checkGameOver() {
-  	var gameOver = this.areAllStatesOff();  
-  	if(gameOver) {
-  	  alert('Moves: ' + moves);
-  	}
-  }
-  */
 }

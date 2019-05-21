@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../../css/GameContainer.css';
-import Game from '../phaser/Game';
+import PhaserGame from '../phaser/PhaserGame';
 
 class GameContainer extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class GameContainer extends Component {
   }
 
   componentDidMount() {
-    this.game = new Game(this)
+    this.game = new PhaserGame(this)
 
   }
 
@@ -27,7 +27,7 @@ class GameContainer extends Component {
 
   render() {
     return (
-      <div className = "GameContainer" id = "gameContainer" />
+      <div className = "GameContainer" id = "GameContainer" />
     )
   }
 }

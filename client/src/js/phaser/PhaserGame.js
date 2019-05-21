@@ -12,13 +12,13 @@ import GameScene5 from './GameScene5';
 let scene = [GameScene1, GameScene2, GameScene3, GameScene4, GameScene5];
 let randomScene = Math.floor(Math.random() * scene.length);
 
-export default class Game extends Phaser.Game {
+export default class PhaserGame extends Phaser.Game {
 
   constructor(react) {
 
     const config = {
       type: Phaser.AUTO,
-      parent: 'gameContainer',
+      parent: 'GameContainer',
       width: window.innerWidth,
       height: window.innerHeight,
       /*render: {
@@ -32,7 +32,7 @@ export default class Game extends Phaser.Game {
             debug: false
         }
       },
-      scene:  GameScene5
+      scene: GameScene5
     }
     super(config);
     this.react = react;

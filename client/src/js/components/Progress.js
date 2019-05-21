@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/Progress.css';
 import Transition from './Transition';
+import GameContainer from './GameContainer';
 import {Link} from "react-router-dom";
 import '../../img/lives5.png'
 
@@ -19,8 +20,11 @@ class Progress extends Component {
       app2: 0,
       app3: 0,
       app4: 0,
-      app5: 0
+      app5: 0,
+      transition: true
     };
+
+    this.toggleTransition = this.toggleTransition.bind(this);
   }
 
   // Fetch quote query result
@@ -38,8 +42,13 @@ class Progress extends Component {
     const rand = Math.floor(min + Math.random() * (max - min));
     return rand;
   }
+
+  toggleTransition() {
+    this.setState({transition: !this.state.transition});
+  }
   
   render() {
+    console.log("transition: " + this.state.transition);
     var style = {
       backgroundImage: 'url(../img/bg_transition_brown.jpg)'
     }
@@ -64,26 +73,25 @@ class Progress extends Component {
     
     return (
       <div className="Progress" style = {style}>
-        <p className = "Transition-Header">Level {this.state.level} </p>
-        <Transition hero = {this.state.hero} name = {this.state.name} life = {this.state.life} score = {this.state.score}/>
-        <div className = "Quote-Box">
-          <p className = "Quote-Content">{randQuote.content}</p>
-          <p className = "Quote-Person">{randQuote.person}</p>
-        </div>
-        <div className="Progress-Btn">
-          <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
-          <Link className ="Progress-RegenBtn" style = {regen} to = {{
-            pathname: "/Game",
-            state: {
-              app1: this.state.app1,
-              app2: this.state.app2,
-              app3: this.state.app3,
-              app4: this.state.app4,
-              app5: this.state.app5
-            }
-          }}>REGEN</Link>
-          <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
-        </div>
+
+        {(this.state.transition === true) ?
+        <div>
+          <p className = "Transition-Header">Level {this.state.level} </p>
+          <Transition hero = {this.state.hero} name = {this.state.name} life = {this.state.life} score = {this.state.score}/>
+          <div className = "Quote-Box">
+            <p className = "Quote-Content">{randQuote.content}</p>
+            <p className = "Quote-Person">{randQuote.person}</p>
+          </div>
+          <div className="Progress-Btn">
+            <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
+            <button className ="Progress-RegenBtn" style = {regen} onClick = {this.toggleTransition}>REGEN</button>
+            <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
+          </div>
+        </div> :
+        <GameContainer 
+          transition = {this.state.transition}
+          toggleTransition = {this.toggleTransition}
+        />}
       </div>
     );
   }

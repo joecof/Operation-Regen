@@ -60,7 +60,7 @@ export default class GameScene1 extends Phaser.Scene {
   }
   
   victoryLoop(){
-    if(bulldozer.x < gameWidth * 2){                     
+    if(bulldozer.y < gameHeight * 2){                     
         angle += 0.25;
         bulldozer.angle += 30;
         bulldozer.x += 10;
@@ -70,6 +70,9 @@ export default class GameScene1 extends Phaser.Scene {
         });
 
     } else {
+      win = false;
+      this.game.react.props.toggleTransition();
+      this.game.destroy(true);
     }
 
   }
@@ -80,7 +83,9 @@ export default class GameScene1 extends Phaser.Scene {
         tree.x += 26;
         tree.y += (50 * Math.cos(0.1 * angle + 42) + 10);
     } else {
-
+      win = false;
+      this.game.react.props.toggleTransition();
+      this.game.destroy(true);
     }
   }
 

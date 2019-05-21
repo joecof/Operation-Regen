@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-
 import '../../css/GameContainer.css';
 import Game from '../phaser/Game';
 
 class GameContainer extends Component {
-
   constructor(props) {
     super(props);
 
@@ -25,7 +23,7 @@ class GameContainer extends Component {
 
   componentUnmount() {
    this.setState({game: null})
-}
+  }
 
   render() {
     return (

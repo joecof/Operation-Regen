@@ -10,9 +10,9 @@ var gameOver = false;
 var scoreText;
 var target;
 
-export default class GameIvan extends Phaser.Scene {
+export default class GameScene4 extends Phaser.Scene {
     constructor() {
-        super({ key: 'GameIvan' });
+        super({ key: 'GameScene4' });
     }
     preload() {
         //load image

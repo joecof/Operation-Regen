@@ -20,9 +20,8 @@ export default class GameScene1 extends Phaser.Scene {
     super({key: "GameScene1"})
   }
 
+
   preload(){
-
-
   
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
@@ -67,21 +66,26 @@ export default class GameScene1 extends Phaser.Scene {
         bulldozer.angle += 30;
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
-
-
     } else {
+
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
+      this.game.react.props.toggleGame();
 
     }
 
   }
 
  loserLoop(){
-    if(tree.angle <= 450){
+    if(tree.angle <= 450 || bulldozer.x < tree.x + 20){
         tree.angle += 5;
         tree.x += 26;
         tree.y += (50 * Math.cos(0.1 * angle + 42) + 10);
     } else {
-
+      
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
+      this.game.react.props.toggleGame();
     }
   }
 
@@ -120,19 +124,25 @@ export default class GameScene1 extends Phaser.Scene {
   update (){     
     if(instr === false && win === false && lose === false){
         this.showInstruction();
+        
     } else if(instr === true && win === false && lose === false){				
         this.drawBull();				
     } else if(win === true){
         this.victoryLoop();
+        
+
+ 
 
     } else if(lose === true){
         this.loserLoop();
+
+        this.game.destroy();
+        this.game.react.props.toggleTransition();
+        this.game.react.props.toggleGame();
     }
 
-    
-
     // if(this.game.react.state.transition === true) {
-    //   this.game.react.setState({progress: 5});
+      // this.game.react.setState({progress: 5});
     // }
   }
 

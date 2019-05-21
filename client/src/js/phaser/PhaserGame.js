@@ -9,7 +9,7 @@ import GameScene4 from './GameScene4';
 
 
 let scene = [GameScene1, GameScene2, GameScene3];
-// let randomScene = Math.floor(Math.random() * scene.length);
+let randomScene = Math.floor(Math.random() * scene.length);
 
 export default class Game extends Phaser.Game {
   constructor(react) {
@@ -32,7 +32,7 @@ export default class Game extends Phaser.Game {
             debug: false
         }
     },
-      scene:  GameScene4
+      scene: scene
     }
     super(config);
     this.react = react;

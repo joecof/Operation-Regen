@@ -17,11 +17,6 @@ export default class Transition extends Component {
     }
   }
 
-  // Apply number format
-  // formatNumber(num) {
-  //   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  // }
-
   // Transition image changes based on the score
   changeTransition() {
     var score = this.props.score;
@@ -35,7 +30,7 @@ export default class Transition extends Component {
 
   render() {
     var style = {
-      backgroundImage: "url(../../img/transitionbase0.png)"
+      backgroundImage: "url(../../img/transitionbase" + this.props.level  + ".png)"
     }
     
     return (

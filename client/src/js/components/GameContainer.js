@@ -14,11 +14,11 @@ class GameContainer extends Component {
   }
 
   componentDidMount() {
-    this.game = new PhaserGame(this)
+    this.game = new PhaserGame(this);
   }
 
   componentDidUpdate() {
-    return false;
+    return true;
   }
 
   render() {

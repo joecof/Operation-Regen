@@ -14,18 +14,16 @@ class Progress extends Component {
       quote: [],
       hero: 99,
       name: " ",
-      level: 1,
-      life: 1,
+      level: 0,
+      life: 5,
       score: 200,
-      app1: 0,
-      app2: 0,
-      app3: 0,
-      app4: 0,
-      app5: 0,
-      transition: false,
+      game: 0,
+      transition: true,
     };
 
     this.toggleTransition = this.toggleTransition.bind(this);
+    this.toggleGame = this.toggleGame.bind(this);
+
   }
 
   // Fetch quote query result
@@ -45,9 +43,18 @@ class Progress extends Component {
   }
 
   toggleTransition() {
-    
-    this.setState({ transition: !this.state.transition });
+    this.setState({ transition: !this.state.transition
+                    
+    });
 
+
+  }
+
+  toggleGame() {
+    this.setState({ game: this.state.game + 1,
+                    level: this.state.level + 1
+
+    });
   }
   
   render() {
@@ -78,18 +85,22 @@ class Progress extends Component {
       <div className="Progress" style={style}>
    
         {(this.state.transition === true) ? 
-          <Transition hero = {this.state.hero} name = {this.state.name} life = { this.state.life } /> 
-          : <GameContainer transition = {this.state.transition} toggleTransition = {this.toggleTransition}/> }
+          <Transition hero = {this.state.hero} name = {this.state.name} life = { this.state.life } level = { this.state.level }/> 
+          : <GameContainer transition = {this.state.transition} toggleTransition = {this.toggleTransition} nextGame = {this.state.game} toggleGame = { this.toggleGame }
+            level = { this.state.level }
+          /> }
 
-        {/* <p className = "Transition-Header">Level One: Warm Up </p>
+        {(this.state.transition === true) ? 
+        <div>
           <div className = "Quote-Box">
             <p className = "Quote-Content">{randQuote.content}</p>
             <p className = "Quote-Person">{randQuote.person}</p>
-        </div> */}
+          </div> 
+        </div> : <div/> }
 
         {(this.state.transition === true) ? 
         <div className="Progress-Btn">
-          <Link className ="Progress-RegenBtn" to = "/Game"> REGEN </Link>
+          <button className ="Progress-RegenBtn" onClick = {this.toggleTransition}> REGEN </button>
           <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
         </div>  : <div/>}
       </div>

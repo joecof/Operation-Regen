@@ -65,7 +65,9 @@ export default class GameScene1 extends Phaser.Scene {
         bulldozer.angle += 30;
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
-        this.game.react.setState({ lives: 4 })
+        this.game.react.setState(({ app1 }) => {
+          return { app1: ++app1 };
+        });
 
     } else {
     }

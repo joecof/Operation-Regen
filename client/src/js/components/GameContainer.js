@@ -29,10 +29,7 @@ class GameContainer extends Component {
 
   render() {
     return (
-      <div className = "GameContainer" id = "gameContainer">
-        <div className="Game-BtnContainer">
-        </div>
-      </div>
+      <div className = "GameContainer" id = "gameContainer" />
     )
   }
 }

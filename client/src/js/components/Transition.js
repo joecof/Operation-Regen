@@ -28,6 +28,11 @@ export default class Transition extends Component {
     }
   }
 
+  // Apply number format
+  formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
   render() {
     var style = {
       backgroundImage: this.transitions[this.changeTransition()]

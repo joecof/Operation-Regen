@@ -58,6 +58,14 @@ class Progress extends Component {
       backgroundImage: 'url(../img/bg_transition_brown.jpg)'
     }
 
+    var regen = {
+      display: this.state.life === 0 ? "none" : "block"
+    }
+
+    var leaderboard = {
+      display: this.state.life === 0 ? "block" : "none"
+    }
+
     // Stores quote query result
     var list = this.state.quote;
     var randQuote;

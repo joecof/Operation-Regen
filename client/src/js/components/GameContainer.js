@@ -16,13 +16,6 @@ class GameContainer extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-=======
-    this.game = new PhaserGame(this)
-
-  }
->>>>>>> hojoo
-
     switch(this.props.game) {
       case 1:
         this.setState({game: new PhaserGame(this)});

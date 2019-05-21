@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../../css/App.css';
 import {Route, Switch} from "react-router-dom";
 import PlayBoxContainer from './PlayBoxContainer';
+import GameContainer from './GameContainer';
 import LeaderBoardBox from './LeaderBoardBox';
 import Progress from './Progress';
 import Credits from './Credits';
-
 
 class App extends Component {
   render() {

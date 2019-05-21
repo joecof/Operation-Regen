@@ -85,8 +85,8 @@ class Progress extends Component {
             <p className = "Quote-Person">{randQuote.person}</p>
           </div>
           <div className="Progress-Btn">
-            <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
-            <button className ="Progress-RegenBtn" style = {regen} onClick = {this.toggleTransition}>REGEN</button>
+            
+            <button className ="Progress-RegenBtn"  onClick = {this.toggleTransition}>REGEN</button>
             <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
           </div>
         </div> :

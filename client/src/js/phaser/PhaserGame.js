@@ -1,10 +1,10 @@
 import * as Phaser from 'phaser';
 
-import GameScene1 from './GameScene1';
-import GameScene2 from './GameScene2';
-import GameScene3 from './GameScene3';
-import GameScene4 from './GameScene4';
-import GameScene5 from './GameScene5';
+import GameScene1 from './PhaserGame1';
+import GameScene2 from './PhaserGame2';
+import GameScene3 from './PhaserGame3';
+import GameScene4 from './PhaserGame4';
+import GameScene5 from './PhaserGame5';
 
 // import LoadingScene from './LoadingScene';
 

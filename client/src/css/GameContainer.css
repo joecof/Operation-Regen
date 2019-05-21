@@ -3,6 +3,12 @@
   width:100vw;
 }
 
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .Game-BtnContainer {
   text-align:center;
 }

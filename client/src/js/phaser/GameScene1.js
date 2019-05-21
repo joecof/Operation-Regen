@@ -65,11 +65,14 @@ export default class GameScene1 extends Phaser.Scene {
         bulldozer.angle += 30;
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
+        this.game.react.setState(({ app1 }) => {
+          return { app1: ++app1 };
+        });
+
     } else {
-
-      this.game.destroy();
+      win = false;
       this.game.react.props.toggleTransition();
-
+      this.game.destroy(true);
     }
 
   }
@@ -80,6 +83,9 @@ export default class GameScene1 extends Phaser.Scene {
         tree.x += 26;
         tree.y += (50 * Math.cos(0.1 * angle + 42) + 10);
     } else {
+      lose = false;
+      this.game.react.props.toggleTransition();
+      this.game.destroy(true);
     }
   }
 

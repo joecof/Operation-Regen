@@ -75,7 +75,7 @@ class PlayBox extends Component {
           </div>
         </div>      
       </div>
-    )
+    );
   }
 }
 

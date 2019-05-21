@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-
 import '../../css/GameContainer.css';
 import PhaserGame from '../phaser/PhaserGame';
 import PhaserGame1 from '../phaser/PhaserGame1';
 import PhaserGame2 from '../phaser/PhaserGame2';
 import PhaserGame3 from '../phaser/PhaserGame3';
-
 
 class GameContainer extends Component {
   
@@ -18,6 +16,12 @@ class GameContainer extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
+=======
+    this.game = new PhaserGame(this)
+
+  }
+>>>>>>> hojoo
 
     switch(this.props.game) {
       case 1:

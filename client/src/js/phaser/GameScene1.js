@@ -20,7 +20,6 @@ export default class GameScene1 extends Phaser.Scene {
     super({key: "GameScene1"})
   }
 
-
   preload(){
   
     this.load.image('background', '../img/bkgr.png');
@@ -70,7 +69,6 @@ export default class GameScene1 extends Phaser.Scene {
 
       this.game.destroy();
       this.game.react.props.toggleTransition();
-      this.game.react.props.toggleGame();
 
     }
 
@@ -82,10 +80,6 @@ export default class GameScene1 extends Phaser.Scene {
         tree.x += 26;
         tree.y += (50 * Math.cos(0.1 * angle + 42) + 10);
     } else {
-      
-      this.game.destroy();
-      this.game.react.props.toggleTransition();
-      this.game.react.props.toggleGame();
     }
   }
 
@@ -129,21 +123,13 @@ export default class GameScene1 extends Phaser.Scene {
         this.drawBull();				
     } else if(win === true){
         this.victoryLoop();
-        
-
- 
+      
 
     } else if(lose === true){
         this.loserLoop();
 
-        this.game.destroy();
-        this.game.react.props.toggleTransition();
-        this.game.react.props.toggleGame();
     }
 
-    // if(this.game.react.state.transition === true) {
-      // this.game.react.setState({progress: 5});
-    // }
   }
 
   

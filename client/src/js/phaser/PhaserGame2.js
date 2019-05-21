@@ -1,5 +1,33 @@
 import * as Phaser from 'phaser';
 
+export default class Game extends Phaser.Game {
+  constructor(react) {
+
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      },
+      render: {
+        pixalArt: true
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+      scene: GameScene4
+    }
+    super(config);
+    this.react = react;
+  }
+}
+
 var gameWidth = window.innerWidth;
 var gameHeight = window.innerHeight;
 
@@ -27,7 +55,7 @@ var mult = 5; // Difficulty modifier here
 var range = [mult, mult + 5, mult + 15, mult + 25];
 console.log(targetAngle);
 
-export default class GameScene4 extends Phaser.Scene {
+class GameScene4 extends Phaser.Scene {
 
   constructor() {
     super({
@@ -129,6 +157,8 @@ export default class GameScene4 extends Phaser.Scene {
     }
     if (win === true) {
       //Transition here
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
     }
   }
 
@@ -160,3 +190,4 @@ export default class GameScene4 extends Phaser.Scene {
   }
 
 }
+

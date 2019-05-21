@@ -35,10 +35,10 @@ export default class Transition extends Component {
     
     return (
       <div className = "Transition" style = { style }>
-        <span>Hero: {this.props.name}</span>
+        <span> Hero: {this.props.name}</span>
         <p className = "Transition-Score"> Score: {this.props.score} </p>
-        <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")}/>
-        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")}/>
+        <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")} alt = ""/>
+        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")} alt = ""/>
       </div>
     )
   }

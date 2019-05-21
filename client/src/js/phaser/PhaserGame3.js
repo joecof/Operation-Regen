@@ -1,8 +1,36 @@
 import * as Phaser from 'phaser';
 
+export default class Game extends Phaser.Game {
+  constructor(react) {
+
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      },
+      render: {
+        pixalArt: true
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+      scene: GameScene4
+    }
+    super(config);
+    this.react = react;
+  }
+}
+
+
 var player;
 var trash;
-
 var platforms;
 var cursors;
 var score = 0;
@@ -10,7 +38,7 @@ var gameOver = false;
 var scoreText;
 var target;
 
-export default class GameScene4 extends Phaser.Scene {
+class GameScene4 extends Phaser.Scene {
     constructor() {
         super({ key: 'GameIvan' });
     }
@@ -92,12 +120,10 @@ export default class GameScene4 extends Phaser.Scene {
         score += 10;
         scoreText.setText('Score: ' + score);
 
-        if(score == 20) {
+        if(score === 20) {
             this.game.react.props.toggleTransition();
-
         }
     }
-
 
     // push left
     pushLeft(player, trash) {
@@ -110,8 +136,6 @@ export default class GameScene4 extends Phaser.Scene {
             trash.x = player.x + 40;
             trash.y = player.y
         }
-
-
     }
     // push right
     pushRight(player, trash) {

@@ -3,7 +3,7 @@ import '../../css/PlayBox.css';
 import {Link} from "react-router-dom";
 import Post from './Post';
 import CharacterSelection from './CharacterSelection'
-import { message, Button } from 'antd';
+import { message } from 'antd';
 
 class PlayBox extends Component {
   constructor() {
@@ -75,7 +75,7 @@ class PlayBox extends Component {
           </div>
         </div>      
       </div>
-    )
+    );
   }
 }
 

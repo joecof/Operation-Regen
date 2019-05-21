@@ -3,6 +3,7 @@ import '../../css/PlayBox.css';
 import {Link} from "react-router-dom";
 import Post from './Post';
 import CharacterSelection from './CharacterSelection'
+import { message, Button } from 'antd';
 
 class PlayBox extends Component {
   constructor() {
@@ -27,14 +28,23 @@ class PlayBox extends Component {
   enterHeroName(name) {
     this.setState({heroName: name, nameChange: true});
   }
+  info1 = () => {
+    message.info('Select your hero!');
+  };
+  info2 = () => {
+    message.info('Enter your hero name!');
+  };
+
 
   // Checks if user have selected hero and have entered hero name
   checkUserInput() {
     if (this.state.selectedHero === null) {
-      alert("Select your hero!");
+      this.info1();
+      // alert("Select your hero!");
       return "";
     } else if (this.state.heroName === null) {
-      alert("Enter your hero name!");
+      // alert("Enter your hero name!");
+      this.info2();
       this.setState({nameChange: true});
       return "";
     }

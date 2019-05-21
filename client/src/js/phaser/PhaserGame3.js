@@ -12,7 +12,7 @@ export default class Game extends Phaser.Game {
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
-        pixalArt: true
+        pixelArt: true
       },
       physics: {
         default: 'arcade',
@@ -40,7 +40,7 @@ var target;
 
 class GameScene4 extends Phaser.Scene {
     constructor() {
-        super({ key: 'GameIvan' });
+        super({ key: 'GameScene4' });
     }
     preload() {
         //load image

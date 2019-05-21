@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />
           <Route exact path = '/Game' component = {GameContainer} />
           <Route exact path = '/Transition' component = {Progress} />
-          <Route exact path = '/' component = {Credits} />
+          <Route exact path = '/Credits' component = {Credits} />
           <Route render = {() =>  <h1> 404 Not Found </h1>}/>
         </Switch>  
       </div>

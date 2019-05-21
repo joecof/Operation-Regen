@@ -1,13 +1,39 @@
-.Credits {
-  width: 800px;
-  height: 100px;
-  margin-top:20px;
-  background-color: #fff;
-  font-size: 10pt;
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
 
+p {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-.Credits-header {
-  text-align: center;
+.Credits {  
+  width: 75%;
+  height: 65%;
+  margin-top:20px;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16pt;  
+}
 
+.desc {
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#cast{ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: -15px;
+  width:90%;
 }

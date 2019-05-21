@@ -9,6 +9,10 @@
   color: #555;
 }
 
+.Post-Input {
+  text-align: center;
+}
+
 .HeroNameInputBox {
   margin-top: 40px;
 }

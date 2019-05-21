@@ -22,8 +22,10 @@ class Progress extends Component {
       app3: 0,
       app4: 0,
       app5: 0,
-      transition: true
+      transition: false,
     };
+
+    this.toggleTransition = this.toggleTransition.bind(this);
   }
 
   // Fetch quote query result
@@ -40,6 +42,12 @@ class Progress extends Component {
     const max = num;
     const rand = Math.floor(min + Math.random() * (max - min));
     return rand;
+  }
+
+  toggleTransition() {
+    
+    this.setState({ transition: !this.state.transition });
+
   }
   
   render() {
@@ -65,13 +73,13 @@ class Progress extends Component {
       randQuote = {content: " ", person: " "}
     }
     
-    
     return (
 
       <div className="Progress" style={style}>
    
         {(this.state.transition === true) ? 
-          <Transition hero = {this.state.hero} name = {this.state.name}/> : <GameContainer test={this.state.transition}/> }
+          <Transition hero = {this.state.hero} name = {this.state.name} life = { this.state.life } /> 
+          : <GameContainer transition = {this.state.transition} toggleTransition = {this.toggleTransition}/> }
 
         {/* <p className = "Transition-Header">Level One: Warm Up </p>
           <div className = "Quote-Box">

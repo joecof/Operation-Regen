@@ -18,9 +18,9 @@ export default class Transition extends Component {
   }
 
   // Apply number format
-  formatNumber(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  }
+  // formatNumber(num) {
+  //   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  // }
 
   // Transition image changes based on the score
   changeTransition() {
@@ -35,13 +35,13 @@ export default class Transition extends Component {
 
   render() {
     var style = {
-      backgroundImage: this.transitions[this.changeTransition()]
+      backgroundImage: "url(../../img/transitionbase0.png)"
     }
     
     return (
       <div className = "Transition" style = { style }>
         <span>Hero: {this.props.name}</span>
-        <p className = "Transition-Score"> Score: {this.formatNumber(this.props.score)} </p>
+        <p className = "Transition-Score"> Score: {this.props.score} </p>
         <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")}/>
         <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")}/>
       </div>

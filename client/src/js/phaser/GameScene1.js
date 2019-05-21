@@ -22,6 +22,8 @@ export default class GameScene1 extends Phaser.Scene {
 
   preload(){
 
+
+  
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
@@ -60,16 +62,15 @@ export default class GameScene1 extends Phaser.Scene {
   }
   
   victoryLoop(){
-    if(bulldozer.y < gameHeight * 5){                     
+    if(bulldozer.y < gameHeight * 2){                     
         angle += 0.25;
         bulldozer.angle += 30;
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
 
+
     } else {
 
-          // console.log(this.game.react.test);
-          this.game.react.setState({transition: true});
     }
 
   }
@@ -105,9 +106,11 @@ export default class GameScene1 extends Phaser.Scene {
     
     bulldozer.on('pointerdown', function (pointer) {
 
+
         if(lose === false){
             angle = 0;
             win = true;
+            
         } else {
           
         }            
@@ -121,14 +124,16 @@ export default class GameScene1 extends Phaser.Scene {
         this.drawBull();				
     } else if(win === true){
         this.victoryLoop();
+
     } else if(lose === true){
         this.loserLoop();
     }
 
-    if(this.game.react.state.transition === true) {
-      this.scene.remove("GameScene1")
-      
-    }
+    
+
+    // if(this.game.react.state.transition === true) {
+    //   this.game.react.setState({progress: 5});
+    // }
   }
 
   

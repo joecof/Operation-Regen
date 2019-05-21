@@ -32,7 +32,7 @@ export default class Game extends Phaser.Game {
             debug: false
         }
     },
-      scene:  GameScene1
+      scene:  GameScene4
     }
     super(config);
     this.react = react;

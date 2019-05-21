@@ -10,12 +10,7 @@ class GameContainer extends Component {
 
     this.state = {
       game: null,
-      transition: true,
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ transition: nextProps.test });
   }
 
   componentDidMount() {
@@ -23,16 +18,12 @@ class GameContainer extends Component {
   }
 
   componentDidUpdate() {
-    if(this.state.transition === true ) {
-      this.game = null;
-    }
-    return true;
+    return false;
   }
 
   render() {
     return (
       <div className = "GameContainer" id ="gameContainer"/>
-
     )
   }
 }

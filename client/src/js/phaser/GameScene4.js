@@ -91,6 +91,11 @@ export default class GameScene4 extends Phaser.Scene {
         trash.disableBody(true, true);
         score += 10;
         scoreText.setText('Score: ' + score);
+
+        if(score == 20) {
+            this.game.react.props.toggleTransition();
+
+        }
     }
 
 

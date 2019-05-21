@@ -1,37 +1,29 @@
 import React, { Component } from 'react'
 
-import {Link} from "react-router-dom";
 import '../../css/GameContainer.css';
-import Game from '../phaser/Game';
+import PhaserGame from '../phaser/PhaserGame';
 
 class GameContainer extends Component {
-
+  
   constructor(props) {
     super(props);
 
     this.state = {
-      game: null
+      game: null,
     }
   }
 
   componentDidMount() {
-    this.setState({game: new Game(this)})
+    this.game = new PhaserGame(this)
   }
 
   componentDidUpdate() {
     return false;
   }
 
-  componentUnmount() {
-   this.setState({game: null})
-}
-
   render() {
     return (
-      <div className = "GameContainer" id = "gameContainer">
-        <div className="Game-BtnContainer">
-        </div>
-      </div>
+      <div className = "GameContainer" id ="gameContainer"/>
     )
   }
 }

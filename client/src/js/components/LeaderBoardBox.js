@@ -18,8 +18,7 @@ class LeaderBoardBox extends Component {
   componentDidMount() {
     fetch('/LeaderBoard')
       .then(res => res.json())
-      .then(leaderboard => (this.setState({leaderboard}))
-      )
+      .then(leaderboard => (this.setState({leaderboard})));
   }
 
   // Apply number format
@@ -43,8 +42,8 @@ class LeaderBoardBox extends Component {
           <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
           <LeaderBoardHeader />
           {
-            list.map(temp => (
-              <LeaderBoardItem 
+            list.map((temp, i) => (
+              <LeaderBoardItem key = {i} 
                 rank = {++value}
                 hero = {temp.heroNo}
                 name = {temp.userName}

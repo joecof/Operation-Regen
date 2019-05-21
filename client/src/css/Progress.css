@@ -15,6 +15,26 @@
   width: 800px;
 }
 
+.Progress-LeaderBoardBtn {
+  width: 40%;
+  float: left;
+  background-color: #449d44;
+  border-color: #398439;
+  color: #fff;
+
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+
+  padding-top:10px;
+  text-align:center;
+  text-decoration:none;
+  font-weight: 900;
+}
+
 .Progress-RegenBtn {
 
   width: 40%;
@@ -39,7 +59,6 @@
 
 .Progress-RegenBtn:hover {
   text-decoration:none;
-
 }
 
 .Progress-BackBtn {
@@ -63,4 +82,19 @@
 
 .Progress-BackBtn:hover {
   text-decoration:none;
+}
+
+.Quote-Box {
+  font-size: 26px;
+  width: 85%;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.Quote-Content {
+  margin: 0;
+}
+
+.Quote-Person {
+  margin-top: 10px;
 }

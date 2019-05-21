@@ -9,6 +9,10 @@
   color: #555;
 }
 
+.HeroNameInputBox {
+  margin-top: 40px;
+}
+
 ::-webkit-input-placeholder {
   text-align: center;
 }

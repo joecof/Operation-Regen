@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import '../../css/Progress.css';
 import Transition from './Transition';
+import GameContainer from './GameContainer';
 import {Link} from "react-router-dom";
 import '../../img/lives5.png'
+import Credits from './Credits';
 
 class Progress extends Component {
   constructor() {
@@ -14,7 +16,8 @@ class Progress extends Component {
       name: " ",
       level: 1,
       life: 5,
-      score: 0
+      score: 0,
+      transition: false
     };
   }
 
@@ -49,18 +52,25 @@ class Progress extends Component {
       randQuote = {content: " ", person: " "}
     }
     
+    
     return (
+
       <div className="Progress" style={style}>
-        <p className = "Transition-Header">Level One: Warm Up </p>
-        <Transition hero = {this.state.hero} name = {this.state.name}/>
-        <div className = "Quote-Box">
-          <p className = "Quote-Content">{randQuote.content}</p>
-          <p className = "Quote-Person">{randQuote.person}</p>
-        </div>
+   
+        {(this.state.transition === true) ? 
+          <Transition hero = {this.state.hero} name = {this.state.name}/> : <GameContainer test={this.state.transition}/> }
+
+        {/* <p className = "Transition-Header">Level One: Warm Up </p>
+          <div className = "Quote-Box">
+            <p className = "Quote-Content">{randQuote.content}</p>
+            <p className = "Quote-Person">{randQuote.person}</p>
+        </div> */}
+
+        {(this.state.transition === true) ? 
         <div className="Progress-Btn">
-          <Link className ="Progress-RegenBtn" to = "/Game">REGEN</Link>
+          <Link className ="Progress-RegenBtn" to = "/Game"> REGEN </Link>
           <Link className ="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
-        </div>
+        </div>  : <div/>}
       </div>
     )
   }

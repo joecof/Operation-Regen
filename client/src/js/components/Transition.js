@@ -25,7 +25,7 @@ export default class Transition extends Component {
     var style = {
       backgroundImage: this.backgrounds[7]
     }
-
+    
     return (
       <div className = "Transition" style = { style }>
         <span>Hero: {this.props.name}</span>

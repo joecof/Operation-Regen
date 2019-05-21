@@ -27,23 +27,21 @@
 }
 
 .LeaderBoardBox-Btn {
+  font-size: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #449d44;
   border-radius: 10px;
-  padding: 0.8rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   font-weight: 400;
   text-align: center;
   line-height: 1.5;
   font-family: 'Sigmar One';
 }
 
-.LeaderBoardBox-Btn:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-}
 
-.LeaderBoardBox-BtnStyle,.LeaderBoardBox-BtnStyle:hover {
-  text-decoration: none;
-  color: black;
- 
-}
+
+
 
 
 

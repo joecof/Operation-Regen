@@ -28,18 +28,25 @@ export default class Transition extends Component {
     }
   }
 
+  // Apply number format
+  formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
+
   render() {
     var style = {
-      backgroundImage: "url(../../img/transitionbase" + this.props.level  + ".png)"
-    }
-    
+      backgroundImage: this.transitions[this.changeTransition()]
+    };
+
+    var heroCondition = this.props.life === 0 ? "D" : "H";
+
     return (
       <div className = "Transition" style = { style }>
-        <span> Hero: {this.props.name}</span>
-        <p className = "Transition-Score"> Score: {this.props.score} </p>
-        <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")} alt = ""/>
-        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")} alt = ""/>
+        <span>Hero: {this.props.name}</span>
+        <p className = "Transition-Score"> Score: {this.formatNumber(this.props.score)} </p>
+        <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")}/>
+        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + heroCondition + ".png")}/>
       </div>
-    )
+    );
   }
 }

@@ -15,9 +15,14 @@ class Progress extends Component {
       hero: 99,
       name: " ",
       level: 1,
-      life: 5,
-      score: 0,
-      transition: false
+      life: 1,
+      score: 200,
+      app1: 0,
+      app2: 0,
+      app3: 0,
+      app4: 0,
+      app5: 0,
+      transition: true
     };
   }
 
@@ -40,6 +45,14 @@ class Progress extends Component {
   render() {
     var style = {
       backgroundImage: 'url(../img/bg_transition_brown.jpg)'
+    }
+
+    var regen = {
+      display: this.state.life === 0 ? "none" : "block"
+    }
+
+    var leaderboard = {
+      display: this.state.life === 0 ? "block" : "none"
     }
 
     // Stores quote query result
@@ -75,4 +88,5 @@ class Progress extends Component {
     )
   }
 }
+
 export default Progress;

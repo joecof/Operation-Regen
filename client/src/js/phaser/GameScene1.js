@@ -6,7 +6,7 @@ var lose    = false;
 var gameWidth   = window.innerWidth;
 var gameHeight  = window.innerHeight;  
 var angle       = 0;
-var speed       = gameWidth/200;
+var speed       = gameWidth/100;
 var randNum     = Math.random() * 1700 + 100;
 
 var bulldozer;

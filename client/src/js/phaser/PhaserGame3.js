@@ -21,13 +21,12 @@ export default class Game extends Phaser.Game {
                     debug: false
                 }
             },
-            scene: GameScene4
+            scene: GameScene3
         }
         super(config);
         this.react = react;
     }
 }
-
 
 var player;
 var trash;
@@ -46,9 +45,9 @@ var target;
 
 var timedEvent;
 var timeLast=10;
-class GameScene4 extends Phaser.Scene {
+class GameScene3 extends Phaser.Scene {
     constructor() {
-        super({ key: 'GameScene4' });
+        super({ key: 'GameScene3' });
     }
     preload() {
         //load image  
@@ -65,23 +64,23 @@ class GameScene4 extends Phaser.Scene {
     }
 
 
-reduceTime ()
-{
-    timeLast--;
-    if(timeLast===0){
-        text.setText('timer: 0');
-        this.gameOver();
-        timedEvent.remove();
+    reduceTime ()
+    {
+        timeLast--;
+        if(timeLast===0){
+            text.setText('timer: 0');
+            this.gameOver();
+            timedEvent.remove();
+        }
+    
     }
-   
-}
 
     create() {
         //add timer
          win = this.sound.add('win');
          dump = this.sound.add('dump');
          jump = this.sound.add('jump');
-        //  pickup = this.sound.add('pickup');
+         pickup = this.sound.add('pickup');
         
     
         timedEvent = this.time.addEvent({ delay: 1000, callback: this.reduceTime, callbackScope: this, loop: true });

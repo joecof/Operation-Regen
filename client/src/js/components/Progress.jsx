@@ -120,16 +120,9 @@ class Progress extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     // var style = {
     //   backgroundImage: 'url(../../img/bg_transition_brown.jpg)'
     // }
-=======
-
-    var style = {
-      backgroundImage: 'url(../img/bg_transition_brown.jpg)'
-    }
->>>>>>> joe
 
     var regen = {
       display: this.state.life === 0 ? "none" : "block"

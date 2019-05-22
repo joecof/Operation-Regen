@@ -3,9 +3,8 @@
   border-radius: 4px;
   height: 55px;
   width: 100%;
-  /*padding: 20px;*/
-  font-size: 25px;
-  /*line-height: 1.42857143;*/
+  font-size: 28px;
+  font-weight: 900;
   color: #555;
 }
 
@@ -19,16 +18,24 @@
 
 ::-webkit-input-placeholder {
   text-align: center;
+  font-weight: 400;
+  font-size: 25px;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-  text-align: center;  
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-  text-align: center;  
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
 }
 
 :-ms-input-placeholder {  
-  text-align: center; 
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
 }

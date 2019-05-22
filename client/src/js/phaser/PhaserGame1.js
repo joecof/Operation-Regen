@@ -12,7 +12,7 @@ export default class Game extends Phaser.Game {
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
-        pixalArt: true
+        pixelArt: true
       },
       physics: {
         default: 'arcade',
@@ -20,7 +20,7 @@ export default class Game extends Phaser.Game {
             gravity: { y: 300 },
             debug: false
         }
-    },
+      },
       scene: GameScene1
     }
     super(config);
@@ -53,7 +53,7 @@ class GameScene1 extends Phaser.Scene {
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
-    instruction = this.load.image('instruction', '../img/Instruction.png');
+    instruction = this.load.image('instruction', '../img/Instruction1.png');
     
   }
 

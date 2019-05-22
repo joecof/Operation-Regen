@@ -4,7 +4,6 @@ import LeaderBoardItem from './LeaderBoardItem';
 import LeaderBoardHeader from './LeaderBoardHeader';
 import '../../css/LeaderBoardBox.css';
 
-
 class LeaderBoardBox extends Component {
   // Initializes leaderboard array
   constructor() {
@@ -53,8 +52,8 @@ class LeaderBoardBox extends Component {
             ))
           }
   
-          <div className="LeaderBoardBox-BtnContainer">
-            <Link className = "LeaderBoardBox-Btn" to="/">Back To Main</Link>
+          <div className = "LeaderBoardBox-BtnContainer">
+            <Link className = "LeaderBoardBox-Btn" to="/">BACK TO MAIN</Link>
           </div>
           
         </div>

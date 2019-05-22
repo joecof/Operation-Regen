@@ -1,8 +1,10 @@
 import * as Phaser from 'phaser';
 
+/**
+ * Turn Off The Faucet Game
+ */
 export default class Game extends Phaser.Game {
   constructor(react) {
-
     const config = {
       type: Phaser.AUTO,
       parent: 'gameContainer',
@@ -12,15 +14,15 @@ export default class Game extends Phaser.Game {
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
-        pixalArt: true
+        pixelArt: true
       },
       physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 300 },
-            debug: false
+          gravity: { y: 300 },
+          debug: false
         }
-    },
+      },
       scene: GameScene4
     }
     super(config);
@@ -28,9 +30,11 @@ export default class Game extends Phaser.Game {
   }
 }
 
+/**
+ * Global variables
+ */
 var gameWidth = window.innerWidth;
 var gameHeight = window.innerHeight;
-
 var scaleY = gameHeight / 1080;
 var scaleX = gameWidth / 1920;
 
@@ -38,7 +42,7 @@ var timed = false;
 var once = false;
 var instr = false;
 var control = false;
-var win = false;
+var gameCondition = false;
 var instruction;
 var curLoop = 0;
 // var curAngle = 0;
@@ -50,21 +54,26 @@ var handle;
 var bkgr;
 var water;
 
+var faucet1;
+var faucet2;
+var faucet3;
+var faucet4;
+
 var targetAngle = Math.floor(Math.random() * 150) + 30;
 var mult = 5; // Difficulty modifier here
 var range = [mult, mult + 5, mult + 15, mult + 25];
-console.log(targetAngle);
+//console.log(targetAngle);
 
+/**
+ * Turn Off The Faucet Game
+ */
 class GameScene4 extends Phaser.Scene {
-
   constructor() {
-    super({
-      key: 'GameScene3'
-    })
+    super({key: 'GameScene4'})
   }
 
   preload() {
-    this.load.image('instruction', '../img/Instruction3.png');
+    this.load.image('instruction', '../img/instruction_faucet.png');
     this.load.image('sink', '../img/sink.png');
     this.load.image('faucet', '../img/faucet.png');
     this.load.image('handle', '../img/handle.png');
@@ -72,6 +81,12 @@ class GameScene4 extends Phaser.Scene {
       frameWidth: 200,
       frameHeight: 200
     });
+
+    this.load.audio('loud', '../img/faucet_full.mp3');
+    this.load.audio('mid', '../img/faucet_half.mp3');
+    this.load.audio('drop', '../img/faucet_quarter.mp3');
+    this.load.audio('close', '../img/closed.mp3');
+    this.load.audio('win', '../sound/3win.mp3');
   }
 
   create() {
@@ -91,6 +106,27 @@ class GameScene4 extends Phaser.Scene {
     water.anims.load('flow');
     water.anims.play('flow');
     water.setScale(1.5);
+
+    faucet1     = this.sound.add('loud');
+    faucet2     = this.sound.add('mid');
+    faucet3     = this.sound.add('drop');
+    faucet4     = this.sound.add('close');
+    let win = this.sound.add('win');
+
+    faucet1.setLoop(true);
+    faucet2.setLoop(true);
+    faucet3.setLoop(true);
+    faucet4.setLoop(true);
+
+    faucet1.play();
+    faucet2.play();
+    faucet3.play();
+    faucet4.play();
+
+    faucet1.setMute(false);
+    faucet2.setMute(true);
+    faucet3.setMute(true);
+    faucet4.setMute(true);
 
     this.add.image(gameWidth / 2, faucetY, 'faucet').setScale(0.6, 0.8);
     handle = this.add.image(gameWidth / 2, gameHeight / 4.5, 'handle').setScale(0.75).setInteractive();
@@ -112,15 +148,31 @@ class GameScene4 extends Phaser.Scene {
           if (inZone(2)) {
             if (inZone(1)) {
               if (inZone(0)) {
+                faucet1.setMute(true);
+                faucet2.setMute(true);
+                faucet3.setMute(true);
+                faucet4.setMute(false); 
                 water.setScale(0);
               }
             } else {
+              faucet3.setMute(false);
+              faucet2.setMute(true);
+              faucet1.setMute(true);
+              faucet4.setMute(true);
               water.setScale(0.5);
             }
           } else {
+            faucet2.setMute(false);
+            faucet1.setMute(true);
+            faucet3.setMute(true);
+            faucet4.setMute(true);
             water.setScale(1);
           }
         } else {
+          faucet1.setMute(false);
+          faucet2.setMute(true);
+          faucet3.setMute(true);
+          faucet4.setMute(true);
           water.setScale(1.5);
         }
       }
@@ -129,12 +181,16 @@ class GameScene4 extends Phaser.Scene {
     this.input.on('dragend', function (pointer, gameObject) {
       if (control === true) {
         if (inZone(0)) {
-          win = true;
+          win.play();
+
+          setInterval(() => {
+            gameCondition = true;
+          }, 3000)
         }
       }
     });
 
-    instruction = this.add.image(gameWidth / 2, gameHeight / 1.3, 'instruction');
+    instruction = this.add.image(gameWidth / 2, gameHeight / 1.3, 'instruction').setScale(1.5);
   }
 
   update() {
@@ -152,12 +208,14 @@ class GameScene4 extends Phaser.Scene {
         once = true;
       }
     }
+
     if (timed === false && once === true) {
       control = true;
     }
-    if (win === true) {
-      //Transition here
-      this.game.destroy();
+
+    if (gameCondition) {
+      this.game.destroy(true);
+      this.game.react.props.updateProgress(gameCondition);
       this.game.react.props.toggleTransition();
     }
   }
@@ -186,8 +244,5 @@ class GameScene4 extends Phaser.Scene {
     } else {
       instr = true;
     }
-
   }
-
 }
-

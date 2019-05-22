@@ -1,11 +1,40 @@
 import * as Phaser from 'phaser';
-import { isTSAnyKeyword } from '@babel/types';
 
-// move by x
-var dx = [ 1, -1, 0, 0 ];
+/**
+ * Put The Lights Out Game
+ */
+export default class Game extends Phaser.Game {
+  constructor(react) {
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      },
+      render: {
+        pixelArt: true
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: { y: 300 },
+          debug: false
+        }
+      },
+      scene: GameScene5
+    }
+    super(config);
+    this.react = react;
+  }
+}
 
-// move by y
-var dy = [ 0, 0, 1, -1 ];
+/**
+ * Global variables
+ */
+var dx = [ 1, -1, 0, 0 ]; // move by x
+var dy = [ 0, 0, 1, -1 ]; // move by y
 
 // track all tiles for easy access
 var moves = 0;
@@ -29,18 +58,32 @@ var roomMoveY = 356;
 var spaceBetweenRooms = 30;
 var gameOver = false;
 
-export default class GameScene5 extends Phaser.Scene {
+let instruction;
+let lightSwitch;
+let win;
+
+var instr   = true;
+var back    = false;
+var mult    = 1;
+var LOOP    = 2;
+
+/**
+ * Put The Lights Out Game
+ */
+class GameScene5 extends Phaser.Scene {
   constructor() {
-    super({
-      key: 'GameScene5'
-    });
+    super({key: 'GameScene5'});
   }
   
   preload() {
     // load background
     this.load.image('background0', '../img/house0.png');
     this.load.image('background1', '../img/house1.png');
-    
+    this.load.image('instruction', '../img/instruction_lights.png');
+
+    this.load.audio('win', '../sound/3win.mp3');
+    this.load.audio('light', '../img/lightSwitch.mp3');
+
     // load on-off lights
     var roomNo = 1;
     for (let i = 0; i < boardSize; i++) {
@@ -53,6 +96,10 @@ export default class GameScene5 extends Phaser.Scene {
   }
 
   create() {
+    lightSwitch = this.sound.add('light');
+    win = this.sound.add('win');
+    instruction = this.add.image(350, 100, 'instruction').setDepth(2);
+    
     if (boardSize === 2) {
       background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background0');
     } else if (boardSize === 3) {
@@ -87,12 +134,14 @@ export default class GameScene5 extends Phaser.Scene {
   }
   
   update() {
+    if (instr) {
+      this.showInstruction();
+    }
+
     if (gameOver) {
-      console.log("game over: " + gameOver);
-      //this.game.destroy();
-      gameOver = !gameOver;
-      this.game.react.props.toggleTransition();
       this.game.destroy(true);
+      this.game.react.props.updateProgress(gameOver);
+      this.game.react.props.toggleTransition();
     }
   }
 
@@ -101,6 +150,7 @@ export default class GameScene5 extends Phaser.Scene {
   }
 
   onTileClicked() {
+    lightSwitch.play();
     var x = Math.floor((this.x - roomMoveX) / roomWidth);
   	var y = Math.floor((this.y - roomMoveY) / roomHeight);
     
@@ -128,12 +178,40 @@ export default class GameScene5 extends Phaser.Scene {
     }
 
     if (countOn === 0) {
-      gameOver = true;
+      win.play();
+
+      setInterval(() => {
+        gameOver = true;
+      }, 3000);
     }
-    
-  	/*if(gameOver) {
-  	  this.game.destroy();
-      this.game.react.props.toggleTransition();
-  	}*/
+
+  }
+
+  showInstruction() {
+    var speed = 0.04
+    var max = 2;
+    var min = 1;
+
+    if (instr === true) {
+      if (mult < max && back === false) {                
+        instruction.setScale(mult += speed);
+        if (mult >= max) {
+          back = true;                                        
+        }                
+      }
+
+      if (mult > min && back === true) {
+        instruction.setScale(mult -= speed);
+        if(mult <= min){
+            back = false;
+            LOOP--;
+        }
+      }
+
+      if (LOOP < 0) {
+        instr = false;
+        instruction.x = -1000;
+      }
+    }
   }
 }

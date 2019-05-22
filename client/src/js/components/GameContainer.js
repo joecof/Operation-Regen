@@ -7,10 +7,8 @@ import PhaserGame4 from '../phaser/PhaserGame4';
 import PhaserGame5 from '../phaser/PhaserGame5';
 
 class GameContainer extends Component {
-  
   constructor(props) {
     super(props);
-
     this.state = {
       game: null
     }
@@ -19,7 +17,7 @@ class GameContainer extends Component {
   componentDidMount() {
     switch(this.props.game) {
       case 1:
-        this.setState({game: new PhaserGame3(this)});
+        this.setState({game: new PhaserGame1(this)});
         break;
       case 3: 
         this.setState({game: new PhaserGame2(this)});
@@ -33,6 +31,7 @@ class GameContainer extends Component {
       case 9: 
         this.setState({game: new PhaserGame5(this)});
         break;
+      default:
     }
   }
 

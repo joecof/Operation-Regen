@@ -12,7 +12,7 @@ export default class Game extends Phaser.Game {
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
-        pixelArt: true
+        pixalArt: true
       },
       physics: {
         default: 'arcade',
@@ -46,6 +46,7 @@ export default class Game extends Phaser.Game {
   var pickup;
   var loaded;
   var run;
+  let winSound;
   
   let gameWon = false;
   let gameLost = false;
@@ -85,6 +86,8 @@ class GameScene2 extends Phaser.Scene {
     this.load.audio('river', '../img/river.mp3');
     this.load.audio('truck', '../img/sound.wav');
     this.load.audio('loaded', '../img/winAlt.mp3');
+    this.load.audio('win', '../sound/3win.mp3');
+
 
     // Copy-paste these
   }
@@ -105,6 +108,7 @@ class GameScene2 extends Phaser.Scene {
     pickup   = this.sound.add('pick');
     run    = this.sound.add('truck');
     loaded = this.sound.add('loaded');
+    winSound = this.sound.add('win');
     
     river.play();
     // Copy-paste these    
@@ -149,7 +153,8 @@ class GameScene2 extends Phaser.Scene {
             loaded.play();
             target--;
             if(target < 0){
-              run.play();
+              // run.play();
+              winSound.play();
               win = true;
             }                
 
@@ -180,7 +185,8 @@ class GameScene2 extends Phaser.Scene {
 
             setInterval(() => {
              gameWon = true;
-            }, 2000)
+
+            }, 3000)
 
         } else {
 
@@ -191,11 +197,14 @@ class GameScene2 extends Phaser.Scene {
         setInterval(() => {
           gameLost = true;
          }, 1000)
+
+ 
     }
 
     if(gameWon) {
       this.game.destroy();
       this.game.react.props.toggleTransition();
+      
     }
     
     if(gameLost) {

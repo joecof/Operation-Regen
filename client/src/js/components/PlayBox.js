@@ -13,26 +13,17 @@ class PlayBox extends Component {
     this.state = {
       selectedHero: null,
       heroName: null,
-<<<<<<< HEAD
-      nameChange: false,
-      togglePopUp: false,
-      text: "",
-=======
       nameChange: false
       //togglePopUp: false,
       //text: ""
->>>>>>> dev
     }
 
     this.checkUserInput = this.checkUserInput.bind(this);
     this.returnPath = this.returnPath.bind(this);
     //this.handleClick = this.handleClick.bind(this);
   }
-<<<<<<< HEAD
-=======
 
   /*
->>>>>>> dev
   componentWillMount() {
     document.addEventListener('mousedown', this.handleClick, false);
   }
@@ -124,12 +115,8 @@ class PlayBox extends Component {
           </div>
         </div>  
 
-<<<<<<< HEAD
-      {(this.state.togglePopUp === true) ? 
-=======
 
       {/* (this.state.togglePopUp === true) ? 
->>>>>>> dev
         <PopUp 
            text = { this.state.text }
       /> : <div/> */}

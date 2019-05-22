@@ -37,6 +37,16 @@ export default class Game extends Phaser.Game {
   var instruction;
   var garbage;
 
+
+
+
+
+  // Copy-paste these
+  var river;
+  var pickup;
+  var loaded;
+  var run;
+  
   var instr   = true;
   var drag    = false;
   var win     = false;
@@ -45,7 +55,7 @@ export default class Game extends Phaser.Game {
   var mult    = 1;
   var LOOP    = 2;
   var angle   = 0;
-  var target  = 5;
+  var target  = 2;
 
   var initX   = -100;
   var speed   = 5 + (Math.random() * 5);
@@ -65,6 +75,14 @@ class GameScene2 extends Phaser.Scene {
     this.load.image('garbage', '../img/trash.png');
     this.load.image('garbageP', '../img/trashPicked.png');
     this.load.image('instruction', '../img/Instruction.png');
+
+    // Copy-paste these
+    this.load.audio('pick', '../img/pickup.mp3');
+    this.load.audio('river', '../img/river.mp3');
+    this.load.audio('truck', '../img/sound.wav');
+    this.load.audio('loaded', '../img/winAlt.mp3');
+
+    // Copy-paste these
   }
 
   create() {
@@ -77,6 +95,15 @@ class GameScene2 extends Phaser.Scene {
     };
 
     this.anims.create(config);
+
+    // Copy-paste these
+    river    = this.sound.add('river');   
+    pickup   = this.sound.add('pick');
+    run    = this.sound.add('truck');
+    loaded = this.sound.add('loaded');
+    
+    river.play();
+    // Copy-paste these    
 
     bkgr  = this.add.sprite(0, 0, 'background').setOrigin(0,0);
     bkgr.scaleY  = scaleY;
@@ -94,6 +121,7 @@ class GameScene2 extends Phaser.Scene {
     this.input.setDraggable(garbage);
 
     this.input.on('dragstart', function (pointer, gameObject) {
+        pickup.play();
         garbage.setTexture('garbageP');
         drag = true;
     });
@@ -104,6 +132,7 @@ class GameScene2 extends Phaser.Scene {
             truck.setScale(2);
         } else{
             truck.setScale(1.5);
+
         }
         gameObject.x = dragX;
         gameObject.y = dragY;
@@ -113,9 +142,11 @@ class GameScene2 extends Phaser.Scene {
         if(gameObject.x < truck.x + 192 && gameObject.x > truck.x - 192
         && gameObject.y < truck.y + 62 && gameObject.y > truck.y - 62){
             truck.setScale(1.5);
+            loaded.play();
             target--;
             if(target < 0){
-                win = true;
+              run.play();
+              win = true;
             }                
 
             var rand    = gameHeight/1.15 + (Math.random()*40 + 10);

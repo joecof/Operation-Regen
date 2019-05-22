@@ -34,8 +34,13 @@ var lose    = false;
 var gameWidth   = window.innerWidth;
 var gameHeight  = window.innerHeight;  
 var angle       = 0;
-var speed       = gameWidth/100;
+var speed       = gameWidth/200;
 var randNum     = Math.random() * 1700 + 100;
+
+var trucksfx;
+var truckflip;
+var treeflip;
+
 
 var bulldozer;
 var bg;
@@ -54,7 +59,11 @@ class GameScene1 extends Phaser.Scene {
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
     instruction = this.load.image('instruction', '../img/Instruction.png');
-    
+
+
+    this.load.audio('truck', '../img/sound.wav');
+    this.load.audio('win', '../img/winAlt.mp3');
+    this.load.audio('lose', '../img/Treed.wav');
   }
 
   drawBull(){
@@ -64,6 +73,7 @@ class GameScene1 extends Phaser.Scene {
         bulldozer.y += (1.25*Math.cos(15 * angle));
     } else if(bulldozer.x >= tree.x){
         angle   = 0;
+        treeflip.play();
         lose    = true;
     } else if(bulldozer.x >= gameWidth){
         bulldozer.x = -200;
@@ -108,13 +118,14 @@ class GameScene1 extends Phaser.Scene {
         tree.x += 26;
         tree.y += (50 * Math.cos(0.1 * angle + 42) + 10);
     } else {
+      
     }
   }
 
   create() {
 
     bg          = this.add.sprite(0, 0, 'background').setOrigin(0,0);
-    tree        = this.add.image(1200, gameHeight/2 + 80, 'tree');
+    tree        = this.add.image(1200, gameHeight/2 + 80, 'tree').setScale(1.5);
     bulldozer   = this.add.image(-300, gameHeight/2 + 120, 'bull').setInteractive();
     instruction = this.add.image(-700, gameHeight/2 - 250, 'instruction');        
 
@@ -124,6 +135,13 @@ class GameScene1 extends Phaser.Scene {
     bg.scaleX  = scaleX;
     bulldozer.setScale(2.5);
 
+
+    trucksfx    = this.sound.add('truck');  
+    treeflip   = this.sound.add('lose');
+    truckflip   = this.sound.add('win');
+
+    trucksfx.play(); 
+
     bulldozer.on('pointover', () => {
     })
 
@@ -131,18 +149,22 @@ class GameScene1 extends Phaser.Scene {
     })
     
     bulldozer.on('pointerdown', function (pointer) {
+      trucksfx.stop();
 
-        if(lose === false){
-            angle = 0;
-            win = true;
-            
-        } else {
-          
-        }            
+      if(lose === false){
+        truckflip.play();         
+        angle = 0;
+        win = true; 
+      } else {
+
+      }            
     });
+
   }
 
   update (){     
+
+
     if(instr === false && win === false && lose === false){
         this.showInstruction();
         
@@ -150,8 +172,7 @@ class GameScene1 extends Phaser.Scene {
         this.drawBull();				
     } else if(win === true){
         this.victoryLoop();
-      
-
+    
     } else if(lose === true){
         this.loserLoop();
 

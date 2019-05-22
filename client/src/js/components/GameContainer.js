@@ -33,6 +33,8 @@ class GameContainer extends Component {
       case 9: 
         this.setState({game: new PhaserGame5(this)});
         break;
+      default: 
+        break;
     }
   }
 

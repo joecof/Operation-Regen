@@ -28,7 +28,6 @@ export default class Game extends Phaser.Game {
   }
 }
 
-
 var player;
 var trash;
 var platforms;
@@ -40,7 +39,7 @@ var target;
 
 class GameScene4 extends Phaser.Scene {
     constructor() {
-        super({ key: 'GameScene4' });
+        super({ key: 'GameScene3' });
     }
     preload() {
         //load image

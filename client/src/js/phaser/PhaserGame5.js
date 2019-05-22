@@ -1,5 +1,32 @@
 import * as Phaser from 'phaser';
-import { isTSAnyKeyword } from '@babel/types';
+
+export default class Game extends Phaser.Game {
+  constructor(react) {
+
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      },
+      render: {
+        pixalArt: true
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+      scene: GameScene5
+    }
+    super(config);
+    this.react = react;
+  }
+}
 
 // move by x
 var dx = [ 1, -1, 0, 0 ];
@@ -29,7 +56,10 @@ var roomMoveY = 356;
 var spaceBetweenRooms = 30;
 var gameOver = false;
 
-export default class GameScene5 extends Phaser.Scene {
+let lightSwitch;
+let win;
+
+class GameScene5 extends Phaser.Scene {
   constructor() {
     super({
       key: 'GameScene5'
@@ -40,6 +70,12 @@ export default class GameScene5 extends Phaser.Scene {
     // load background
     this.load.image('background0', '../img/house0.png');
     this.load.image('background1', '../img/house1.png');
+
+
+    this.load.audio('light', '../img/lightSwitch.mp3');
+    this.load.audio('win', '../img/winAlt.mp3');
+
+
     
     // load on-off lights
     var roomNo = 1;
@@ -53,6 +89,10 @@ export default class GameScene5 extends Phaser.Scene {
   }
 
   create() {
+
+    lightSwitch = this.sound.add('light');
+    win = this.sound.add('win');
+    
     if (boardSize === 2) {
       background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background0');
     } else if (boardSize === 3) {
@@ -88,11 +128,15 @@ export default class GameScene5 extends Phaser.Scene {
   
   update() {
     if (gameOver) {
-      console.log("game over: " + gameOver);
-      //this.game.destroy();
+      win.play();
       gameOver = !gameOver;
-      this.game.react.props.toggleTransition();
-      this.game.destroy(true);
+
+      setInterval(() => {
+        this.game.react.props.toggleTransition();
+        this.game.destroy(true);
+
+      }, 1000)
+
     }
   }
 
@@ -101,6 +145,7 @@ export default class GameScene5 extends Phaser.Scene {
   }
 
   onTileClicked() {
+    lightSwitch.play();
     var x = Math.floor((this.x - roomMoveX) / roomWidth);
   	var y = Math.floor((this.y - roomMoveY) / roomHeight);
     

@@ -48,9 +48,9 @@
 
 .Transition-Hero {
   position: absolute;
-  top:50%;
+  top: 60%;
   right: 60%;
-  width:120px;
+  width: 120px;
 }
 
 
@@ -74,6 +74,7 @@
     font-size: 0.8em;
   }
   .Transition-Hero{
+    top: 63%;
     width: 90px;
   }
   .Transition{

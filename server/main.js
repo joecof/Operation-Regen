@@ -70,10 +70,27 @@ app.post('/', (req, res) => {
   res.send(`${req.body.post}`,);
 })
 
+<<<<<<< HEAD:server/main.js
 app.use(express.static(path.join(__dirname, '/../client/build')));
 app.get('/', (req, res) => {
   res.sendfile(path.join(__dirname = '/../client/build/index.html'));
 })
+=======
+// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // app.use(express.static(path.join(__dirname, '/../client/build')));
+  // app.get('/', (req, res) => {
+  //   res.sendfile(path.join(__dirname = '/../client/build/index.html'));
+  // })
+
+  app.use(express.static(path.join(__dirname, './client/build')));
+  app.get('/', (req, res) => {
+    res.sendfile(path.join(__dirname = './client/build/index.html'));
+  })
+  
+  
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> 0bd4f0a1995f6afae9b52cf71dbecb3390fe0ff5:main.js
 
 app.use((req,res) => {
   res.status(404).sendFile(path.join(__dirname, '/../public/html', '404.html'));

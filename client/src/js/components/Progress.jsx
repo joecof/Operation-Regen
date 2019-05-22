@@ -51,7 +51,7 @@ class Progress extends Component {
 
   render() {
     var style = {
-      backgroundImage: 'url(../img/bg_transition_brown.jpg)'
+      backgroundImage: 'url(/src/img/bg_transition_brown.jpg)'
     }
 
     // Stores quote query result

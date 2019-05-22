@@ -67,7 +67,6 @@ class GameScene3 extends Phaser.Scene {
     reduceTime ()
     {
         timeLast--;
-        if(timeLast===0){
             text.setText('timer: 0');
             this.gameOver();
             timedEvent.remove();

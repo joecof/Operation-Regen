@@ -71,11 +71,8 @@ class GameScene5 extends Phaser.Scene {
     this.load.image('background0', '../img/house0.png');
     this.load.image('background1', '../img/house1.png');
 
-
     this.load.audio('light', '../img/lightSwitch.mp3');
     this.load.audio('win', '../img/winAlt.mp3');
-
-
     
     // load on-off lights
     var roomNo = 1;

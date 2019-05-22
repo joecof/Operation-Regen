@@ -134,7 +134,8 @@ class GameScene3 extends Phaser.Scene {
     text.setText('Timer: ' + timeLast);
     if (player.y > 700) {
 
-      this.gameOver();
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
     }
 
 

@@ -134,7 +134,7 @@ class GameScene5 extends Phaser.Scene {
       setInterval(() => {
         this.game.react.props.toggleTransition();
         this.game.destroy(true);
-
+        
       }, 1000)
 
     }

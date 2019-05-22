@@ -47,6 +47,10 @@ export default class Game extends Phaser.Game {
   var loaded;
   var run;
   
+  let gameWon = false;
+  let gameLost = false;
+
+
   var instr   = true;
   var drag    = false;
   var win     = false;
@@ -172,15 +176,31 @@ class GameScene2 extends Phaser.Scene {
             truck.x -= 5;
             angle   += 3;
             truck.y += (1.25*Math.cos(15 * angle));
+
+
+            setInterval(() => {
+             gameWon = true;
+            }, 2000)
+
         } else {
 
         }            
     } else if(lose === true){
         bkgr.setTexture('backgroundLoss');
-        //Transition here
 
-        this.game.destroy();
-        this.game.react.props.toggleTransition();
+        setInterval(() => {
+          gameLost = true;
+         }, 1000)
+    }
+
+    if(gameWon) {
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
+    }
+    
+    if(gameLost) {
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
     }
   }
 

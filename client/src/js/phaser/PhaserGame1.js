@@ -31,6 +31,8 @@ export default class Game extends Phaser.Game {
 var instr   = false;    
 var win     = false;
 var lose    = false;
+
+let gameCondition = false;
 var gameWidth   = window.innerWidth;
 var gameHeight  = window.innerHeight;  
 var angle       = 0;
@@ -74,10 +76,14 @@ class GameScene1 extends Phaser.Scene {
     } else if(bulldozer.x >= tree.x){
         angle   = 0;
         treeflip.play();
-        lose    = true;
+        lose = true;
+
+        setInterval(() => {
+          gameCondition = true;
+        }, 1000);
     } else if(bulldozer.x >= gameWidth){
         bulldozer.x = -200;
-    }
+    }    
   }
 
   showInstruction(){
@@ -117,12 +123,13 @@ class GameScene1 extends Phaser.Scene {
         tree.angle += 5;
         tree.x += 26;
         tree.y += (50 * Math.cos(0.1 * angle + 42) + 10);
+
     } else {
-      
     }
   }
 
   create() {
+
 
     bg          = this.add.sprite(0, 0, 'background').setOrigin(0,0);
     tree        = this.add.image(1200, gameHeight/2 + 80, 'tree').setScale(1.5);
@@ -151,19 +158,19 @@ class GameScene1 extends Phaser.Scene {
     bulldozer.on('pointerdown', function (pointer) {
       trucksfx.stop();
 
-      if(lose === false){
-        truckflip.play();         
-        angle = 0;
-        win = true; 
-      } else {
-
-      }            
+      win = true;
+      angle = 0;
+      truckflip.play();  
+       
     });
+
+   
+
 
   }
 
-  update (){     
-
+  update (){   
+    
 
     if(instr === false && win === false && lose === false){
         this.showInstruction();
@@ -175,8 +182,16 @@ class GameScene1 extends Phaser.Scene {
     
     } else if(lose === true){
         this.loserLoop();
-
     }
+
+
+    if(gameCondition === true) {
+      this.game.destroy(true);
+      this.game.react.props.toggleTransition();
+    }
+
+
+
 
   }
 

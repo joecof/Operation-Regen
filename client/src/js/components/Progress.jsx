@@ -12,8 +12,8 @@ class Progress extends Component {
       quote: [],
       hero: 99,
       name: " ",
-      score: 1000,
-      life: 1,
+      score: 0,
+      life: 5,
       round: 1,
       level: 1,
       game: 0,
@@ -45,7 +45,7 @@ class Progress extends Component {
   toggleTransition() {
     this.setState({
       transition: !this.state.transition,
-      level: this.state.level,
+      level: this.state.level + 0.5,
       game: this.state.game + 1,
       life: this.state.life
     });

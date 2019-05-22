@@ -89,7 +89,6 @@ class GameScene5 extends Phaser.Scene {
   }
 
   create() {
-
     lightSwitch = this.sound.add('light');
     win = this.sound.add('win');
     

@@ -12,7 +12,7 @@ class Progress extends Component {
       quote: [],
       hero: 99,
       name: " ",
-      score: 200,
+      score: 1000,
       life: 1,
       round: 1,
       level: 1,
@@ -81,9 +81,8 @@ class Progress extends Component {
       <div className = "Progress" style = {style}>
         {(this.state.transition === true) ?
           <div>
-            <p className="Transition-Header">Level One: Warm Up </p>
+            <p className="Transition-Header">Level {this.state.level}</p>
             <Transition
-              
               {...this.state}
             />
             <div className="Quote-Box">

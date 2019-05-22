@@ -37,7 +37,6 @@ class PlayBox extends Component {
     message.info('Enter your hero name!');
   };
 
-
   // Checks if user have selected hero and have entered hero name
   checkUserInput() {
     if (this.state.selectedHero === null) {
@@ -58,7 +57,6 @@ class PlayBox extends Component {
       return "/Progress";
     }
   }
-
 
   render() {
     return (

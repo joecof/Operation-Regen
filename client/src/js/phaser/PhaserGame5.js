@@ -1,5 +1,32 @@
 import * as Phaser from 'phaser';
-import { isTSAnyKeyword } from '@babel/types';
+
+export default class Game extends Phaser.Game {
+  constructor(react) {
+
+    const config = {
+      type: Phaser.AUTO,
+      parent: 'gameContainer',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH
+      },
+      render: {
+        pixelArt: true
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+      },
+      scene: GameScene5
+    }
+    super(config);
+    this.react = react;
+  }
+}
 
 // move by x
 var dx = [ 1, -1, 0, 0 ];
@@ -29,7 +56,7 @@ var roomMoveY = 356;
 var spaceBetweenRooms = 30;
 var gameOver = false;
 
-export default class GameScene5 extends Phaser.Scene {
+class GameScene5 extends Phaser.Scene {
   constructor() {
     super({
       key: 'GameScene5'

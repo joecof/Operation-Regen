@@ -12,7 +12,7 @@ export default class Game extends Phaser.Game {
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
-        pixalArt: true
+        pixelArt: true
       },
       physics: {
         default: 'arcade',
@@ -56,7 +56,6 @@ var range = [mult, mult + 5, mult + 15, mult + 25];
 console.log(targetAngle);
 
 class GameScene4 extends Phaser.Scene {
-
   constructor() {
     super({
       key: 'GameScene3'
@@ -186,8 +185,6 @@ class GameScene4 extends Phaser.Scene {
     } else {
       instr = true;
     }
-
   }
-
 }
 

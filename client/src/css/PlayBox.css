@@ -1,13 +1,10 @@
 .PlayBox{
-  /*width: 800px;*/
   height: 100%;
   margin: 20px auto;
-  background-color: #fff;
   padding: 18px;
 
   border: 1px solid silver;
   border-radius: 4px;
-
   background-color: rgba(255, 255, 255, 0.95);
 
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -20,7 +17,6 @@
 }
 
 .PlayBox-Form{
-  margin-bottom: 15px;
 }
 
 .PlayBox-Input {
@@ -36,30 +32,26 @@
 
 .PlayBox-Btn{
   height: 45px;
-  margin-top:15px;
-  margin-bottom: 20px;
-  
+  margin-top:20px;
+  margin-bottom: 2px;
 }
 
 .PlayBox-PlayBtn {
-
   width: 40%;
   float: left;
   background-color: #449d44;
   border-color: #398439;
   color: #fff;
 
-
   height: 45px;
   border-radius: 5px;
   border: 0;
-  color: white;
   font-size: 24px;
   font-weight: 900;
 
-  padding-top:10px;
-  text-align:center;
-  text-decoration:none;
+  padding-top: 6px;
+  text-align: center;
+  text-decoration: none;
   font-weight: 900;
 }
 
@@ -70,18 +62,16 @@
 .PlayBox-LeaderBoardBtn {
   width: 40%;
   float: right;
-  /*margin-right: 10px;*/
-  background-color: rgb(221, 85, 85);
-  border-color: rgb(221, 85, 85);
-  color: black;
+  background-color: rgb(255, 140, 0);
+  border-color: rgb(255, 140, 0);
   height: 45px;
   border-radius: 5px;
   border: 0;
   font-size: 24px;
   font-weight: 900;
-  padding-top:10px;
-  text-align:center;
-  text-decoration:none;
+  padding-top: 6px;
+  text-align: center;
+  text-decoration: none;
   color:white;
   font-weight: 900;
 }

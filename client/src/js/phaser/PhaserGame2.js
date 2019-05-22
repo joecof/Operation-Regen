@@ -12,7 +12,7 @@ export default class Game extends Phaser.Game {
         autoCenter: Phaser.Scale.CENTER_BOTH
       },
       render: {
-        pixalArt: true
+        pixelArt: true
       },
       physics: {
         default: 'arcade',

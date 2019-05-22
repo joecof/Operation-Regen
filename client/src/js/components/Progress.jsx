@@ -10,12 +10,13 @@ class Progress extends Component {
 
     this.state = {
       quote: [],
+      listNo: [],
       hero: 99,
       name: " ",
       winScore: 1000,
       loseScore: 300,
       score: 0,
-      life: 5,
+      life: 1,
       round: 1,
       level: 1,
       numOfGames: 5,
@@ -36,6 +37,9 @@ class Progress extends Component {
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({ quote })));
+    fetch('/ListNo')
+      .then(res => res.json())
+      .then(listNo => (this.setState({ listNo })));
   }
 
   // generates a random number
@@ -60,6 +64,8 @@ class Progress extends Component {
     var life = this.state.life;
     var round = this.state.round;
     var level = this.state.level;
+    var list = this.state.listNo;
+    var num = list[0];
 
     score = con ? score + this.state.winScore : score + this.state.loseScore;
     life = con ? life : --life;
@@ -76,6 +82,21 @@ class Progress extends Component {
         score: score,
         life: life
       });
+
+      console.log();
+      /*
+      fetch('/Progress', { 
+        method: 'POST'
+        data: {
+          userName: this.state.name,
+          score: score,
+          heroNo: this.state.hero,
+          levelNo: level
+        },
+      })
+        .then(res => res.json())
+        .then(() => {console.log("hello");});
+        */
     }
   }
 

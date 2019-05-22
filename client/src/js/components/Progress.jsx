@@ -27,16 +27,19 @@ class Progress extends Component {
     this.toggleTransition = this.toggleTransition.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
   }
+  componentWillMount(){
+    fetch('/Quote')
+    .then(res => res.json())
+    .then(quote => (this.setState({ quote })));
 
+  }
   // Fetch quote query result
   componentDidMount() {
     this.setState({
       hero: this.props.location.state.hero,
       name: this.props.location.state.name
     });
-    fetch('/Quote')
-      .then(res => res.json())
-      .then(quote => (this.setState({ quote })));
+   
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));

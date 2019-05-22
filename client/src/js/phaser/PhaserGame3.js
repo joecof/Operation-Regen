@@ -35,12 +35,11 @@ var trash;
 var platforms;
 var cursors;
 var score = 0;
-var gameOver = false;
 var text;
 
-let gameCondition = false;
 
-let win;
+
+let winSound;
 let dump;
 let jump;
 let pick;
@@ -52,6 +51,13 @@ var target;
 
 var timedEvent;
 var timeLast = 20;
+
+let instruction;
+var instr   = true;
+var back    = false;
+var mult    = 1;
+var LOOP    = 2;
+
 class GameScene3 extends Phaser.Scene {
   constructor() {
     super({
@@ -66,6 +72,7 @@ class GameScene3 extends Phaser.Scene {
     this.load.image('trash', '../img/trashPicked.png');
     this.load.image('dude', '../img/garbageman.png');
     this.load.image('target', '../img/trashcan.png');
+    this.load.image('instruction', '../img/instructionTrash.png');
 
     this.load.audio('win', '../sound/3win.mp3');
     this.load.audio('dump', '../sound/3dump.mp3');
@@ -86,10 +93,12 @@ class GameScene3 extends Phaser.Scene {
 
   create() {
     //add timer
-    win = this.sound.add('win');
+    winSound = this.sound.add('win');
     dump = this.sound.add('dump');
     jump = this.sound.add('jump');
     pick = this.sound.add('pick');
+
+    instruction = this.add.image(800,100, 'instruction').setDepth(2);
 
 
     timedEvent = this.time.addEvent({
@@ -132,8 +141,13 @@ class GameScene3 extends Phaser.Scene {
   update() {
 
     text.setText('Timer: ' + timeLast);
-    if (player.y > 700) {
 
+    if(instr){
+      this.showInstruction();
+    }
+
+    if (player.y > 700) {
+      
       this.game.destroy();
       this.game.react.props.toggleTransition();
     }
@@ -168,7 +182,7 @@ class GameScene3 extends Phaser.Scene {
     //win
     if (score === 10) {
       dump.play();
-      win.play();
+      winSound.play();
       timedEvent.remove();
       this.gameOver();
     }
@@ -233,6 +247,30 @@ class GameScene3 extends Phaser.Scene {
     setInterval(() => {
       gameOver = true;
     }, 3000)
-    
+  }
+
+  showInstruction(){
+    var speed = 0.04
+    var max = 2;
+    var min = 1;
+    if(instr === true){
+        if(mult < max && back === false){                
+            instruction.setScale(mult += speed);
+            if(mult >= max){
+                back = true;                                        
+            }                
+        }
+        if(mult > min && back === true){
+            instruction.setScale(mult -= speed);
+            if(mult <= min){
+                back = false;
+                LOOP--;
+            }
+        }
+        if(LOOP < 0){
+            instr = false;
+            instruction.x = -1000;
+        }
+    }
   }
 }

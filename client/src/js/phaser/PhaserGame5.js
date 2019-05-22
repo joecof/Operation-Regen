@@ -1,8 +1,10 @@
 import * as Phaser from 'phaser';
 
+/**
+ * Put The Lights Out Game
+ */
 export default class Game extends Phaser.Game {
   constructor(react) {
-
     const config = {
       type: Phaser.AUTO,
       parent: 'gameContainer',
@@ -17,8 +19,8 @@ export default class Game extends Phaser.Game {
       physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 300 },
-            debug: false
+          gravity: { y: 300 },
+          debug: false
         }
       },
       scene: GameScene5
@@ -28,11 +30,11 @@ export default class Game extends Phaser.Game {
   }
 }
 
-// move by x
-var dx = [ 1, -1, 0, 0 ];
-
-// move by y
-var dy = [ 0, 0, 1, -1 ];
+/**
+ * Global variables
+ */
+var dx = [ 1, -1, 0, 0 ]; // move by x
+var dy = [ 0, 0, 1, -1 ]; // move by y
 
 // track all tiles for easy access
 var moves = 0;
@@ -55,8 +57,8 @@ var roomMoveX = 720;
 var roomMoveY = 356;
 var spaceBetweenRooms = 30;
 var gameOver = false;
-let instruction;
 
+let instruction;
 let lightSwitch;
 let win;
 
@@ -65,18 +67,19 @@ var back    = false;
 var mult    = 1;
 var LOOP    = 2;
 
+/**
+ * Put The Lights Out Game
+ */
 class GameScene5 extends Phaser.Scene {
   constructor() {
-    super({
-      key: 'GameScene5'
-    });
+    super({key: 'GameScene5'});
   }
   
   preload() {
     // load background
     this.load.image('background0', '../img/house0.png');
     this.load.image('background1', '../img/house1.png');
-    this.load.image('instruction', '../img/instructionLights.png');
+    this.load.image('instruction', '../img/instruction_lights.png');
 
     this.load.audio('win', '../sound/3win.mp3');
     this.load.audio('light', '../img/lightSwitch.mp3');
@@ -95,8 +98,7 @@ class GameScene5 extends Phaser.Scene {
   create() {
     lightSwitch = this.sound.add('light');
     win = this.sound.add('win');
-    instruction = this.add.image(350,100, 'instruction').setDepth(2);
-
+    instruction = this.add.image(350, 100, 'instruction').setDepth(2);
     
     if (boardSize === 2) {
       background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background0');
@@ -132,15 +134,14 @@ class GameScene5 extends Phaser.Scene {
   }
   
   update() {
-
-    if(instr){
+    if (instr) {
       this.showInstruction();
     }
 
     if (gameOver) {
-    
-      this.game.react.props.toggleTransition();
       this.game.destroy(true);
+      this.game.react.props.updateProgress(gameOver);
+      this.game.react.props.toggleTransition();
     }
   }
 
@@ -181,34 +182,36 @@ class GameScene5 extends Phaser.Scene {
 
       setInterval(() => {
         gameOver = true;
-
       }, 3000);
     }
 
   }
 
-  showInstruction(){
+  showInstruction() {
     var speed = 0.04
     var max = 2;
     var min = 1;
-    if(instr === true){
-        if(mult < max && back === false){                
-            instruction.setScale(mult += speed);
-            if(mult >= max){
-                back = true;                                        
-            }                
+
+    if (instr === true) {
+      if (mult < max && back === false) {                
+        instruction.setScale(mult += speed);
+        if (mult >= max) {
+          back = true;                                        
+        }                
+      }
+
+      if (mult > min && back === true) {
+        instruction.setScale(mult -= speed);
+        if(mult <= min){
+            back = false;
+            LOOP--;
         }
-        if(mult > min && back === true){
-            instruction.setScale(mult -= speed);
-            if(mult <= min){
-                back = false;
-                LOOP--;
-            }
-        }
-        if(LOOP < 0){
-            instr = false;
-            instruction.x = -1000;
-        }
+      }
+
+      if (LOOP < 0) {
+        instr = false;
+        instruction.x = -1000;
+      }
     }
   }
 }

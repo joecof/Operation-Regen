@@ -1,8 +1,10 @@
 import * as Phaser from 'phaser';
-//ivan game
+
+/**
+ * Throw Out The Trash Game
+ */
 export default class Game extends Phaser.Game {
   constructor(react) {
-
     const config = {
       type: Phaser.AUTO,
       parent: 'gameContainer',
@@ -30,6 +32,9 @@ export default class Game extends Phaser.Game {
   }
 }
 
+/**
+ * Global variables
+ */
 var player;
 var trash;
 var platforms;
@@ -37,21 +42,17 @@ var cursors;
 var score = 0;
 var text;
 
-
 let gameOver = false;
-
 let winSound;
 let dump;
 let jump;
 let pick;
-
 let grabTrash = false;
 let grabbed = false;
 
 var target;
-
 var timedEvent;
-var timeLast = 20;
+var timeLast = 30;
 
 let instruction;
 var instr   = true;
@@ -59,14 +60,14 @@ var back    = false;
 var mult    = 1;
 var LOOP    = 2;
 
-var what;
-
+/**
+ * Throw Out The Trash Game
+ */
 class GameScene3 extends Phaser.Scene {
   constructor() {
-    super({
-      key: 'GameScene3'
-    });
+    super({key: 'GameScene3'});
   }
+
   preload() {
     //load image  
     // this.load.image('bgImg', ' ../img/park1.png');
@@ -83,7 +84,6 @@ class GameScene3 extends Phaser.Scene {
     this.load.audio('pick','../sound/3pickup.wav');
   }
 
-
   reduceTime() {
     timeLast--;
     if (timeLast === 0) {
@@ -91,26 +91,24 @@ class GameScene3 extends Phaser.Scene {
       this.gameOver();
       timedEvent.remove();
     }
-
   }
 
   create() {
-    //add timer
+    // add timer
     winSound = this.sound.add('win');
     dump = this.sound.add('dump');
     jump = this.sound.add('jump');
     pick = this.sound.add('pick');
 
-    instruction = this.add.image(800,100, 'instruction').setDepth(2);
-
-
+    instruction = this.add.image(800, 100, 'instruction').setDepth(2);
     timedEvent = this.time.addEvent({
       delay: 1000,
       callback: this.reduceTime,
       callbackScope: this,
       loop: true
     });
-    //  add image
+
+    // add image
     this.add.image(0, 0, 'bgImg').setOrigin(0, 0);
     platforms = this.physics.add.staticGroup();
 
@@ -124,8 +122,6 @@ class GameScene3 extends Phaser.Scene {
     player.setCollideWorldBounds(true);
 
     cursors = this.input.keyboard.createCursorKeys();
-
-
     trash = this.physics.add.sprite(200, 0, 'trash').setScale(0.5);
 
     text = this.add.text(16, 16, 'Timer: 10s', {
@@ -137,27 +133,24 @@ class GameScene3 extends Phaser.Scene {
     this.physics.add.collider(trash, platforms);
     this.physics.add.collider(target, platforms);
     this.physics.add.overlap(target, trash, this.reachTarget, null, this);
-
   }
 
-  //update
   update() {
-
     text.setText('Timer: ' + timeLast);
 
-    if(instr){
+    if (instr) {
       this.showInstruction();
     }
 
     if (gameOver || player.y > 700) {
-      this.game.destroy();
+      this.game.destroy(true);
+      this.game.react.props.updateProgress(gameOver);
       this.game.react.props.toggleTransition();
     }
 
     if (cursors.left.isDown) {
       player.setVelocityX(-160);
       this.physics.add.overlap(player, trash, this.pushLeft, null, this);
-
     } else if (cursors.right.isDown) {
       player.setVelocityX(160);
       this.physics.add.overlap(player, trash, this.pushRight, null, this);
@@ -170,6 +163,7 @@ class GameScene3 extends Phaser.Scene {
       player.setVelocityY(-330);
     }
   }
+
   //reach target
   reachTarget(target, trash) {
     trash.disableBody(true, true);
@@ -187,7 +181,6 @@ class GameScene3 extends Phaser.Scene {
   // push left
   pushLeft(player, trash) {
     if (trash.x < player.x) {
-
       trash.x = player.x - 50;
       trash.y = player.y
 
@@ -196,9 +189,8 @@ class GameScene3 extends Phaser.Scene {
         console.log(grabTrash);
         pick.play();
       }
-
-
     }
+
     if (trash.x > player.x) {
       trash.x = player.x + 40;
       trash.y = player.y
@@ -207,11 +199,9 @@ class GameScene3 extends Phaser.Scene {
         grabTrash = true;
         pick.play();
       }
-
     }
-
-
   }
+
   // push right
   pushRight(player, trash) {
     if (trash.x > player.x) {
@@ -221,10 +211,9 @@ class GameScene3 extends Phaser.Scene {
       if (grabTrash === false) {
         grabTrash = true;
         pick.play();
-
       }
-
     }
+
     if (trash.x < player.x) {
       trash.x = player.x - 40;
       trash.y = player.y
@@ -245,28 +234,30 @@ class GameScene3 extends Phaser.Scene {
     }, 3000)
   }
 
-  showInstruction(){
+  showInstruction() {
     var speed = 0.04
     var max = 2;
     var min = 1;
-    if(instr === true){
-        if(mult < max && back === false){                
-            instruction.setScale(mult += speed);
-            if(mult >= max){
-                back = true;                                        
-            }                
+    if (instr === true) {
+      if (mult < max && back === false) {                
+        instruction.setScale(mult += speed);
+        if (mult >= max) {
+          back = true;                                        
+        }                
+      }
+
+      if (mult > min && back === true) {
+        instruction.setScale(mult -= speed);
+        if (mult <= min) {
+          back = false;
+          LOOP--;
         }
-        if(mult > min && back === true){
-            instruction.setScale(mult -= speed);
-            if(mult <= min){
-                back = false;
-                LOOP--;
-            }
-        }
-        if(LOOP < 0){
-            instr = false;
-            instruction.x = -1000;
-        }
+      }
+
+      if (LOOP < 0) {
+        instr = false;
+        instruction.x = -1000;
+      }
     }
   }
 }

@@ -9,7 +9,6 @@ import PhaserGame5 from '../phaser/PhaserGame5';
 class GameContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       game: null
     }
@@ -32,8 +31,7 @@ class GameContainer extends Component {
       case 9: 
         this.setState({game: new PhaserGame5(this)});
         break;
-      default: 
-        break;
+      default:
     }
   }
 

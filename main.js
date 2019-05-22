@@ -47,7 +47,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); 
 app.use(express.static('./client'));
 
-
 app.post('/', (req, res) => {
   console.log(req.body);
   res.send(`${req.body.post}`,);

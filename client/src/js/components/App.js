@@ -5,7 +5,6 @@ import PlayBoxContainer from './PlayBoxContainer';
 import GameContainer from './GameContainer';
 import LeaderBoardBox from './LeaderBoardBox';
 import Progress from './Progress.jsx';
-// import Game from './Game123';
 
 import Credits from './Credits';
 

@@ -37,8 +37,8 @@ var instr       = false;
 var win         = false;
 var lose        = false;
 
-let gameLost    = false;
-let gameWon     = false;
+var gameLost    = false;
+var gameWon     = false;
 var gameWidth   = window.innerWidth;
 var gameHeight  = window.innerHeight;  
 var angle       = 0;
@@ -85,6 +85,7 @@ class GameScene1 extends Phaser.Scene {
         setInterval(() => {
           gameLost = true;
         }, 1000);
+
     } else if (bulldozer.x >= gameWidth) {
         bulldozer.x = -200;
     }    
@@ -173,12 +174,24 @@ class GameScene1 extends Phaser.Scene {
     }
 
     if (gameLost === true) {
-      this.game.destroy(true);
+      
+      console.log(this.scene.isActive('GameScene1'))
+
+      // this.scene.restart();
+      this.game.destroy(false);
       this.game.react.props.updateProgress(!gameLost);
       this.game.react.props.toggleTransition();
+      // this.game.react.props.resetGame();
+
+    } else {
+
     }
 
     if (gameWon === true) {
+
+      console.log(this.scene.isActive('GameScene1'))
+
+      
       this.game.destroy(true);
       this.game.react.props.updateProgress(gameWon);
       this.game.react.props.toggleTransition();

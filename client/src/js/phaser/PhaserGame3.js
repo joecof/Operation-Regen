@@ -52,6 +52,14 @@ var target;
 
 var timedEvent;
 var timeLast = 20;
+
+let instruction;
+var instr   = true;
+var back    = false;
+var mult    = 1;
+var LOOP    = 2;
+
+
 class GameScene3 extends Phaser.Scene {
   constructor() {
     super({

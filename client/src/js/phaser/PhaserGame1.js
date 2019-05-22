@@ -60,7 +60,7 @@ class GameScene1 extends Phaser.Scene {
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
-    instruction = this.load.image('instruction', '../img/Instruction.png');
+    instruction = this.load.image('instruction', '../img/Instruction1.png');
 
 
     this.load.audio('truck', '../img/sound.wav');

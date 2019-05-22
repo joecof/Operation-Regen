@@ -81,8 +81,11 @@ class Progress extends Component {
       <div className = "Progress" style = {style}>
         {(this.state.transition === true) ?
           <div>
-            <p className = "Transition-Header">Level {this.state.level}</p>
-            <Transition {...this.state}/>
+            <p className="Transition-Header">Level One: Warm Up </p>
+            <Transition
+              
+              {...this.state}
+            />
             <div className="Quote-Box">
               <p className="Quote-Content">{randQuote.content}</p>
               <p className="Quote-Person">{randQuote.person}</p>

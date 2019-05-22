@@ -4,7 +4,6 @@ import '../../css/PlayBoxPost.css';
 class Post extends Component {
   constructor() {
     super();
-
     this.state = {
       heroName: ""
     };
@@ -20,15 +19,15 @@ class Post extends Component {
   render() {
     return (
       <div className = "HeroNameInputBox">
-          <form>
-            <input
-              className = "Post-Input"
-              type = "text"
-              maxLength = "15"
-              placeholder = "Enter Your Hero Name"
-              onChange = {this.handleChange}
-            />
-          </form>
+        <form>
+          <input
+            className = "Post-Input"
+            type = "text"
+            maxLength = "15"
+            placeholder = "Enter Your Hero Name"
+            onChange = {this.handleChange}
+          />
+        </form>
       </div>
     )
   }

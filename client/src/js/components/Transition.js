@@ -6,7 +6,8 @@ export default class Transition extends Component {
     super();
 
     this.state = {
-      transitionImage: 10
+      transitionImage: 10,
+      baseUpgradeScore: 1000
     };
 
     // Transition image background array
@@ -22,7 +23,7 @@ export default class Transition extends Component {
     var score = this.props.score;
     
     for (let i = 0; i < this.state.transitionImage; i++) {
-      if (score < 1000 * (i + 1)) {
+      if (score < this.state.baseUpgradeScore * (i + 1)) {
         return i;
       }
     }

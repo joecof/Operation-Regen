@@ -12,15 +12,19 @@ class Progress extends Component {
       quote: [],
       hero: 99,
       name: " ",
+      winScore: 1000,
+      loseScore: 300,
       score: 0,
       life: 5,
       round: 1,
       level: 1,
+      numOfGames: 5,
       game: 0,
       transition: true,
     };
 
     this.toggleTransition = this.toggleTransition.bind(this);
+    this.updateProgress = this.updateProgress.bind(this);
   }
 
   // Fetch quote query result
@@ -34,7 +38,7 @@ class Progress extends Component {
       .then(quote => (this.setState({ quote })));
   }
 
-  // random number generator
+  // generates a random number
   randomNumber(num) {
     const min = 0;
     const max = num;
@@ -42,13 +46,37 @@ class Progress extends Component {
     return rand;
   }
 
+  // toggles between transition component and phaser game
   toggleTransition() {
     this.setState({
       transition: !this.state.transition,
-      level: this.state.level + 0.5,
-      game: this.state.game + 1,
-      life: this.state.life
+      game: ++this.state.game % (this.state.numOfGames * 2)
     });
+  }
+
+  // updates progress after game 
+  updateProgress(con) {
+    var score = this.state.score;
+    var life = this.state.life;
+    var round = this.state.round;
+    var level = this.state.level;
+
+    score = con ? score + this.state.winScore : score + this.state.loseScore;
+    life = con ? life : --life;
+
+    if (life > 0) {
+      this.setState({
+        score: score,
+        life: life,
+        round: round + Math.floor(level / this.state.numOfGames),
+        level: ++level
+      });
+    } else if (life === 0) {
+      this.setState({
+        score: score,
+        life: life
+      });
+    }
   }
 
   render() {
@@ -99,6 +127,7 @@ class Progress extends Component {
             transition = {this.state.transition}
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
+            updateProgress = {this.updateProgress}
           />
         }
       </div>

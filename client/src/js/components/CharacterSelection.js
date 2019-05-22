@@ -9,6 +9,8 @@ class CharacterSelection extends Component {
       lastSelectedHero: null,
       nameChange: props.flag
     };
+    
+    this.onChangeHero = this.onChangeHero.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,22 +31,22 @@ class CharacterSelection extends Component {
         <h1 className = "CharacterSelection-Header">Select Your Hero</h1>
         <div className = "CharacterSelection-Box">
           <CharacterSelectionItem 
-            hero = {1} animDuration = {1} last = {this.onChangeHero.bind(this)} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
+            hero = {1} animDuration = {1} last = {this.onChangeHero} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
           />
           <CharacterSelectionItem 
-            hero = {2} animDuration = {1} last = {this.onChangeHero.bind(this)} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
+            hero = {2} animDuration = {1} last = {this.onChangeHero} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
           />
           <CharacterSelectionItem 
-            hero = {3} animDuration = {1} last = {this.onChangeHero.bind(this)} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
+            hero = {3} animDuration = {1} last = {this.onChangeHero} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
           />
           <CharacterSelectionItem 
-            hero = {4} animDuration = {1} last = {this.onChangeHero.bind(this)} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
+            hero = {4} animDuration = {1} last = {this.onChangeHero} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
           />
           <CharacterSelectionItem 
-            hero = {5} animDuration = {1} last = {this.onChangeHero.bind(this)} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
+            hero = {5} animDuration = {1} last = {this.onChangeHero} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
           />
           <CharacterSelectionItem 
-            hero = {6} animDuration = {1} last = {this.onChangeHero.bind(this)} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
+            hero = {6} animDuration = {1} last = {this.onChangeHero} cur = {this.state.lastSelectedHero} flag = {this.state.nameChange}
           />
         </div>
       </div>

@@ -15,14 +15,13 @@ class PlayBox extends Component {
       heroName: null,
       nameChange: false,
       togglePopUp: false,
-      text: ""
+      text: "",
     }
 
     this.checkUserInput = this.checkUserInput.bind(this);
     this.returnPath = this.returnPath.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
   componentWillMount() {
     document.addEventListener('mousedown', this.handleClick, false);
   }
@@ -80,7 +79,8 @@ class PlayBox extends Component {
             hero = {this.selectHero.bind(this)} 
             flag = {this.state.nameChange}/>
           <Post 
-            name = {this.enterHeroName.bind(this)}/>
+            name = {this.enterHeroName.bind(this)}
+            />
           <div className="PlayBox-Btn">
             <Link 
               className ="PlayBox-PlayBtn" 
@@ -94,7 +94,6 @@ class PlayBox extends Component {
               to = "/LeaderBoard"> LEADERBOARD </Link>
           </div>
         </div>  
-
 
       {(this.state.togglePopUp === true) ? 
         <PopUp 

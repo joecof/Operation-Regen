@@ -34,10 +34,10 @@ class CharacterSelectionItem extends Component {
         ({ imageIndex }) => {
           return { imageIndex: ++imageIndex };
         }, () => {
-          this.timeout = setTimeout(this.toggleAnimate, this.props.animDuration * 100)
+          this.timeout = setTimeout(this.toggleAnimate, this.props.animDuration * 100);
         }
       );
-    }
+    } 
   }
 
   /**
@@ -58,15 +58,16 @@ class CharacterSelectionItem extends Component {
   }
 
   render() {
+
     return (
       <div className = "CharacterSelectionItem-Container">
         <div className = "CharacterSelectionItem-TagBox">
           <img className = "CharacterSelectionItem-Tag" src = {require("../../img/red_triangle.png")}
-            alt = "tag" style = {{display: this.state.display}}/>
+            alt = "tag" style = {this.state.selected === true ? {display: this.state.display} : {display: 'none'}}/>
         </div>
         <div className = "CharacterSelectionItem-ImgBox">
           <img className = "CharacterSelectionItem-Img" src = {this.backgrounds[this.state.imageIndex]}
-            alt = "hero" onClick = {() => this.selectHero()}/>
+            alt = "hero" onClick = {this.selectHero}/>
         </div>
       </div>
     )

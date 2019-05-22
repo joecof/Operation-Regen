@@ -1,5 +1,5 @@
 import * as Phaser from 'phaser';
-
+//duck game bullTo
 export default class Game extends Phaser.Game {
   constructor(react) {
 

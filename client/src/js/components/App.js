@@ -4,13 +4,9 @@ import {Route, Switch} from "react-router-dom";
 import PlayBoxContainer from './PlayBoxContainer';
 import GameContainer from './GameContainer';
 import LeaderBoardBox from './LeaderBoardBox';
-<<<<<<< HEAD
 import Progress from './Progress.jsx';
 // import Game from './Game123';
 
-=======
-import Progress from './Progress';
->>>>>>> b30674b0a76bc51d08e0fb98f1865696261e0bdd
 import Credits from './Credits';
 
 class App extends Component {

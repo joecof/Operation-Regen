@@ -19,7 +19,7 @@ class GameContainer extends Component {
   componentDidMount() {
     switch(this.props.game) {
       case 1:
-        this.setState({game: new PhaserGame1(this)});
+        this.setState({game: new PhaserGame3(this)});
         break;
       case 3: 
         this.setState({game: new PhaserGame2(this)});

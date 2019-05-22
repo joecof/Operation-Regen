@@ -50,15 +50,10 @@ var handle;
 var bkgr;
 var water;
 
-
-
 var faucet1;
 var faucet2;
 var faucet3;
 var faucet4;
-
-
-
 
 var targetAngle = Math.floor(Math.random() * 150) + 30;
 var mult = 5; // Difficulty modifier here
@@ -87,7 +82,7 @@ class GameScene4 extends Phaser.Scene {
     this.load.audio('mid', '../img/faucet_half.mp3');
     this.load.audio('drop', '../img/faucet_quarter.mp3');
     this.load.audio('close', '../img/closed.mp3');
-    this.load.audio('win', '../img/winAlt.mp3');
+    this.load.audio('win', '../sound/3win.mp3');
 
   }
 
@@ -201,7 +196,7 @@ class GameScene4 extends Phaser.Scene {
           setInterval(() => {
             gameCondition = true;
 
-          }, 1000)
+          }, 3000)
         }
       }
     });

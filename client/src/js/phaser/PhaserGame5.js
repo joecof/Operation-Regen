@@ -55,9 +55,15 @@ var roomMoveX = 720;
 var roomMoveY = 356;
 var spaceBetweenRooms = 30;
 var gameOver = false;
+let instruction;
 
 let lightSwitch;
 let win;
+
+var instr   = true;
+var back    = false;
+var mult    = 1;
+var LOOP    = 2;
 
 class GameScene5 extends Phaser.Scene {
   constructor() {
@@ -70,13 +76,11 @@ class GameScene5 extends Phaser.Scene {
     // load background
     this.load.image('background0', '../img/house0.png');
     this.load.image('background1', '../img/house1.png');
+    this.load.image('instruction', '../img/instructionLights.png');
 
-
+    this.load.audio('win', '../sound/3win.mp3');
     this.load.audio('light', '../img/lightSwitch.mp3');
-    this.load.audio('win', '../img/winAlt.mp3');
 
-
-    
     // load on-off lights
     var roomNo = 1;
     for (let i = 0; i < boardSize; i++) {
@@ -91,6 +95,8 @@ class GameScene5 extends Phaser.Scene {
   create() {
     lightSwitch = this.sound.add('light');
     win = this.sound.add('win');
+    instruction = this.add.image(350,100, 'instruction').setDepth(2);
+
     
     if (boardSize === 2) {
       background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background0');
@@ -126,16 +132,15 @@ class GameScene5 extends Phaser.Scene {
   }
   
   update() {
+
+    if(instr){
+      this.showInstruction();
+    }
+
     if (gameOver) {
-      win.play();
-      gameOver = !gameOver;
-
-      setInterval(() => {
-        this.game.react.props.toggleTransition();
-        this.game.destroy(true);
-        
-      }, 1000)
-
+    
+      this.game.react.props.toggleTransition();
+      this.game.destroy(true);
     }
   }
 
@@ -172,12 +177,38 @@ class GameScene5 extends Phaser.Scene {
     }
 
     if (countOn === 0) {
-      gameOver = true;
+      win.play();
+
+      setInterval(() => {
+        gameOver = true;
+
+      }, 3000);
     }
-    
-  	/*if(gameOver) {
-  	  this.game.destroy();
-      this.game.react.props.toggleTransition();
-  	}*/
+
+  }
+
+  showInstruction(){
+    var speed = 0.04
+    var max = 2;
+    var min = 1;
+    if(instr === true){
+        if(mult < max && back === false){                
+            instruction.setScale(mult += speed);
+            if(mult >= max){
+                back = true;                                        
+            }                
+        }
+        if(mult > min && back === true){
+            instruction.setScale(mult -= speed);
+            if(mult <= min){
+                back = false;
+                LOOP--;
+            }
+        }
+        if(LOOP < 0){
+            instr = false;
+            instruction.x = -1000;
+        }
+    }
   }
 }

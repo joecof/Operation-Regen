@@ -10,7 +10,7 @@ export default class Transition extends Component {
     };
 
     // Transition image background array
-    this.transitions = new Array(this.state.transitionImage + 1);
+    this.transitions = new Array(this.state.transitionImage);
 
     for (let i = 0; i < this.state.transitionImage; i++) {
       this.transitions[i] = "url(../../img/transitionbase" + i + ".png)";
@@ -22,7 +22,7 @@ export default class Transition extends Component {
     var score = this.props.score;
     
     for (let i = 0; i < this.state.transitionImage; i++) {
-      if (score < 100 * (i + 1)) {
+      if (score < 1000 * (i + 1)) {
         return i;
       }
     }
@@ -35,17 +35,15 @@ export default class Transition extends Component {
 
   render() {
     var style = {
-      // backgroundImage: "url(../../img/transitionbase" + this.props.level  + ".png)"
-      backgroundImage: "url(../../img/transitionbase9.png)"
-
+      backgroundImage: "url(../../img/transitionbase" + this.changeTransition() + ".png)"
     }
     
     return (
-      <div className = "Transition" style = { style }>
+      <div className = "Transition" style = {style}>
         <span className="Transition-Name"> Hero: {this.props.name}</span>
-        <p className = "Transition-Score"> Score: {this.props.score} </p>
+        <p className = "Transition-Score"> Score: {this.formatNumber(this.props.score)} </p>
         <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")} alt = ""/>
-        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")} alt = ""/>
+        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + (this.props.life !== 0 ? "H" : "D") + ".png")} alt = ""/>
       </div>
     );
   }

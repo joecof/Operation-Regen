@@ -13,19 +13,21 @@ class Progress extends Component {
       hero: 99,
       name: " ",
       score: 200,
-      life: 5,
-      level: 0,
+      life: 1,
+      level: 1,
       game: 0,
       transition: true,
     };
 
     this.toggleTransition = this.toggleTransition.bind(this);
-
   }
 
   // Fetch quote query result
   componentDidMount() {
-    this.setState({ hero: this.props.location.state.hero, name: this.props.location.state.name });
+    this.setState({
+      hero: this.props.location.state.hero,
+      name: this.props.location.state.name
+    });
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({ quote })));
@@ -40,18 +42,25 @@ class Progress extends Component {
   }
 
   toggleTransition() {
-
     this.setState({
       transition: !this.state.transition,
-      level: this.state.level + 0.5,
+      level: this.state.level,
       game: this.state.game + 1,
-      life: this.state.life - 0.5
+      life: this.state.life
     });
   }
 
   render() {
     var style = {
       backgroundImage: 'url(../img/bg_transition_brown.jpg)'
+    }
+
+    var regen = {
+      display: this.state.life === 0 ? "none" : "block"
+    }
+
+    var leaderboard = {
+      display: this.state.life === 0 ? "block" : "none"
     }
 
     // Stores quote query result
@@ -61,41 +70,35 @@ class Progress extends Component {
     if (list.length !== 0) {
       randQuote = list[this.randomNumber(list.length)];
     } else {
-      randQuote = { content: " ", person: " " }
+      randQuote = {
+        content: "“The Earth is what we all have in common.”",
+        person: "— Wendell Berry"
+      };
     }
 
     return (
-
-      <div className="Progress" style={style}>
-
+      <div className = "Progress" style = {style}>
         {(this.state.transition === true) ?
           <div>
-            <p className="Transition-Header">Level One: Warm Up </p>
-            <Transition
-              // hero={this.state.hero}
-              // name={this.state.name}
-              // life={this.state.life}
-              // level={this.state.level}
-              {...this.state}
-            />
+            <p className = "Transition-Header">Level {this.state.level}</p>
+            <Transition {...this.state}/>
             <div className="Quote-Box">
               <p className="Quote-Content">{randQuote.content}</p>
               <p className="Quote-Person">{randQuote.person}</p>
             </div>
             <div className="Progress-Btn">
-              <button className="Progress-RegenBtn" onClick={this.toggleTransition}> REGEN </button>
-              <Link className="Progress-BackBtn" to="/"> BACK TO MAIN </Link>
+              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
+              <button className="Progress-RegenBtn" style = {regen} onClick = {this.toggleTransition}>REGEN</button>
+              <Link className="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
             </div>
           </div> :
           <GameContainer
-            transition={this.state.transition}
-            toggleTransition={this.toggleTransition}
-            game={this.state.game}
+            transition = {this.state.transition}
+            toggleTransition = {this.toggleTransition}
+            game = {this.state.game}
           />
         }
-
       </div>
-
     )
   }
 }

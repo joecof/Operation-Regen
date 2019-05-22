@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../../css/PlayBox.css';
 import {Link} from "react-router-dom";
-//import PopUp from './PopUp';
 import Post from './Post';
 import CharacterSelection from './CharacterSelection'
 import { message } from 'antd';
@@ -14,24 +13,11 @@ class PlayBox extends Component {
       selectedHero: null,
       heroName: null,
       nameChange: false
-      //togglePopUp: false,
-      //text: ""
-    }
+    };
 
     this.checkUserInput = this.checkUserInput.bind(this);
     this.returnPath = this.returnPath.bind(this);
-    //this.handleClick = this.handleClick.bind(this);
   }
-
-  /*
-  componentWillMount() {
-    document.addEventListener('mousedown', this.handleClick, false);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClick);
-  }
-  */
 
   // Sets state when a hero is selected
   selectHero(hero) {
@@ -44,41 +30,20 @@ class PlayBox extends Component {
   }
 
   info1 = (e) => {
-    
     message.info(e,1);
   };
 
- 
-
   // Checks if user have selected hero and have entered hero name
-  checkUserInput_() {
+  checkUserInput() {
     if (this.state.selectedHero === null) {
-      /*
-      this.setState({togglePopUp: true,
-                     text: "Select Your Hero"
-      })
-      */
       this.info1('Select your hero!');
       return "";
     } else if (this.state.heroName === null || this.state.heroName === "") {
-      /*
-      this.setState({togglePopUp: true,
-                     text: "Choose Your Hero Name"
-      });
-      */
       this.info1('Enter your hero name!');
       this.setState({nameChange: true});
       return "";
     }
   } 
-
-  /*
-  handleClick(e) {
-    if(this.node.contains(e.target)) {
-      this.setState({togglePopUp: false})
-    }
-  }
-  */
 
   // If hero is selected and name is entered, it returns path name for transition page
   returnPath() {
@@ -89,27 +54,9 @@ class PlayBox extends Component {
     }
   }
 
-  checkUserInput = () => {
-    console.log("hero name: " + this.state.heroName);
-    fetch('/Progress', {
-      method: 'POST',
-      body: {
-        user: this.state.heroName
-      }
-        //list: list[0],
-        //userName: this.state.name
-        //score: score,
-        //heroNo: this.state.hero,
-        //levelNo: level
-    })
-      .then(res => res.json())
-      .then(() => {console.log("hello");});
-  }
-
   render() {
     return (
       <div className = "PlayBox">
-        {/* ref={node => this.node = node} */}
         <div className ="PlayBox-Form">
           <CharacterSelection 
             hero = {this.selectHero.bind(this)} 
@@ -130,13 +77,6 @@ class PlayBox extends Component {
               to = "/LeaderBoard"> LEADERBOARD </Link>
           </div>
         </div>  
-
-
-      {/* (this.state.togglePopUp === true) ? 
-        <PopUp 
-           text = { this.state.text }
-      /> : <div/> */}
-
       </div>
     );
   }

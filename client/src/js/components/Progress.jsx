@@ -16,7 +16,7 @@ class Progress extends Component {
       winScore: 1000,
       loseScore: 300,
       score: 0,
-      life: 1,
+      life: 0,
       round: 1,
       level: 1,
       numOfGames: 5,
@@ -29,6 +29,7 @@ class Progress extends Component {
     this.toggleGame = this.toggleGame.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.reset = this.reset.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // Fetch quote query result
@@ -43,20 +44,6 @@ class Progress extends Component {
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
-    /*fetch('/Progress', { 
-      method: 'POST',
-      //body: {name: 'yo'}
-      data: {
-        user: this.state.name
-        //list: list[0],
-        //userName: this.state.name
-        //score: score,
-        //heroNo: this.state.hero,
-        //levelNo: level
-      }
-    })
-      .then(res => res.json())
-      .then(() => {console.log("hello");});*/
   }
 
   insertProgress = () => {
@@ -108,6 +95,23 @@ class Progress extends Component {
     this.toggleGame();
   }
 
+  handleSubmit(e) {
+    fetch('/Progress', { 
+      method: 'POST',
+      header: {'Content-Type' : 'application/JSON'},
+      body: JSON.stringify({
+        user: this.state.name
+        //list: list[0],
+        //userName: this.state.name
+        //score: score,
+        //heroNo: this.state.hero,
+        //levelNo: level
+      })
+    })
+      .then(res => res.json())
+      .then(() => {console.log("hello");});
+  }
+
   // updates progress after game 
   updateProgress(con) {
     var score = this.state.score;
@@ -133,18 +137,19 @@ class Progress extends Component {
         life: life
       });
 
-      console.log("name1: " + name);
+      console.log("user: " + name);
       /*fetch('/Progress', { 
         method: 'POST',
+        header: {'Content-Type' : 'application/JSON'},
         //body: {name: 'yo'}
-        data: {
+        body: JSON.stringify({
           user: name
           //list: list[0],
           //userName: this.state.name
           //score: score,
           //heroNo: this.state.hero,
           //levelNo: level
-        }
+        })
       })
         .then(res => res.json())
         .then(() => {console.log("hello");});*/

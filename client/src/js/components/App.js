@@ -12,7 +12,7 @@ import Credits from './Credits';
 class App extends Component {
   render() {
     var style = {
-      backgroundImage: 'url(../img/bg_river_forest.jpg)' 
+      backgroundImage: 'url(/src/img/bg_river_forest.jpg)' 
     }
 
     return (

@@ -36,7 +36,8 @@ export default class Transition extends Component {
   render() {
     var style = {
       // backgroundImage: "url(../../img/transitionbase" + this.props.level  + ".png)"
-      backgroundImage: "url(../../img/transitionbase9.png)"
+      backgroundImage: "url(/src/img/transitionbase9.png)"
+   
 
     }
     

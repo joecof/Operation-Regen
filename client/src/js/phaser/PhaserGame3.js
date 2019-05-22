@@ -40,7 +40,7 @@ var text;
 let win;
 let dump;
 let jump;
-let pickup;
+
 
 var target;
 
@@ -52,18 +52,18 @@ class GameScene4 extends Phaser.Scene {
     }
     preload() {
         //load image  
-        // this.load.image('bgImg', ' ../img/park1.png');
-        this.load.image('bgImg', ' ../img/bkgr.png');
-        this.load.image('platform', '../img/platform.png');
-        this.load.image('trash', '../img/trashPicked.png');
-        this.load.image('dude', '../img/garbageman.png');
-        this.load.image('target', '../img/trashcan.png');
-        this.load.audio('win','../sound/3win.mp3');
-        this.load.audio('dump','../sound/3dump.mp3');
-        this.load.audio('jump','../sound/3jump.wav');
-        // this.load.audio('pickup','../sound/3pickup.wav');
+        // this.load.image('bgImg', '/src/img/park1.png');
+        this.load.image('bgImg', '/src/img/bkgr.png');
+        this.load.image('platform', '/src/img/platform.png');
+        this.load.image('trash', '/src/img/trashPicked.png');
+        this.load.image('dude', '/src/img/garbageman.png');
+        this.load.image('target', '/src/img/trashcan.png');
+        this.load.audio('win','/src/sound/3win.mp3');
+        this.load.audio('dump','/src/sound/3dump.mp3');
+        this.load.audio('jump','/src/sound/3jump.wav');
+        // this.load.audio('pickup','/src/sound/3pickup.wav');
     }
-
+  
 
 reduceTime ()
 {
@@ -142,7 +142,7 @@ reduceTime ()
         }
 
         if (cursors.up.isDown && player.body.touching.down) {
-            jump.play();
+           
             player.setVelocityY(-330);
         }
     }
@@ -153,7 +153,7 @@ reduceTime ()
         text.setText('Score: ' + score);
         //win
         if (score ===10) {
-            dump.play();
+           
             win.play();
             timedEvent.remove();
         }

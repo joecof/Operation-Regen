@@ -98,7 +98,8 @@ class PlayBox extends Component {
             hero = {this.selectHero.bind(this)} 
             flag = {this.state.nameChange}/>
           <Post 
-            name = {this.enterHeroName.bind(this)}/>
+            name = {this.enterHeroName.bind(this)}
+            />
           <div className="PlayBox-Btn">
             <Link 
               className ="PlayBox-PlayBtn" 

@@ -159,6 +159,7 @@ class GameScene2 extends Phaser.Scene {
   }
 
   update() {
+
     if (instr === true) {
       this.showInstruction();
     } else if (drag === false && win === false && lose === false) {            
@@ -183,9 +184,13 @@ class GameScene2 extends Phaser.Scene {
     }
 
     if (gameWon) {
+
+      console.log(this.scene.isActive('GameScene1'))
+
       this.game.destroy(true);
       this.game.react.props.updateProgress(gameWon);
       this.game.react.props.toggleTransition(); 
+      
     }
     
     if (gameLost) {

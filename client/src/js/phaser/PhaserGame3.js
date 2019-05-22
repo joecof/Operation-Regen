@@ -69,9 +69,9 @@ class GameScene3 extends Phaser.Scene {
   }
 
   preload() {
-    //load image  
+    //load image   parkBG.png
     // this.load.image('bgImg', ' ../img/park1.png');
-    this.load.image('bgImg', ' ../img/bkgr.png');
+    this.load.image('bgImg', ' ../img/parkBG.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
     this.load.image('dude', '../img/garbageman.png');

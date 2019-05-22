@@ -15,7 +15,7 @@ class Progress extends Component {
       name: " ",
       winScore: 1000,
       loseScore: 300,
-      score: 0,
+      score: 100,
       life: 1,
       round: 1,
       level: 1,
@@ -101,9 +101,9 @@ class Progress extends Component {
   }
 
   render() {
-    var style = {
-      backgroundImage: 'url(../../img/bg_transition_brown.jpg)'
-    }
+    // var style = {
+    //   backgroundImage: 'url(../../img/bg_transition_brown.jpg)'
+    // }
 
     var regen = {
       display: this.state.life === 0 ? "none" : "block"
@@ -127,7 +127,7 @@ class Progress extends Component {
     }
 
     return (
-      <div className = "Progress" style = {style}>
+      <div className = "Progress" >
         {(this.state.transition === true) ?
           <div>
             <p className="Transition-Header">Level {this.state.level}</p>

@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 100vh;
   text-align:center;
+  background-image: url('../img/bg_transition_brown.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

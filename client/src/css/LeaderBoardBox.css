@@ -3,6 +3,7 @@
 .LeaderBoardBoxContainer {
   width: 100%;
   min-height: 100vh;
+  background-image: url('../img/bg_river_forest2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

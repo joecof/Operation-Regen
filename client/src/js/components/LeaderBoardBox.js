@@ -27,21 +27,21 @@ class LeaderBoardBox extends Component {
 
   render() {
     // Stores leaderboard query result
-    let list = this.state.leaderboard;
+    // let list = this.state.leaderboard;
     // Initiate rank to 0
     let value = 0;
 
-    var style = {
-      backgroundImage: 'url(../img/bg_river_forest2.jpg)'
-    }
+    // var style = {
+    //   backgroundImage: 'url(../img/bg_river_forest2.jpg)'
+    // }
 
     return(
-      <div className = "LeaderBoardBoxContainer" style = {style}>
+      <div className = "LeaderBoardBoxContainer" >
         <div className = "LeaderBoardBox"> 
           <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
           <LeaderBoardHeader />
           {
-            list.map((temp, i) => (
+            this.state.leaderboard.map((temp, i) => (
               <LeaderBoardItem key = {i} 
                 rank = {++value}
                 hero = {temp.heroNo}

@@ -43,13 +43,12 @@ class PlayBox extends Component {
     this.setState({heroName: name, nameChange: true});
   }
 
-  info1 = () => {
-    message.info('Select your hero!');
+  info1 = (e) => {
+    
+    message.info(e,1);
   };
 
-  info2 = () => {
-    message.info('Enter your hero name!');
-  };
+ 
 
   // Checks if user have selected hero and have entered hero name
   checkUserInput() {
@@ -59,7 +58,7 @@ class PlayBox extends Component {
                      text: "Select Your Hero"
       })
       */
-      this.info1();
+      this.info1('Select your hero!');
       return "";
     } else if (this.state.heroName === null || this.state.heroName === "") {
       /*
@@ -67,7 +66,7 @@ class PlayBox extends Component {
                      text: "Choose Your Hero Name"
       });
       */
-      this.info2();
+      this.info1('Enter your hero name!');
       this.setState({nameChange: true});
       return "";
     }

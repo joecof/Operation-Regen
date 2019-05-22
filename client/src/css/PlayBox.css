@@ -9,6 +9,7 @@
 
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, .05); 
+ 
 }
 
 
@@ -18,8 +19,7 @@
   font-size: 10pt;
 }
 
-.PlayBox-Form{
-}
+
 
 .PlayBox-Input {
   border: 1px solid #ccc;
@@ -81,3 +81,13 @@
 .PlayBox-LeaderBoardBtn:hover {
   text-decoration:none;
 }
+
+.ant-message{
+  font-size: 30px;
+  
+}
+.ant-message .anticon{
+  top: -4px;
+}
+
+

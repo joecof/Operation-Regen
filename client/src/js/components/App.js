@@ -11,12 +11,12 @@ import Credits from './Credits';
 
 class App extends Component {
   render() {
-    var style = {
-      backgroundImage: 'url(../../img/bg_river_forest.jpg)' 
-    }
+    // var style = {
+    //   backgroundImage: 'url(../../img/bg_river_forest.jpg)' 
+    // }
 
     return (
-      <div className="App" style={style}>
+      <div className="App" >
         <Switch>
           <Route exact path = '/' component = {PlayBoxContainer} />
           <Route exact path = '/LeaderBoard' component = {LeaderBoardBox} />

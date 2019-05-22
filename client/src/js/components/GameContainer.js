@@ -7,7 +7,6 @@ import PhaserGame4 from '../phaser/PhaserGame4';
 import PhaserGame5 from '../phaser/PhaserGame5';
 
 class GameContainer extends Component {
-  
   constructor(props) {
     super(props);
 

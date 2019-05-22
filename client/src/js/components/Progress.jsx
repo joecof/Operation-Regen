@@ -14,6 +14,7 @@ class Progress extends Component {
       name: " ",
       score: 200,
       life: 1,
+      round: 1,
       level: 1,
       game: 0,
       transition: true,

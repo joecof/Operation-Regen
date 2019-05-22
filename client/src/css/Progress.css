@@ -5,7 +5,6 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  
 }
 
 .Progress-Btn {
@@ -13,7 +12,25 @@
   width: 800px;
 }
 
-.Progress-LeaderBoardBtn ,.Progress-RegenBtn{
+.Progress-LeaderBoardBtn {
+  width: 40%;
+  float: left;
+  background-color: rgb(255, 140, 0);
+  border-color: rgb(255, 140, 0);
+  color: #fff;
+
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+
+  padding-top:6px;
+  text-align:center;
+  text-decoration:none;
+  font-weight: 900;
+}
+
+.Progress-RegenBtn {
   width: 40%;
   float: left;
   background-color: #449d44;
@@ -23,7 +40,6 @@
   height: 45px;
   border-radius: 5px;
   border: 0;
- 
   font-size: 24px;
 
   padding-top:6px;
@@ -32,9 +48,13 @@
   font-weight: 900;
 }
 
-
 .Progress-RegenBtn:hover {
-  text-decoration:none;
+  text-decoration: none;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: color;
+  transition-timing-function: ease;
+  color: rgb(64, 169, 255);
 }
 
 .Progress-BackBtn {
@@ -53,8 +73,6 @@
   text-align:center;
   text-decoration:none;
   color:white;
- 
-  
 }
 
 .Progress-BackBtn:hover {
@@ -76,6 +94,11 @@
   margin-top: 10px;
 }
 
+.Transition-Header {
+  font-size: 50px;
+  font-weight: 900;
+}
+
 /* Large devices (desktops, less than 1200px) */
 
 @media (max-width: 1199.98px) {
@@ -83,16 +106,21 @@
     height: 500px;
   }
  
-  .Progress-RegenBtn,.Progress-BackBtn{
+  .Progress-RegenBtn,.Progress-BackBtn {
     height: 40px;
   }
-  .Quote-Content,.Quote-Person{
+
+  .Quote-Content,.Quote-Person {
     font-size: 0.8em;
   }
-  .Progress-Btn{
+
+  .Progress-Btn {
     width: 700px;
   }
 
+  .Transition-Header {
+    font-size: calc(10px + 2vmin);
+  }
 }
 
 /* Medium devices (tablets, less than 992px) */
@@ -105,13 +133,11 @@
 
 /* Small devices (landscape phones, less than 768px) */
 
-@media (max-width: 767.98px) {
-  
-  .Progress-Btn{
+@media (max-width: 767.98px) { 
+  .Progress-Btn {
     width: 400px;
   }
-  .Progress-BackBtn{
-  font-size: 18px
+  .Progress-BackBtn {
+    font-size: 18px
+  }
 }
-}
-

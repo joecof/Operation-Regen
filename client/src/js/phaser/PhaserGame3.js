@@ -38,6 +38,7 @@ var score = 0;
 var text;
 
 
+let gameOver = false;
 
 let winSound;
 let dump;
@@ -148,14 +149,7 @@ class GameScene3 extends Phaser.Scene {
       this.showInstruction();
     }
 
-    if (player.y > 700) {
-      
-      this.game.destroy();
-      this.game.react.props.toggleTransition();
-    }
-
-
-    if (gameOver) {
+    if (gameOver || player.y > 700) {
       this.game.destroy();
       this.game.react.props.toggleTransition();
     }

@@ -35,15 +35,27 @@ export default class Transition extends Component {
 
   render() {
     var style = {
+<<<<<<< HEAD
       backgroundImage: "url(../../img/transitionbase" + this.changeTransition() + ".png)"
+=======
+      // backgroundImage: "url(../../img/transitionbase" + this.props.level  + ".png)"
+      backgroundImage: "url(../../img/transitionbase9.png)"
+
+>>>>>>> ivan
     }
     
     return (
       <div className = "Transition" style = {style}>
         <span className="Transition-Name"> Hero: {this.props.name}</span>
+<<<<<<< HEAD
         <p className = "Transition-Score"> Score: {this.formatNumber(this.props.score)} </p>
         <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")} alt = ""/>
         <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + (this.props.life !== 0 ? "H" : "D") + ".png")} alt = ""/>
+=======
+        <p className = "Transition-Score"> Score: {this.props.score} </p>
+        <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")} alt = ""/>
+        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")} alt = ""/>
+>>>>>>> ivan
       </div>
     );
   }

@@ -10,13 +10,13 @@ class Progress extends Component {
 
     this.state = {
       quote: [],
-      listNo: [],
+      listNo: null,
       hero: 99,
       name: " ",
       winScore: 1000,
       loseScore: 300,
       score: 0,
-      life: 1,
+      life: 0,
       round: 1,
       level: 1,
       numOfGames: 5,
@@ -40,6 +40,36 @@ class Progress extends Component {
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
+    /*fetch('/Progress', { 
+      method: 'POST',
+      //body: {name: 'yo'}
+      data: {
+        user: this.state.name
+        //list: list[0],
+        //userName: this.state.name
+        //score: score,
+        //heroNo: this.state.hero,
+        //levelNo: level
+      }
+    })
+      .then(res => res.json())
+      .then(() => {console.log("hello");});*/
+  }
+
+  insertProgress = () => {
+    fetch('/Progress', {
+      method: 'POST',
+      data: {
+        user: this.state.name
+      }
+        //list: list[0],
+        //userName: this.state.name
+        //score: score,
+        //heroNo: this.state.hero,
+        //levelNo: level
+    })
+      .then(res => res.json())
+      .then(() => {console.log("hello");});
   }
 
   // generates a random number
@@ -65,7 +95,7 @@ class Progress extends Component {
     var round = this.state.round;
     var level = this.state.level;
     var list = this.state.listNo;
-    var num = list[0];
+    var name = this.state.name;
 
     score = con ? score + this.state.winScore : score + this.state.loseScore;
     life = con ? life : --life;
@@ -83,20 +113,21 @@ class Progress extends Component {
         life: life
       });
 
-      console.log();
-      /*
-      fetch('/Progress', { 
-        method: 'POST'
+      console.log("name1: " + name);
+      /*fetch('/Progress', { 
+        method: 'POST',
+        //body: {name: 'yo'}
         data: {
-          userName: this.state.name,
-          score: score,
-          heroNo: this.state.hero,
-          levelNo: level
-        },
+          user: name
+          //list: list[0],
+          //userName: this.state.name
+          //score: score,
+          //heroNo: this.state.hero,
+          //levelNo: level
+        }
       })
         .then(res => res.json())
-        .then(() => {console.log("hello");});
-        */
+        .then(() => {console.log("hello");});*/
     }
   }
 
@@ -139,7 +170,7 @@ class Progress extends Component {
               <p className="Quote-Person">{randQuote.person}</p>
             </div>
             <div className="Progress-Btn">
-              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
+              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} onClick = {this.insertProgress} to = "/LeaderBoard">LEADERBOARD</Link>
               <button className="Progress-RegenBtn" style = {regen} onClick = {this.toggleTransition}>REGEN</button>
               <Link className="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
             </div>

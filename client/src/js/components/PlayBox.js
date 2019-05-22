@@ -52,7 +52,7 @@ class PlayBox extends Component {
   };
 
   // Checks if user have selected hero and have entered hero name
-  checkUserInput() {
+  checkUserInput_() {
     if (this.state.selectedHero === null) {
       /*
       this.setState({togglePopUp: true,
@@ -90,6 +90,23 @@ class PlayBox extends Component {
     }
   }
 
+  checkUserInput = () => {
+    console.log("hero name: " + this.state.heroName);
+    fetch('/Progress', {
+      method: 'POST',
+      body: {
+        user: this.state.heroName
+      }
+        //list: list[0],
+        //userName: this.state.name
+        //score: score,
+        //heroNo: this.state.hero,
+        //levelNo: level
+    })
+      .then(res => res.json())
+      .then(() => {console.log("hello");});
+  }
+
   render() {
     return (
       <div className = "PlayBox">
@@ -103,7 +120,7 @@ class PlayBox extends Component {
           <div className="PlayBox-Btn">
             <Link 
               className ="PlayBox-PlayBtn" 
-              onClick = {this.checkUserInput} 
+              onClick = {this.checkUserInput}
               to = {{
                 pathname: this.returnPath(),
                 state: {hero: this.state.selectedHero, name: this.state.heroName}

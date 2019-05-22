@@ -29,7 +29,7 @@ app.get('/LeaderBoard', (req, res) => {
 
 // listen to get request: leaderboard max listNo query result
 app.get('/ListNo', (req, res) => {
-  connection.query("SELECT MAX(listNo) + 1 'listNo' FROM leaderboard", function(err, result) {
+  connection.query("SELECT MAX(listNo) + 1 AS 'listNo' FROM leaderboard", function(err, result) {
     if (!err) {
       res.json(result);
     } else {
@@ -51,13 +51,14 @@ app.get('/Quote', (req, res) => {
 
 // listen to post request: insert into leaderboard
 app.post('/Progress', (req, res) => {
-  connection.query("INSERT INTO leaderboard VALUES (2, 'Duck', 300, 2, 1)", function(err, result) {  // , req.body
+  console.log(req.body + ", " + req.data);
+  /*connection.query('INSERT INTO leaderboard VALUES (3, ?, 333, 1, 3)', function(err, result) {  // , req.body
     if (!err) {
       res.json(result);
     } else {
       console.log('Error while inserting progress data into leaderboard');
     }
-  });
+  });*/
   //res.end('Success');
 });
 

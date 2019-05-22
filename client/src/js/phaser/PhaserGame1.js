@@ -32,7 +32,8 @@ var instr   = false;
 var win     = false;
 var lose    = false;
 
-let gameCondition = false;
+let gameLost = false;
+let gameWon = false;
 var gameWidth   = window.innerWidth;
 var gameHeight  = window.innerHeight;  
 var angle       = 0;
@@ -64,7 +65,8 @@ class GameScene1 extends Phaser.Scene {
 
 
     this.load.audio('truck', '../img/sound.wav');
-    this.load.audio('win', '../img/winAlt.mp3');
+    this.load.audio('win', '../sound/3win.mp3');
+
     this.load.audio('lose', '../img/Treed.wav');
   }
 
@@ -79,7 +81,7 @@ class GameScene1 extends Phaser.Scene {
         lose = true;
 
         setInterval(() => {
-          gameCondition = true;
+          gameLost = true;
         }, 1000);
     } else if(bulldozer.x >= gameWidth){
         bulldozer.x = -200;
@@ -111,9 +113,11 @@ class GameScene1 extends Phaser.Scene {
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
         
     } else {
-      this.game.destroy();
-      this.game.react.props.toggleTransition();
 
+      setInterval(() => {
+        gameWon = true;
+      }, 2200);
+     
     }
 
   }
@@ -185,13 +189,15 @@ class GameScene1 extends Phaser.Scene {
     }
 
 
-    if(gameCondition === true) {
+    if(gameLost === true) {
       this.game.destroy(true);
       this.game.react.props.toggleTransition();
     }
 
-
-
+    if(gameWon === true) {
+      this.game.destroy();
+      this.game.react.props.toggleTransition();
+    }
 
   }
 

@@ -58,6 +58,8 @@ var back    = false;
 var mult    = 1;
 var LOOP    = 2;
 
+var what;
+
 class GameScene3 extends Phaser.Scene {
   constructor() {
     super({

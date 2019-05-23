@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
-const port = 3001;
+let port = process.env.PORT || 3001;
 
 // includes db configuration info
 let dbconfig = require(__dirname + '/config/db-config.json');

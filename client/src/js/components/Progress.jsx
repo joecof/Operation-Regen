@@ -28,6 +28,9 @@ class Progress extends Component {
 
     this.toggleTransition = this.toggleTransition.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
+    this.toggleGame = this.toggleGame.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.reset = this.reset.bind(this);
   }
   componentWillMount() {
     fetch('/Quote')
@@ -55,12 +58,29 @@ class Progress extends Component {
     return rand;
   }
 
+  reset() {
+    this.setState({
+      game: 1
+    })
+  }
+
   // toggles between transition component and phaser game
   toggleTransition() {
     this.setState({
       transition: !this.state.transition,
+
+    }); 
+  }
+
+  toggleGame() {
+    this.setState({
       game: ++this.state.game % (this.state.numOfGames * 2)
-    });
+    }); 
+  }
+
+  handleClick() {
+    this.toggleTransition();
+    this.toggleGame();
   }
 
   // updates progress after game 
@@ -80,7 +100,7 @@ class Progress extends Component {
         score: score,
         life: life,
         round: round + Math.floor(level / this.state.numOfGames),
-        level: ++level
+        level: ++level,
       });
     } else if (life === 0) {
       this.setState({
@@ -88,6 +108,19 @@ class Progress extends Component {
         life: life
       });
 
+      /*
+      fetch('/Progress', { 
+        method: 'POST'
+        data: {
+          userName: this.state.name,
+          score: score,
+          heroNo: this.state.hero,
+          levelNo: level
+        },
+      })
+        .then(res => res.json())
+        .then(() => {console.log("hello");});
+        */
     }
   }
   handleSubmit = () => {
@@ -139,16 +172,17 @@ class Progress extends Component {
               <p className="Quote-Person">{randQuote.person}</p>
             </div>
             <div className="Progress-Btn">
-              <Link className="Progress-LeaderBoardBtn" style={leaderboard} onClick={this.handleSubmit} to="/LeaderBoard">LEADERBOARD</Link>
-              <button className="Progress-RegenBtn" style={regen} onClick={this.toggleTransition}>REGEN</button>
-              <Link className="Progress-BackBtn" to="/">BACK TO MAIN</Link>
+              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} onClick={this.handleSubmit} to = "/LeaderBoard">LEADERBOARD</Link>
+              <button className="Progress-RegenBtn" style = {regen} onClick = {this.handleClick} >REGEN</button>
+              <Link className="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
             </div>
           </div> :
           <GameContainer
-            transition={this.state.transition}
-            toggleTransition={this.toggleTransition}
-            game={this.state.game}
-            updateProgress={this.updateProgress}
+            transition = {this.state.transition}
+            toggleTransition = {this.toggleTransition}
+            game = {this.state.game}
+            updateProgress = {this.updateProgress}
+            reset = {this.reset}
           />
         }
       </div>

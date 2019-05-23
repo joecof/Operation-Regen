@@ -67,9 +67,11 @@ class GameScene6 extends Phaser.Scene {
     this.load.image('background', '../img/bkgr.png');
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
-    this.load.audio('truck', '../img/sound.wav');
+
+
+    this.load.audio('truck', '../sound/sound.wav');
     this.load.audio('win', '../sound/3win.mp3');
-    this.load.audio('lose', '../img/Treed.wav');
+    this.load.audio('lose', '../sound/Treed.wav');
   }
 
   drawBull() {

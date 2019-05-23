@@ -47,6 +47,7 @@ let winSound;
 let dump;
 let jump;
 let pick;
+let bgMusic;
 let grabTrash = false;
 
 
@@ -82,6 +83,8 @@ class GameScene3 extends Phaser.Scene {
     this.load.audio('dump', '../sound/3dump.mp3');
     this.load.audio('jump', '../sound/3jump.wav');
     this.load.audio('pick','../sound/3pickup.wav');
+    this.load.audio('bgmusic', '../img/bgMusic.mp3');
+
   }
 
   reduceTime() {
@@ -99,6 +102,8 @@ class GameScene3 extends Phaser.Scene {
     dump = this.sound.add('dump');
     jump = this.sound.add('jump');
     pick = this.sound.add('pick');
+    bgMusic = this.sound.add('bgmusic');
+    bgMusic.play();
 
     instruction = this.add.image(800, 100, 'instruction').setDepth(2);
     timedEvent = this.time.addEvent({
@@ -171,6 +176,7 @@ class GameScene3 extends Phaser.Scene {
     text.setText('Score: ' + score);
     //win
     if (score === 10) {
+      bgMusic.stop();
       dump.play();
       winSound.play();
       timedEvent.remove();

@@ -180,7 +180,8 @@ class GameScene1 extends Phaser.Scene {
 
     if (gameLost === true) {
 
-      this.game.react.props.updateProgress(gameWon);
+      this.game.destroy();
+      this.game.react.props.updateProgress(!gameWon);
       this.game.react.props.toggleTransition();
         
 
@@ -190,6 +191,7 @@ class GameScene1 extends Phaser.Scene {
 
     if (gameWon) {      
       this.game.destroy();
+      this.game.react.props.updateProgress(gameWon);
       this.game.react.props.toggleTransition();
     } 
   }

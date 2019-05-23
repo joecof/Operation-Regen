@@ -54,7 +54,7 @@ class LeaderBoardBox extends Component {
           }
   
           <div className = "LeaderBoardBox-BtnContainer">
-            <Link className = "LeaderBoardBox-Btn" to="/">BACK TO MAIN</Link>
+            <Link className = "LeaderBoardBox-Btn" onClick = { document.location.reload } to="/">BACK TO MAIN</Link>
           </div>
           
         </div>

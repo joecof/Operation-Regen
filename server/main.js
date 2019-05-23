@@ -66,10 +66,10 @@ app.post('/Progress', (req, res) => {
   // res.end('Success');y
 });
 
-// app.use(express.static(path.join(__dirname, '/../client/build')));
-// app.get('/', (req, res) => {
-//   res.sendfile(path.join(__dirname = '/../client/build/index.html'));
-// })
+app.use(express.static(path.join(__dirname, '/../client/build')));
+app.get('/', (req, res) => {
+  res.sendfile(path.join(__dirname = '/../client/build/index.html'));
+})
 
 app.listen(port, () => {
   console.log('Server running on port', port);

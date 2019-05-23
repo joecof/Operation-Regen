@@ -1,6 +1,6 @@
 .Transition {
   width: 70%;
-  height: 550px;
+  height: 800px;
   margin: 0 auto 20px;
   border: 2px solid black;
   position: relative;
@@ -11,8 +11,8 @@
 
 .Transition-Name{
   position: absolute;
- left: 50%;
- margin-left: -50px;
+  left: 50%;
+  margin-left: -50px;
   font-size: 1.4em;
 }
 .Transition-Score {
@@ -52,11 +52,6 @@
   right: 60%;
   width: 120px;
 }
-
-
-
-
-
 
 /* Large devices (desktops, less than 1200px) */
 

@@ -76,6 +76,7 @@ class PlayBox extends Component {
               className ="PlayBox-LeaderBoardBtn" 
               to = "/LeaderBoard"> LEADERBOARD </Link>
           </div>
+          <Link className = "Credits" to = "/Credits"> Dev Team </Link>
         </div>  
       </div>
     );

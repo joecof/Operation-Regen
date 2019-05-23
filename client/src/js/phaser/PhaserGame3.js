@@ -83,7 +83,7 @@ class GameScene3 extends Phaser.Scene {
     this.load.audio('dump', '../sound/3dump.mp3');
     this.load.audio('jump', '../sound/3jump.wav');
     this.load.audio('pick','../sound/3pickup.wav');
-    this.load.audio('bgmusic', '../img/bgMusic.mp3');
+    this.load.audio('bgmusic', '../sound/bgMusic.mp3');
 
   }
 

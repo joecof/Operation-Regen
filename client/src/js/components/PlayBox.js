@@ -45,7 +45,7 @@ class PlayBox extends Component {
     if (this.state.heroName === null || this.state.selectedHero === null) {
       return "";
     } else {
-      return "/Transition";
+      return "/Game";
     }
   }
 
@@ -56,16 +56,11 @@ class PlayBox extends Component {
           <CharacterSelection hero = {this.selectHero.bind(this)} flag = {this.state.nameChange}/>
           <Post name = {this.enterHeroName.bind(this)}/>
           <div className="PlayBox-Btn">
-<<<<<<< HEAD
-            <Link className ="PlayBox-PlayBtn" to = "/Game">PLAY</Link>
-            <Link className ="PlayBox-LeaderBoardBtn" to = "LeaderBoard">LEADERBOARD</Link>
-=======
             <Link className ="PlayBox-PlayBtn" onClick = {this.checkUserInput} to = {{
               pathname: this.returnPath(),
               state: {hero: this.state.selectedHero, name: this.state.heroName}
             }}>PLAY</Link>
             <Link className ="PlayBox-LeaderBoardBtn" to = "/LeaderBoard">LEADERBOARD</Link>
->>>>>>> 15ff0041ce0363c7ae94ec2d67cc0ea37e80e990
           </div>
         </div>      
       </div>

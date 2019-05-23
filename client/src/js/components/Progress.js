@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/Progress.css';
+// import '../../css/Progress.css';
 import Transition from './Transition';
 import {Link} from "react-router-dom";
 import '../../img/lives5.png'
@@ -16,8 +16,6 @@ class Progress extends Component {
       life: 5,
       score: 0
     };
-
-    
   }
 
   // Fetch quote query result

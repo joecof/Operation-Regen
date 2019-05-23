@@ -47,15 +47,15 @@ for (let i = 0; i < boardSize; i++) {
 }
 
 // setup the game stage
-var bgWidth = 2000;
-var bgHeight = 1080;
-var bgMoveX = 20;
-var bgMoveY = 10;
+var gameWidth = window.innerWidth;
+var gameHeight = window.innerHeight;
+var scaleX = gameWidth / 1920;
+var scaleY = gameHeight / 1080;
 var roomWidth = 227;
 var roomHeight = 227;
-var roomMoveX = 720;
-var roomMoveY = 356;
-var spaceBetweenRooms = 30;
+var roomMoveX = 840;
+var roomMoveY = 400;
+var spaceBetweenRooms = 65;
 var gameOver = false;
 
 let instruction;
@@ -107,10 +107,13 @@ class GameScene5 extends Phaser.Scene {
     instruction = this.add.image(350, 100, 'instruction').setDepth(2);
     
     if (boardSize === 2) {
-      background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background0');
+      background = this.add.image(0, 0, 'background0').setOrigin(0, 0);
     } else if (boardSize === 3) {
-      background = this.add.image(bgWidth / 2 - bgMoveX, bgHeight / 2 - bgMoveY, 'background1');
+      background = this.add.image(0, 0, 'background1').setOrigin(0, 0);
     }
+
+    background.scaleY = scaleY;
+    background.scaleX = scaleX;
 
   	// create the grid
     var countOff = 0;

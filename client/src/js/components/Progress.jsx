@@ -38,6 +38,7 @@ class Progress extends Component {
       name: this.props.location.state.name
     });
 
+<<<<<<< HEAD
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
@@ -45,13 +46,21 @@ class Progress extends Component {
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({ quote })));
+=======
+    // fetch('/ListNo')
+    //   .then(res => res.json())
+    //   .then(listNo => (this.setState({ listNo })));
+>>>>>>> joe
   }
 
   insertProgress = () => {
     fetch('/Progress', {
       method: 'POST',
       data: {
-        user: this.state.name
+        user: this.state.name,
+        score: this.state.score,
+        hero: this.state.hero,
+        level: this.state.level
       }
     })
       .then(res => res.json())
@@ -91,7 +100,12 @@ class Progress extends Component {
       method:'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
-        name: this.state.name
+        name: this.state.name,
+        list: this.state.listNo,
+        score: this.state.score,
+        hero: this.state.hero,
+        level: this.state.level
+
       }),
     })
       .then(res=>res.json())
@@ -167,7 +181,7 @@ class Progress extends Component {
             <div className="Progress-Btn">
               <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
               <button className="Progress-RegenBtn" style = {regen} onClick = {this.handleClick} >REGEN</button>
-              <Link className="Progress-BackBtn" onClick = {document.location.reload} to = "/">BACK TO MAIN</Link>
+              <Link className="Progress-BackBtn" onClick = { document.location.reload } to = "/">BACK TO MAIN</Link>
             </div>
           </div> :
           <GameContainer

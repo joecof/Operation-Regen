@@ -176,6 +176,8 @@ class GameScene2 extends Phaser.Scene {
       }            
     } else if (lose === true) {
       bkgr.setTexture('backgroundLoss');
+      console.log(this.scene.isActive('GameScene1'))
+
 
       setInterval(() => {
         gameLost = true;

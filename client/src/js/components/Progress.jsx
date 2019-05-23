@@ -39,10 +39,10 @@ class Progress extends Component {
       hero: this.props.location.state.hero,
       name: this.props.location.state.name
     });    
+    
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({ quote })));
-
   }
 
   insertProgress = () => {
@@ -96,7 +96,6 @@ class Progress extends Component {
         score: this.state.score,
         hero: this.state.hero,
         level: this.state.level
-
       }),
     })
       .then(res=>res.json())
@@ -181,7 +180,7 @@ class Progress extends Component {
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
             updateProgress = {this.updateProgress}
-          
+            hero = { this.state.hero }
           />
         }
       </div>

@@ -1,13 +1,64 @@
-.Credits {
-  width: 800px;
-  height: 100px;
-  margin-top:20px;
-  background-color: #fff;
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+p {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   font-size: 10pt;
 }
 
+.Credits {  
+  width: 40%;
+  margin-top:20px;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16pt;  
+}
 
-.Credits-header {
+.desc {
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.cast{ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 20px;
+  width:90%;
+}
+
+.kid{ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width:25%;
+}
+
+.Credits-BtnContainer {
   text-align: center;
+  margin-top: 35px;
+}
 
+.Credits-Btn {
+  font-size: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: rgb(221, 85, 85);
+  border-radius: 5px;
+  padding: 6px 50px;
+  font-weight: 900;
+  text-align: center;
 }

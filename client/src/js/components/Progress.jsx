@@ -16,7 +16,7 @@ class Progress extends Component {
       winScore: 1000,
       loseScore: 300,
       score: 50,
-      life: 0,
+      life: 4,
       round: 1,
       level: 1,
       numOfGames: 5,

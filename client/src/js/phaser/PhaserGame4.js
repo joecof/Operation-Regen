@@ -82,10 +82,10 @@ class GameScene4 extends Phaser.Scene {
       frameHeight: 200
     });
 
-    this.load.audio('loud', '../img/faucet_full.mp3');
-    this.load.audio('mid', '../img/faucet_half.mp3');
-    this.load.audio('drop', '../img/faucet_quarter.mp3');
-    this.load.audio('close', '../img/closed.mp3');
+    this.load.audio('loud', '../sound/faucet_full.mp3');
+    this.load.audio('mid', '../sound/faucet_half.mp3');
+    this.load.audio('drop', '../sound/faucet_quarter.mp3');
+    this.load.audio('close', '../sound/closed.mp3');
     this.load.audio('win', '../sound/3win.mp3');
   }
 

@@ -4,7 +4,6 @@ import LeaderBoardItem from './LeaderBoardItem';
 import LeaderBoardHeader from './LeaderBoardHeader';
 import '../../css/LeaderBoardBox.css';
 
-
 class LeaderBoardBox extends Component {
   // Initializes leaderboard array
   constructor() {
@@ -27,24 +26,15 @@ class LeaderBoardBox extends Component {
   }
 
   render() {
-    // Stores leaderboard query result
-    let list = this.state.leaderboard;
-    // Initiate rank to 0
-    let value = 0;
-
-    var style = {
-      backgroundImage: 'url(../img/bg_river_forest2.jpg)'
-    }
-
     return(
-      <div className = "LeaderBoardBoxContainer" style = {style}>
+      <div className = "LeaderBoardBoxContainer" >
         <div className = "LeaderBoardBox"> 
           <h1 className = "LeaderBoardBox-Header">Leader Board</h1>
           <LeaderBoardHeader />
           {
-            list.map((temp, i) => (
+            this.state.leaderboard.map((temp, i) => (
               <LeaderBoardItem key = {i} 
-                rank = {++value}
+                rank = {++i}
                 hero = {temp.heroNo}
                 name = {temp.userName}
                 level = {temp.levelNo}
@@ -53,8 +43,8 @@ class LeaderBoardBox extends Component {
             ))
           }
   
-          <div className="LeaderBoardBox-BtnContainer">
-            <Link className = "LeaderBoardBox-Btn" to="/">Back To Main</Link>
+          <div className = "LeaderBoardBox-BtnContainer">
+            <Link className = "LeaderBoardBox-Btn" onClick = {document.location.reload} to="/">BACK TO MAIN</Link>
           </div>
           
         </div>

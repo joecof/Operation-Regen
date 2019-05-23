@@ -6,14 +6,28 @@ export default class Transition extends Component {
     super();
 
     this.state = {
-      transitionImage: 10
+      transitionImage: 10,
+      baseUpgradeScore: 1000
     };
 
-    this.backgrounds = new Array(this.state.transitionImage + 1);
+    // Transition image background array
+    this.transitions = new Array(this.state.transitionImage);
 
     for (let i = 0; i < this.state.transitionImage; i++) {
-      this.backgrounds[i] = "url(../../img/transitionbase" + i + ".png)";
+      this.transitions[i] = "url(../../img/transitionbase" + i + ".png)";
     }
+  }
+
+  // Transition image changes based on the score
+  changeTransition() {
+    var score = this.props.score;
+    
+    for (let i = 0; i < this.state.transitionImage; i++) {
+      if (score < this.state.baseUpgradeScore * (i + 1) ) {
+        return i;
+      }
+    }
+    return this.state.transitionImage - 1;
   }
 
   // Apply number format
@@ -23,16 +37,16 @@ export default class Transition extends Component {
 
   render() {
     var style = {
-      backgroundImage: this.backgrounds[7]
+      backgroundImage: "url(../../img/transitionbase" + this.changeTransition()  + ".png)"
     }
-
+    
     return (
-      <div className = "Transition" style = { style }>
-        <span>Hero: {this.props.name}</span>
-        <p className = "Transition-Score"> Score: {this.formatNumber(7777)} </p>
-        <img className = "Transition-Hearts" src = {require('../../img/lives5.png')}/>
-        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + "H.png")}/>
+      <div className = "Transition" style = {style}>
+        <span className="Transition-Name"> Hero: {this.props.name}</span>
+        <p className = "Transition-Score"> Score: {this.formatNumber(this.props.score)} </p>
+        <img className = "Transition-Hearts" src = {require("../../img/lives" + this.props.life + ".png")} alt = ""/>
+        <img className = "Transition-Hero" src = {require("../../img/hero" + this.props.hero + (this.props.life !== 0 ? "H" : "D") + ".png")} alt = ""/>
       </div>
-    )
+    );
   }
 }

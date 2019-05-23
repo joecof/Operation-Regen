@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Sigmar+One');
+
 .LeaderBoardBoxContainer {
   width: 100%;
   min-height: 100vh;
+  background-image: url('../img/bg_river_forest2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -12,7 +14,6 @@
 
 .LeaderBoardBox {
   width: 60%;
-
 }
 
 .LeaderBoardBox-Header {
@@ -27,25 +28,15 @@
 }
 
 .LeaderBoardBox-Btn {
-  border-radius: 10px;
-  padding: 0.8rem 0.75rem;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1.5;
-  font-family: 'Sigmar One';
-}
-
-.LeaderBoardBox-Btn:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.LeaderBoardBox-BtnStyle,.LeaderBoardBox-BtnStyle:hover {
+  font-size: 24px;
+  color: #ffffff;
   text-decoration: none;
-  color: black;
- 
+  background-color: rgb(221, 85, 85);
+  border-radius: 5px;
+  padding: 6px 50px;
+  font-weight: 900;
+  text-align: center;
 }
-
-
 
 /* Large devices (desktops, less than 1200px) */
 

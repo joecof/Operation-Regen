@@ -1,29 +1,34 @@
 .Transition {
   width: 70%;
-  height: 650px;
-  margin: 0 auto;
-  margin-bottom:20px;
+  height: 550px;
+  margin: 0 auto 20px;
   border: 2px solid black;
-
+  position: relative;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  border-radius:25px;
 }
 
+.Transition-Name{
+  position: absolute;
+ left: 50%;
+ margin-left: -50px;
+  font-size: 1.4em;
+}
 .Transition-Score {
-  /* display: inline-block; */
   float:right;
-  font-size: 25pt;
-  margin-right:10px;
-  /* margin-right:40px; */
+  font-size: 1.4em;
+  margin:0 15px;
 }
 
 .Transition-Header {
   text-align:center;
+  margin: 14px;
 }
 
 .Transition-Hearts {
-  margin-top:30px;
-  margin-bottom:46px;
+ 
+  margin-top:8px;
   margin-left: 15px;
   width:20.7%;
   float:left;
@@ -43,8 +48,44 @@
 
 .Transition-Hero {
   position: absolute;
-  top:600px;
-  left: 690px;
-  width:150px;
+  top: 60%;
+  right: 60%;
+  width: 120px;
+}
+
+
+
+
+
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+  .Transition-Name,.Transition-Score {
+    font-size: 1.1em;
+  }
+
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+  .Transition-Name,.Transition-Score {
+    font-size: 0.8em;
+  }
+  .Transition-Hero{
+    top: 63%;
+    width: 90px;
+  }
+  .Transition{
+    height: 500px;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+
+
 }
 

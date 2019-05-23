@@ -1,4 +1,5 @@
 .Progress {
+<<<<<<< HEAD
   width: 100vw;
  
   text-align:center;
@@ -8,6 +9,15 @@
   background-attachment: fixed;
   background-size: cover;
   
+=======
+  width: 100%;
+  min-height: 100vh;
+  text-align:center;
+  background-image: url('../img/bg_transition_brown.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
 }
 
 .Progress-Btn {
@@ -15,14 +25,37 @@
   width: 800px;
 }
 
+<<<<<<< HEAD
 .Progress-RegenBtn {
 
+=======
+.Progress-LeaderBoardBtn {
+  width: 40%;
+  float: left;
+  background-color: rgb(255, 140, 0);
+  border-color: rgb(255, 140, 0);
+  color: #fff;
+
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+
+  padding-top:6px;
+  text-align:center;
+  text-decoration:none;
+  font-weight: 900;
+}
+
+.Progress-RegenBtn {
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
   width: 40%;
   float: left;
   background-color: #449d44;
   border-color: #398439;
   color: #fff;
 
+<<<<<<< HEAD
 
   height: 45px;
   border-radius: 5px;
@@ -32,20 +65,41 @@
   font-weight: 900;
 
   padding-top:10px;
+=======
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+
+  padding-top:6px;
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
   text-align:center;
   text-decoration:none;
   font-weight: 900;
 }
 
 .Progress-RegenBtn:hover {
+<<<<<<< HEAD
   text-decoration:none;
 
+=======
+  text-decoration: none;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: color;
+  transition-timing-function: ease;
+  color: rgb(64, 169, 255);
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
 }
 
 .Progress-BackBtn {
   width: 40%;
   float: right;
+<<<<<<< HEAD
   /*margin-right: 10px;*/
+=======
+ 
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
   background-color: rgb(221, 85, 85);
   border-color: rgb(221, 85, 85);
   color: black;
@@ -54,11 +108,18 @@
   border: 0;
   font-size: 24px;
   font-weight: 900;
+<<<<<<< HEAD
   padding-top:10px;
   text-align:center;
   text-decoration:none;
   color:white;
   font-weight: 900;
+=======
+  padding-top:6px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
 }
 
 .Progress-BackBtn:hover {
@@ -66,10 +127,18 @@
 }
 
 .Quote-Box {
+<<<<<<< HEAD
   font-size: 26px;
   width: 85%;
   height: 180px;
   margin: 0 auto;
+=======
+  font-size: 0.85em;
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  font-weight: 800;
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301
 }
 
 .Quote-Content {
@@ -79,3 +148,54 @@
 .Quote-Person {
   margin-top: 10px;
 }
+<<<<<<< HEAD
+=======
+
+.Transition-Header {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+  .Transition{
+    height: 500px;
+  }
+ 
+  .Progress-RegenBtn,.Progress-BackBtn {
+    height: 40px;
+  }
+
+  .Quote-Content,.Quote-Person {
+    font-size: 0.8em;
+  }
+
+  .Progress-Btn {
+    width: 700px;
+  }
+
+  .Transition-Header {
+    font-size: calc(10px + 2vmin);
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+  .Progress-Btn{
+    width: 500px;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) { 
+  .Progress-Btn {
+    width: 400px;
+  }
+  .Progress-BackBtn {
+    font-size: 18px
+  }
+}
+>>>>>>> 05cf52aa2c72503b03433b5123e0701499304301

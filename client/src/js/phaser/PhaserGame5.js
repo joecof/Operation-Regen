@@ -53,9 +53,9 @@ var scaleX = gameWidth / 1920;
 var scaleY = gameHeight / 1080;
 var roomWidth = 227;
 var roomHeight = 227;
-var roomMoveX = 840;
-var roomMoveY = 400;
-var spaceBetweenRooms = 65;
+var roomMoveX = 770 * scaleX;
+var roomMoveY = 395 * scaleY;
+var spaceBetweenRooms = 150 * scaleY;
 var gameOver = false;
 
 let instruction;
@@ -105,12 +105,7 @@ class GameScene5 extends Phaser.Scene {
     win = this.sound.add('win');
     instruction = this.add.image(350, 100, 'instruction').setDepth(2);
     
-    if (boardSize === 2) {
-      background = this.add.image(0, 0, 'background0').setOrigin(0, 0);
-    } else if (boardSize === 3) {
-      background = this.add.image(0, 0, 'background1').setOrigin(0, 0);
-    }
-
+    background = this.add.image(0, 0, 'background1').setOrigin(0, 0);
     background.scaleY = scaleY;
     background.scaleX = scaleX;
 

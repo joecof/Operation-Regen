@@ -10,13 +10,13 @@ class Progress extends Component {
 
     this.state = {
       quote: [],
-      listNo: [],
+      listNo: null,
       hero: 99,
       name: " ",
       winScore: 1000,
       loseScore: 300,
-      score: 100,
-      life: 1,
+      score: 0,
+      life: 0,
       round: 1,
       level: 1,
       numOfGames: 5,
@@ -29,20 +29,41 @@ class Progress extends Component {
     this.toggleGame = this.toggleGame.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.reset = this.reset.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount() {
+    fetch('/Quote')
+      .then(res => res.json())
+      .then(quote => (this.setState({ quote })));
+
+  }
   // Fetch quote query result
   componentDidMount() {
     this.setState({
       hero: this.props.location.state.hero,
       name: this.props.location.state.name
     });
-    fetch('/Quote')
-      .then(res => res.json())
-      .then(quote => (this.setState({ quote })));
+
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
+  }
+
+  insertProgress = () => {
+    fetch('/Progress', {
+      method: 'POST',
+      data: {
+        user: this.state.name
+      }
+        //list: list[0],
+        //userName: this.state.name
+        //score: score,
+        //heroNo: this.state.hero,
+        //levelNo: level
+    })
+      .then(res => res.json())
+      .then(() => {console.log("hello");});
   }
 
   // generates a random number
@@ -69,7 +90,7 @@ class Progress extends Component {
 
   toggleGame() {
     this.setState({
-      game: ++this.state.game % (this.state.numOfGames * 2)
+      game: ++this.state.game % this.state.numOfGames
     }); 
   }
 
@@ -78,6 +99,18 @@ class Progress extends Component {
     this.toggleGame();
   }
 
+  handleSubmit = () => {
+    fetch('/Progress', {
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: this.state.name
+      }),
+    })
+      .then(res=>res.json())
+      .then(data=>{ console.log("success!"); })
+  };
+
   // updates progress after game 
   updateProgress(con) {
     var score = this.state.score;
@@ -85,7 +118,7 @@ class Progress extends Component {
     var round = this.state.round;
     var level = this.state.level;
     var list = this.state.listNo;
-    var num = list[0];
+    var name = this.state.name;
 
     score = con ? score + this.state.winScore : score + this.state.loseScore;
     life = con ? life : --life;
@@ -103,27 +136,12 @@ class Progress extends Component {
         life: life
       });
 
-      /*
-      fetch('/Progress', { 
-        method: 'POST'
-        data: {
-          userName: this.state.name,
-          score: score,
-          heroNo: this.state.hero,
-          levelNo: level
-        },
-      })
-        .then(res => res.json())
-        .then(() => {console.log("hello");});
-        */
+      console.log("user: " + name);
+      
     }
   }
 
   render() {
-    // var style = {
-    //   backgroundImage: 'url(../../img/bg_transition_brown.jpg)'
-    // }
-
     var regen = {
       display: this.state.life === 0 ? "none" : "block"
     }
@@ -146,7 +164,7 @@ class Progress extends Component {
     }
 
     return (
-      <div className = "Progress" >
+      <div className="Progress" >
         {(this.state.transition === true) ?
           <div>
             <p className="Transition-Header">Level {this.state.level}</p>
@@ -156,6 +174,7 @@ class Progress extends Component {
             <div className="Quote-Box">
               <p className="Quote-Content">{randQuote.content}</p>
               <p className="Quote-Person">{randQuote.person}</p>
+              <button onClick={this.handleSubmit}>Test</button>
             </div>
             <div className="Progress-Btn">
               <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
@@ -165,6 +184,7 @@ class Progress extends Component {
           </div> :
           <GameContainer
             transition = {this.state.transition}
+            handleClick = {this.handleClick}
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
             updateProgress = {this.updateProgress}

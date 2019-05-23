@@ -48,7 +48,7 @@ let dump;
 let jump;
 let pick;
 let grabTrash = false;
-let grabbed = false;
+
 
 var target;
 var timedEvent;

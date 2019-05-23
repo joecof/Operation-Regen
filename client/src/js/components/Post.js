@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import '../../css/PlayBoxPost.css';
 
 class Post extends Component {
-  // constructor() {
-  //   super();
-    // this.state = {
-    //   heroName: ""
-    // };
-  // }
 
-  handleChange = (e) => {
-    // this.setState({
-    //   heroName: e.target.value
-    // });
+  handleChange = (e) => { 
     this.props.name(e.target.value);
   }
 

@@ -10,7 +10,7 @@ class GameContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      game1: null
+      game: null
     }
   }
 
@@ -20,7 +20,7 @@ class GameContainer extends Component {
         this.setState({game: new PhaserGame1(this)});
         break;
       case 2: 
-        this.setState({game2: new PhaserGame2(this)});
+        this.setState({game: new PhaserGame2(this)});
         break;
       case 3: 
         this.setState({game: new PhaserGame1(this)});
@@ -28,12 +28,8 @@ class GameContainer extends Component {
       case 4: 
         this.setState({game: new PhaserGame4(this)});
         break;
-      case 5: 
-        this.setState({game: new PhaserGame5(this)});
-        break;
       default:
-        this.setState({game: null});
-        break;
+        this.setState({game: new PhaserGame5(this)});
     }
   }
 

@@ -54,6 +54,7 @@ var target;
 var timedEvent;
 var timeLast = 30;
 
+let bgMusic;
 let instruction;
 var instr   = true;
 var back    = false;
@@ -69,9 +70,8 @@ class GameScene8 extends Phaser.Scene {
   }
 
   preload() {
-    //load image   parkBG.png
-    // this.load.image('bgImg', ' ../img/park1.png');
-    this.load.image('bgImg', ' ../img/parkBG.png');
+
+    this.load.image('bgImg', ' ../img/transitionBase0.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
     this.load.image('dude', '../img/garbageman.png');
@@ -82,6 +82,8 @@ class GameScene8 extends Phaser.Scene {
     this.load.audio('dump', '../sound/3dump.mp3');
     this.load.audio('jump', '../sound/3jump.wav');
     this.load.audio('pick','../sound/3pickup.wav');
+    this.load.audio('bgmusic', '../img/bgMusic.mp3');
+
   }
 
   reduceTime() {
@@ -99,6 +101,9 @@ class GameScene8 extends Phaser.Scene {
     dump = this.sound.add('dump');
     jump = this.sound.add('jump');
     pick = this.sound.add('pick');
+    bgMusic = this.sound.add('bgmusic');
+
+    bgMusic.play();
 
     instruction = this.add.image(800, 100, 'instruction').setDepth(2);
     timedEvent = this.time.addEvent({
@@ -109,7 +114,7 @@ class GameScene8 extends Phaser.Scene {
     });
 
     // add image
-    this.add.image(0, 0, 'bgImg').setOrigin(0, 0);
+    this.add.image(0, 0, 'bgImg').setOrigin(0, 0).setScale(1.3);
     platforms = this.physics.add.staticGroup();
 
     platforms.create(1200, 600, 'platform');
@@ -143,6 +148,7 @@ class GameScene8 extends Phaser.Scene {
     }
 
     if (gameOver || player.y > 700) {
+      bgMusic.stop();
       this.game.destroy(true);
       this.game.react.props.updateProgress(gameOver);
       this.game.react.props.handleClick();
@@ -171,6 +177,7 @@ class GameScene8 extends Phaser.Scene {
     text.setText('Score: ' + score);
     //win
     if (score === 10) {
+      bgMusic.stop();
       dump.play();
       winSound.play();
       timedEvent.remove();
@@ -226,6 +233,7 @@ class GameScene8 extends Phaser.Scene {
   }
 
   gameOver() {
+    bgMusic.stop();
     this.physics.pause();
     player.setTint(0xff0000);
 

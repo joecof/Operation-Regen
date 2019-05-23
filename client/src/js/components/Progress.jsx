@@ -38,7 +38,6 @@ class Progress extends Component {
       name: this.props.location.state.name
     });
 
-<<<<<<< HEAD
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
@@ -46,11 +45,6 @@ class Progress extends Component {
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({ quote })));
-=======
-    // fetch('/ListNo')
-    //   .then(res => res.json())
-    //   .then(listNo => (this.setState({ listNo })));
->>>>>>> joe
   }
 
   insertProgress = () => {

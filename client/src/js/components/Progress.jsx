@@ -15,7 +15,7 @@ class Progress extends Component {
       name: " ",
       winScore: 1000,
       loseScore: 300,
-      score: 0,
+      score: 50,
       life: 0,
       round: 1,
       level: 1,
@@ -28,7 +28,7 @@ class Progress extends Component {
     this.updateProgress = this.updateProgress.bind(this);
     this.toggleGame = this.toggleGame.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.reset = this.reset.bind(this);
+    
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -45,9 +45,6 @@ class Progress extends Component {
       name: this.props.location.state.name
     });
 
-    fetch('/ListNo')
-      .then(res => res.json())
-      .then(listNo => (this.setState({ listNo })));
   }
 
   insertProgress = () => {
@@ -74,11 +71,6 @@ class Progress extends Component {
     return rand;
   }
 
-  reset() {
-    this.setState({
-      game: 1
-    })
-  }
 
   // toggles between transition component and phaser game
   toggleTransition() {
@@ -104,7 +96,12 @@ class Progress extends Component {
       method:'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
-        name: this.state.name
+        name: this.state.name,
+      
+        score: this.state.score,
+        hero: this.state.hero,
+        level: this.state.level
+
       }),
     })
       .then(res=>res.json())
@@ -174,10 +171,10 @@ class Progress extends Component {
             <div className="Quote-Box">
               <p className="Quote-Content">{randQuote.content}</p>
               <p className="Quote-Person">{randQuote.person}</p>
-              <button onClick={this.handleSubmit}>Test</button>
+              {/* <button >Test</button> */}
             </div>
             <div className="Progress-Btn">
-              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
+              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard}  onClick={this.handleSubmit} to = "/LeaderBoard">LEADERBOARD</Link>
               <button className="Progress-RegenBtn" style = {regen} onClick = {this.handleClick} >REGEN</button>
               <Link className="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
             </div>
@@ -188,7 +185,7 @@ class Progress extends Component {
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
             updateProgress = {this.updateProgress}
-            reset = {this.reset}
+          
           />
         }
       </div>

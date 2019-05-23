@@ -26,15 +26,6 @@ class LeaderBoardBox extends Component {
   }
 
   render() {
-    // Stores leaderboard query result
-    // let list = this.state.leaderboard;
-    // Initiate rank to 0
-    // let value = 0;
-
-    // var style = {
-    //   backgroundImage: 'url(../img/bg_river_forest2.jpg)'
-    // }
-
     return(
       <div className = "LeaderBoardBoxContainer" >
         <div className = "LeaderBoardBox"> 
@@ -53,7 +44,7 @@ class LeaderBoardBox extends Component {
           }
   
           <div className = "LeaderBoardBox-BtnContainer">
-            <Link className = "LeaderBoardBox-Btn" to="/">BACK TO MAIN</Link>
+            <Link className = "LeaderBoardBox-Btn" onClick = {document.location.reload} to="/">BACK TO MAIN</Link>
           </div>
           
         </div>

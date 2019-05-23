@@ -177,7 +177,7 @@ class Progress extends Component {
               <button onClick={this.handleSubmit}>Test</button>
             </div>
             <div className="Progress-Btn">
-              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>
+              <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} onClick = {document.location.reload} to = "/LeaderBoard">LEADERBOARD</Link>
               <button className="Progress-RegenBtn" style = {regen} onClick = {this.handleClick} >REGEN</button>
               <Link className="Progress-BackBtn" to = "/">BACK TO MAIN</Link>
             </div>

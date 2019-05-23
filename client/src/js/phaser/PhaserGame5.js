@@ -138,10 +138,13 @@ class GameScene5 extends Phaser.Scene {
       this.showInstruction();
     }
 
+    instr = !instr;
+
     if (gameOver) {
       this.game.destroy(true);
       this.game.react.props.updateProgress(gameOver);
-      this.game.react.props.toggleTransition();
+      this.game.react.props.handleClick();
+      gameOver = !gameOver;
     }
   }
 

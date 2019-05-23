@@ -16,7 +16,7 @@ class Progress extends Component {
       winScore: 1000,
       loseScore: 300,
       score: 0,
-      life: 0,
+      life: 1,
       round: 1,
       level: 1,
       numOfGames: 5,
@@ -86,7 +86,7 @@ class Progress extends Component {
 
   toggleGame() {
     this.setState({
-      game: ++this.state.game % (this.state.numOfGames * 2)
+      game: ++this.state.game % this.state.numOfGames
     }); 
   }
 
@@ -202,6 +202,7 @@ class Progress extends Component {
           </div> :
           <GameContainer
             transition = {this.state.transition}
+            handleClick = {this.handleClick}
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
             updateProgress = {this.updateProgress}

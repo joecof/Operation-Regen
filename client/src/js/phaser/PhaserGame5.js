@@ -86,7 +86,6 @@ class GameScene5 extends Phaser.Scene {
     this.load.audio('light', '../sound/lightSwitch.mp3');
     this.load.audio('bgmusic', '../sound/bgMusic1.mp3');
 
-
     // load on-off lights
     var roomNo = 1;
     for (let i = 0; i < boardSize; i++) {

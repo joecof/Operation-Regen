@@ -61,6 +61,7 @@ var gameOver = false;
 let instruction;
 let lightSwitch;
 let win;
+let bgMusic;
 
 var instr   = true;
 var back    = false;
@@ -96,6 +97,9 @@ class GameScene10 extends Phaser.Scene {
   }
 
   create() {
+    bgMusic = this.sound.add('bgmusic');
+    bgMusic.play();
+
     lightSwitch = this.sound.add('light');
     win = this.sound.add('win');
     instruction = this.add.image(350, 100, 'instruction').setDepth(2);
@@ -184,6 +188,7 @@ class GameScene10 extends Phaser.Scene {
     }
 
     if (countOn === 0) {
+      bgMusic.stop();
       win.play();
 
       setInterval(() => {

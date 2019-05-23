@@ -33,7 +33,6 @@ export default class Game extends Phaser.Game {
 /**
  * Global variables
  */
-let temp = true;
 var instr       = false;    
 var win         = false;
 var lose        = false;

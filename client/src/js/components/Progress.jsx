@@ -38,8 +38,7 @@ class Progress extends Component {
     this.setState({
       hero: this.props.location.state.hero,
       name: this.props.location.state.name
-    });
-    
+    });    
     fetch('/Quote')
       .then(res => res.json())
       .then(quote => (this.setState({ quote })));

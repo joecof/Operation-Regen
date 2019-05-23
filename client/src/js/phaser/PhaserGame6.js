@@ -23,7 +23,7 @@ export default class Game extends Phaser.Game {
           debug: false
         }
       },
-      scene: GameScene1
+      scene: GameScene6
     }
     super(config);
     this.react = react;
@@ -57,9 +57,9 @@ var tree;
 /**
  * Stop The Bulldozer Game
  */
-class GameScene1 extends Phaser.Scene {
+class GameScene6 extends Phaser.Scene {
   constructor() {
-    super({key: "GameScene1"});
+    super({key: "GameScene6"});
   }
 
   preload() {
@@ -178,6 +178,7 @@ class GameScene1 extends Phaser.Scene {
       this.game.react.props.updateProgress(!gameLost);
       this.game.react.props.handleClick();
     } else {
+
     }
 
     if (gameWon === true) {

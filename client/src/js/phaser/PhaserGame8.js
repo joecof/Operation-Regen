@@ -25,7 +25,7 @@ export default class Game extends Phaser.Game {
           debug: false
         }
       },
-      scene: GameScene3
+      scene: GameScene8
     }
     super(config);
     this.react = react;
@@ -63,9 +63,9 @@ var LOOP    = 2;
 /**
  * Throw Out The Trash Game
  */
-class GameScene3 extends Phaser.Scene {
+class GameScene8 extends Phaser.Scene {
   constructor() {
-    super({key: 'GameScene3'});
+    super({key: 'GameScene8'});
   }
 
   preload() {

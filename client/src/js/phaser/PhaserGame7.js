@@ -23,7 +23,7 @@ export default class Game extends Phaser.Game {
           debug: false
         }
       },
-      scene: GameScene2
+      scene: GameScene7
     }
     super(config);
     this.react = react;
@@ -67,9 +67,9 @@ var height    = gameHeight / 1.15;
 /**
  * Bring The Trash To The Truck Game
  */
-class GameScene2 extends Phaser.Scene {
+class GameScene7 extends Phaser.Scene {
   constructor() {
-    super({key: 'GameScene2'});
+    super({key: 'GameScene7'});
   }
 
   preload() {
@@ -185,7 +185,7 @@ class GameScene2 extends Phaser.Scene {
     if (gameWon) {
       this.game.destroy(true);
       this.game.react.props.updateProgress(gameWon);
-      this.game.react.props.handleClick(); 
+      this.game.react.props.handleClick();
     }
     
     if (gameLost) {
@@ -199,7 +199,6 @@ class GameScene2 extends Phaser.Scene {
     var speed = 0.04
     var max = 2;
     var min = 1;
-
     if (instr === true) {
       if (mult < max && back === false) {                
           instruction.setScale(mult += speed);
@@ -207,7 +206,6 @@ class GameScene2 extends Phaser.Scene {
               back = true;                                        
           }                
       }
-
       if (mult > min && back === true) {
         instruction.setScale(mult -= speed);
         if (mult <= min) {
@@ -215,7 +213,6 @@ class GameScene2 extends Phaser.Scene {
           LOOP--;
         }
       }
-      
       if (LOOP < 0) {
         instr = false;
         instruction.x = -1000;

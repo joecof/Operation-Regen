@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../css/Progress.css';
 import Transition from './Transition';
 import GameContainer from './GameContainer';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class Progress extends Component {
   constructor() {
@@ -16,28 +16,21 @@ class Progress extends Component {
       winScore: 1000,
       loseScore: 300,
       score: 0,
-      life: 0,
+      life: 5,
       round: 1,
       level: 1,
-      numOfGames: 5,
+      numOfGames: 10,
       game: 0,
       transition: true,
+      gameEnd: false
     };
 
     this.toggleTransition = this.toggleTransition.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
     this.toggleGame = this.toggleGame.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.reset = this.reset.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    fetch('/Quote')
-      .then(res => res.json())
-      .then(quote => (this.setState({ quote })));
-
-  }
   // Fetch quote query result
   componentDidMount() {
     this.setState({
@@ -48,6 +41,10 @@ class Progress extends Component {
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
+    
+    fetch('/Quote')
+      .then(res => res.json())
+      .then(quote => (this.setState({ quote })));
   }
 
   insertProgress = () => {
@@ -56,11 +53,6 @@ class Progress extends Component {
       data: {
         user: this.state.name
       }
-        //list: list[0],
-        //userName: this.state.name
-        //score: score,
-        //heroNo: this.state.hero,
-        //levelNo: level
     })
       .then(res => res.json())
       .then(() => {console.log("hello");});
@@ -74,29 +66,24 @@ class Progress extends Component {
     return rand;
   }
 
-  reset() {
-    this.setState({
-      game: 1
-    })
-  }
-
   // toggles between transition component and phaser game
   toggleTransition() {
     this.setState({
       transition: !this.state.transition,
-
     }); 
   }
 
   toggleGame() {
     this.setState({
-      game: ++this.state.game % this.state.numOfGames
-    }); 
+      game: ++this.state.game
+    });
   }
 
   handleClick() {
     this.toggleTransition();
-    this.toggleGame();
+    if (this.state.game < this.state.numOfGames * 2 - 1) {
+      this.toggleGame();
+    }
   }
 
   handleSubmit = () => {
@@ -119,35 +106,36 @@ class Progress extends Component {
     var level = this.state.level;
     var list = this.state.listNo;
     var name = this.state.name;
+    var game = this.state.game;
+    var gameEnd = this.state.gameEnd;
 
     score = con ? score + this.state.winScore : score + this.state.loseScore;
     life = con ? life : --life;
 
-    if (life > 0) {
+    if (life === 0 || game >= this.state.numOfGames * 2 - 1) {
+      gameEnd = !gameEnd;
+      this.setState({
+        score: score,
+        life: life,
+        gameEnd: gameEnd
+      });
+    } else {
       this.setState({
         score: score,
         life: life,
         round: round + Math.floor(level / this.state.numOfGames),
         level: ++level,
       });
-    } else if (life === 0) {
-      this.setState({
-        score: score,
-        life: life
-      });
-
-      console.log("user: " + name);
-      
     }
   }
 
   render() {
     var regen = {
-      display: this.state.life === 0 ? "none" : "block"
+      display: this.state.life === 0 || this.state.game >= this.state.numOfGames * 2 - 1 ? "none" : "block"
     }
 
     var leaderboard = {
-      display: this.state.life === 0 ? "block" : "none"
+      display: this.state.life === 0 || this.state.game >= this.state.numOfGames * 2 - 1 ? "block" : "none"
     }
 
     // Stores quote query result
@@ -174,7 +162,7 @@ class Progress extends Component {
             <div className="Quote-Box">
               <p className="Quote-Content">{randQuote.content}</p>
               <p className="Quote-Person">{randQuote.person}</p>
-              <button onClick={this.handleSubmit}>Test</button>
+              {/*<button onClick={this.handleSubmit}>Test</button>*/}
             </div>
             <div className="Progress-Btn">
               <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} onClick = {document.location.reload} to = "/LeaderBoard">LEADERBOARD</Link>
@@ -188,7 +176,6 @@ class Progress extends Component {
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
             updateProgress = {this.updateProgress}
-            reset = {this.reset}
           />
         }
       </div>

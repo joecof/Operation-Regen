@@ -23,7 +23,7 @@ export default class Game extends Phaser.Game {
           debug: false
         }
       },
-      scene: GameScene4
+      scene: GameScene9
     }
     super(config);
     this.react = react;
@@ -67,9 +67,9 @@ var range = [mult, mult + 5, mult + 15, mult + 25];
 /**
  * Turn Off The Faucet Game
  */
-class GameScene4 extends Phaser.Scene {
+class GameScene9 extends Phaser.Scene {
   constructor() {
-    super({key: 'GameScene4'})
+    super({key: 'GameScene9'})
   }
 
   preload() {

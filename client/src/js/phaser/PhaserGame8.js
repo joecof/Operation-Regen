@@ -25,7 +25,7 @@ export default class Game extends Phaser.Game {
           debug: false
         }
       },
-      scene: GameScene3
+      scene: GameScene8
     }
     super(config);
     this.react = react;
@@ -47,7 +47,6 @@ let winSound;
 let dump;
 let jump;
 let pick;
-let bgMusic;
 let grabTrash = false;
 
 
@@ -64,15 +63,15 @@ var LOOP    = 2;
 /**
  * Throw Out The Trash Game
  */
-class GameScene3 extends Phaser.Scene {
+class GameScene8 extends Phaser.Scene {
   constructor() {
-    super({key: 'GameScene3'});
+    super({key: 'GameScene8'});
   }
 
   preload() {
     //load image   parkBG.png
     // this.load.image('bgImg', ' ../img/park1.png');
-    this.load.image('bgImg', ' ../img/transitionBase0.png');
+    this.load.image('bgImg', ' ../img/parkBG.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
     this.load.image('dude', '../img/garbageman.png');
@@ -83,8 +82,6 @@ class GameScene3 extends Phaser.Scene {
     this.load.audio('dump', '../sound/3dump.mp3');
     this.load.audio('jump', '../sound/3jump.wav');
     this.load.audio('pick','../sound/3pickup.wav');
-    this.load.audio('bgmusic', '../img/bgMusic.mp3');
-
   }
 
   reduceTime() {
@@ -102,8 +99,6 @@ class GameScene3 extends Phaser.Scene {
     dump = this.sound.add('dump');
     jump = this.sound.add('jump');
     pick = this.sound.add('pick');
-    bgMusic = this.sound.add('bgmusic');
-    bgMusic.play();
 
     instruction = this.add.image(800, 100, 'instruction').setDepth(2);
     timedEvent = this.time.addEvent({
@@ -114,7 +109,7 @@ class GameScene3 extends Phaser.Scene {
     });
 
     // add image
-    this.add.image(0, 0, 'bgImg').setOrigin(0, 0).setScale(1.3);
+    this.add.image(0, 0, 'bgImg').setOrigin(0, 0);
     platforms = this.physics.add.staticGroup();
 
     platforms.create(1200, 600, 'platform');
@@ -176,7 +171,6 @@ class GameScene3 extends Phaser.Scene {
     text.setText('Score: ' + score);
     //win
     if (score === 10) {
-      bgMusic.stop();
       dump.play();
       winSound.play();
       timedEvent.remove();

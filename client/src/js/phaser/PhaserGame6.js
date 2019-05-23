@@ -23,7 +23,7 @@ export default class Game extends Phaser.Game {
           debug: false
         }
       },
-      scene: GameScene1
+      scene: GameScene6
     }
     super(config);
     this.react = react;
@@ -33,7 +33,6 @@ export default class Game extends Phaser.Game {
 /**
  * Global variables
  */
-let temp = true;
 var instr       = false;    
 var win         = false;
 var lose        = false;
@@ -58,9 +57,9 @@ var tree;
 /**
  * Stop The Bulldozer Game
  */
-class GameScene1 extends Phaser.Scene {
+class GameScene6 extends Phaser.Scene {
   constructor() {
-    super({key: "GameScene1"});
+    super({key: "GameScene6"});
   }
 
   preload() {
@@ -71,7 +70,6 @@ class GameScene1 extends Phaser.Scene {
     this.load.audio('truck', '../img/sound.wav');
     this.load.audio('win', '../sound/3win.mp3');
     this.load.audio('lose', '../img/Treed.wav');
-
   }
 
   drawBull() {
@@ -117,12 +115,10 @@ class GameScene1 extends Phaser.Scene {
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
     } else {
-
       setInterval(() => {
         gameWon = true;
       }, 2200);
     }
-
   }
 
   loserLoop() {
@@ -164,7 +160,6 @@ class GameScene1 extends Phaser.Scene {
       angle = 0;
       truckflip.play();
     });
-
   }
 
   update() {
@@ -183,6 +178,7 @@ class GameScene1 extends Phaser.Scene {
       this.game.react.props.updateProgress(!gameLost);
       this.game.react.props.handleClick();
     } else {
+
     }
 
     if (gameWon === true) {

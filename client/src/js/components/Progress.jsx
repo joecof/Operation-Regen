@@ -168,7 +168,8 @@ class Progress extends Component {
             toggleTransition = {this.toggleTransition}
             game = {this.state.game}
             updateProgress = {this.updateProgress}
-            reset = {this.reset}
+            reset = { this.reset }
+            key = { this.state.game }
           />
         }
       </div>

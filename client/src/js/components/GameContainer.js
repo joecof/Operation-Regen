@@ -18,13 +18,13 @@ class GameContainer extends Component {
   componentDidMount() {
     switch(this.props.game) {
       case 1:
-        this.setState({game1: new PhaserGame1(this)});
+        this.setState({game: new PhaserGame1(this)});
         break;
       case 2: 
         this.setState({game2: new PhaserGame2(this)});
         break;
       case 3: 
-        this.setState({game: new PhaserGame3(this)});
+        this.setState({game: new PhaserGame1(this)});
         break;
       case 4: 
         this.setState({game: new PhaserGame4(this)});
@@ -33,7 +33,7 @@ class GameContainer extends Component {
         this.setState({game: new PhaserGame5(this)});
         break;
       default:
-        this.setState({game: new PhaserGame1(this)});
+        this.setState({game: null});
         break;
     }
   }

@@ -31,6 +31,7 @@ class LeaderBoardBox extends Component {
     // Initiate rank to 0
     let value = 0;
 
+
     // var style = {
     //   backgroundImage: 'url(../img/bg_river_forest2.jpg)'
     // }

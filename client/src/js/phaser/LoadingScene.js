@@ -15,7 +15,6 @@ export default class LoadingScene extends Phaser.Scene {
     super({ key: 'LoadingScene'})
   }
 
-
   preload() {
     var i;
     this.load.image('logo'+ i, '../img/icon.png');
@@ -73,6 +72,5 @@ export default class LoadingScene extends Phaser.Scene {
       this.scene.start('GameScene');
     }
   }
-
 }
 

@@ -33,6 +33,7 @@ export default class Game extends Phaser.Game {
 /**
  * Global variables
  */
+let temp = true;
 var instr       = false;    
 var win         = false;
 var lose        = false;
@@ -70,6 +71,7 @@ class GameScene1 extends Phaser.Scene {
     this.load.audio('truck', '../img/sound.wav');
     this.load.audio('win', '../sound/3win.mp3');
     this.load.audio('lose', '../img/Treed.wav');
+
   }
 
   drawBull() {
@@ -115,10 +117,12 @@ class GameScene1 extends Phaser.Scene {
         bulldozer.x += 10;
         bulldozer.y += (80 * Math.cos(0.1 * angle + 92) + 10);
     } else {
+
       setInterval(() => {
         gameWon = true;
       }, 2200);
     }
+
   }
 
   loserLoop() {
@@ -160,6 +164,7 @@ class GameScene1 extends Phaser.Scene {
       angle = 0;
       truckflip.play();
     });
+
   }
 
   update() {
@@ -174,27 +179,18 @@ class GameScene1 extends Phaser.Scene {
     }
 
     if (gameLost === true) {
-      
-      console.log(this.scene.isActive('GameScene1'))
 
-      // this.scene.restart();
-      this.game.destroy(false);
-      this.game.react.props.updateProgress(!gameLost);
+      this.game.react.props.updateProgress(gameWon);
       this.game.react.props.toggleTransition();
-      // this.game.react.props.resetGame();
+        
 
     } else {
 
     }
 
-    if (gameWon === true) {
-
-      console.log(this.scene.isActive('GameScene1'))
-
-      
-      this.game.destroy(true);
-      this.game.react.props.updateProgress(gameWon);
+    if (gameWon) {      
+      this.game.destroy();
       this.game.react.props.toggleTransition();
-    }
+    } 
   }
 }

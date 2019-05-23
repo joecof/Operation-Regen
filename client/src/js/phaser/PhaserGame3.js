@@ -71,7 +71,7 @@ class GameScene3 extends Phaser.Scene {
   preload() {
     //load image   parkBG.png
     // this.load.image('bgImg', ' ../img/park1.png');
-    this.load.image('bgImg', ' ../img/parkBG.png');
+    this.load.image('bgImg', ' ../img/transitionBase0.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
     this.load.image('dude', '../img/garbageman.png');
@@ -109,7 +109,7 @@ class GameScene3 extends Phaser.Scene {
     });
 
     // add image
-    this.add.image(0, 0, 'bgImg').setOrigin(0, 0);
+    this.add.image(0, 0, 'bgImg').setOrigin(0, 0).setScale(1.3);
     platforms = this.physics.add.staticGroup();
 
     platforms.create(1200, 600, 'platform');

@@ -31,19 +31,6 @@ app.get('/LeaderBoard', (req, res) => {
   });
 });
 
-<<<<<<< HEAD
-// listen to get request: leaderboard max listNo query result -- WORK IN PROGRESS 
-app.get('/ListNo', (req, res) => {
-  connection.query("SELECT MAX(listNo) + 1 AS 'listNo' FROM leaderboard", function(err, result) {
-    if (!err) {
-      res.json(result);
-    } else {
-      console.log('Error while retrieving max listNo data');
-    }
-  });
-});
-=======
->>>>>>> ivan
 
 
 // listen to get request: quote query result
@@ -57,22 +44,6 @@ app.get('/Quote', (req, res) => {
   });
 });
 
-<<<<<<< HEAD
-let listNo = 1;
-
-//listen to post request: insert into leaderboard
-app.post('/Progress', (req, res) => {
-  listNo++;
-  console.log('name: ' + req.body.name);
-  console.log('score' + req.body.score);
-
-  //res.send(req.body);
-  connection.query("INSERT INTO leaderboard VALUES (" + listNo + " ,?, ?, 3, 3) ", req.body.name, function(err, result) {  // , req.body
-    if (!err) {
-      res.json(result);
-    } else {
-      console.log(err);
-=======
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '../', 'public')));
@@ -89,11 +60,9 @@ app.post('/Progress', (req, res) => {
   connection.query(sql,data, (err, results, fields) => {
     if (err) {
       return console.error(err.message);
->>>>>>> ivan
     }
     
   });
-<<<<<<< HEAD
   // res.end('Success');
 });
 
@@ -101,16 +70,6 @@ app.post('/Progress', (req, res) => {
 // app.get('/', (req, res) => {
 //   res.sendfile(path.join(__dirname = '/../client/build/index.html'));
 // })
-=======
-
-});
-
-app.use(express.static(path.join(__dirname, '/../client/build')));
-app.get('/', (req, res) => {
-  res.sendfile(path.join(__dirname = '/../client/build/index.html'));
-})
-
->>>>>>> ivan
 
 app.listen(port, () => {
   console.log('Server running on port', port);

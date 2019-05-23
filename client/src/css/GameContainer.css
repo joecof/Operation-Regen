@@ -1,0 +1,21 @@
+.GameContainer {
+  height:100vh;
+  width:100vw;
+}
+
+.Game-BtnContainer {
+  text-align:center;
+}
+
+.Game-Btn{
+  border-radius: 10px;
+}
+
+.Game-Btn:hover{
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+canvas {
+  height:100vh;
+  width:100vw;
+}

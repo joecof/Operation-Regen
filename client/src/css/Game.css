@@ -1,0 +1,12 @@
+.Game {
+  width: 100%;
+  min-height: 100vh;
+  text-align:center;
+
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+

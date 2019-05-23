@@ -1,0 +1,91 @@
+.Transition {
+  width: 70%;
+  height: 550px;
+  margin: 0 auto 20px;
+  border: 2px solid black;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius:25px;
+}
+
+.Transition-Name{
+  position: absolute;
+ left: 50%;
+ margin-left: -50px;
+  font-size: 1.4em;
+}
+.Transition-Score {
+  float:right;
+  font-size: 1.4em;
+  margin:0 15px;
+}
+
+.Transition-Header {
+  text-align:center;
+  margin: 14px;
+}
+
+.Transition-Hearts {
+ 
+  margin-top:8px;
+  margin-left: 15px;
+  width:20.7%;
+  float:left;
+
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  from {width: 20.7%;}
+  to {width: 21%;}
+}
+
+.Transition-Hero {
+  position: absolute;
+  top: 60%;
+  right: 60%;
+  width: 120px;
+}
+
+
+
+
+
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+  .Transition-Name,.Transition-Score {
+    font-size: 1.1em;
+  }
+
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+  .Transition-Name,.Transition-Score {
+    font-size: 0.8em;
+  }
+  .Transition-Hero{
+    top: 63%;
+    width: 90px;
+  }
+  .Transition{
+    height: 500px;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+
+
+}
+

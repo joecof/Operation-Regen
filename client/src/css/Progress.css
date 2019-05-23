@@ -1,0 +1,145 @@
+.Progress {
+  width: 100%;
+  min-height: 100vh;
+  text-align:center;
+  background-image: url('../img/bg_transition_brown.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.Progress-Btn {
+  margin:0 auto;
+  width: 800px;
+}
+
+.Progress-LeaderBoardBtn {
+  width: 40%;
+  float: left;
+  background-color: rgb(255, 140, 0);
+  border-color: rgb(255, 140, 0);
+  color: #fff;
+
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+
+  padding-top:6px;
+  text-align:center;
+  text-decoration:none;
+  font-weight: 900;
+}
+
+.Progress-RegenBtn {
+  width: 40%;
+  float: left;
+  background-color: #449d44;
+  border-color: #398439;
+  color: #fff;
+
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+
+  padding-top:6px;
+  text-align:center;
+  text-decoration:none;
+  font-weight: 900;
+}
+
+.Progress-RegenBtn:hover {
+  text-decoration: none;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: color;
+  transition-timing-function: ease;
+  color: rgb(64, 169, 255);
+}
+
+.Progress-BackBtn {
+  width: 40%;
+  float: right;
+ 
+  background-color: rgb(221, 85, 85);
+  border-color: rgb(221, 85, 85);
+  color: black;
+  height: 45px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 24px;
+  font-weight: 900;
+  padding-top:6px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+}
+
+.Progress-BackBtn:hover {
+  text-decoration:none;
+}
+
+.Quote-Box {
+  font-size: 0.85em;
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+  font-weight: 800;
+}
+
+.Quote-Content {
+  margin: 0;
+}
+
+.Quote-Person {
+  margin-top: 10px;
+}
+
+.Transition-Header {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+  .Transition{
+    height: 500px;
+  }
+ 
+  .Progress-RegenBtn,.Progress-BackBtn {
+    height: 40px;
+  }
+
+  .Quote-Content,.Quote-Person {
+    font-size: 0.8em;
+  }
+
+  .Progress-Btn {
+    width: 700px;
+  }
+
+  .Transition-Header {
+    font-size: calc(10px + 2vmin);
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+  .Progress-Btn{
+    width: 500px;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) { 
+  .Progress-Btn {
+    width: 400px;
+  }
+  .Progress-BackBtn {
+    font-size: 18px
+  }
+}

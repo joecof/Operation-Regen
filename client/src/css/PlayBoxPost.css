@@ -1,0 +1,41 @@
+.Post-Input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 55px;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 900;
+  color: #555;
+}
+
+.Post-Input {
+  text-align: center;
+}
+
+.HeroNameInputBox {
+  margin-top: 40px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+:-ms-input-placeholder {  
+  text-align: center;
+  font-weight: 400;
+  font-size: 25px;
+}

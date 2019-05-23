@@ -1,27 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+
 .App {
- 
-  /* background-color: #282c34; */
+  font-family: 'Architects Daughter', cursive;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 
-}
-
-.App-Container {
-  width:80%;
-}
-
-.App-Menu {
-  width:49%;
-  display:inline-block;
-}
-
-.App-View {
-  height:500px;
-  width:49%;
-  display:inline-block;
+  background-image: url("../img/bg_river_forest.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

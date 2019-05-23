@@ -1,34 +1,124 @@
-.LeaderBoardBox-Header {
-  text-align:center;
-  padding: 3% 0 3%;
-  letter-spacing: 2px;
-  color: gold;
-  font-size: 50px;
-  font-style: italic;
-  width: 100%;
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One');
 
+.LeaderBoardBoxContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../img/bg_river_forest2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LeaderBoardBox {
+  width: 60%;
+}
+
+.LeaderBoardBox-Header {
+  text-align: center; 
+  color: gold;
+  font: italic 2em 'Sigmar One', cursive;
 }
 
 .LeaderBoardBox-BtnContainer {
-  text-align:center;
-  margin-top:35px;
+  text-align: center;
+  margin-top: 35px;
 }
 
-.LeaderBoardBox-Btn{
-  border-radius: 10px;
+.LeaderBoardBox-Btn {
+  font-size: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: rgb(221, 85, 85);
+  border-radius: 5px;
+  padding: 6px 50px;
+  font-weight: 900;
+  text-align: center;
 }
 
-.LeaderBoardBox-Btn:hover{
-  background-color: rgba(255, 255, 255, 0.7);
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+  /* for leaderboardpage */
+ 
+  .LeaderBoardBox {
+    width: 65%;
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.8em;
+  }
+  .hero img {
+    height: 70px;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+ 
+ 
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.7em;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+    width: 70%;
+    
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.5em;
+  }
+  .hero img {
+    height: 60px;
+  }
+  .LeaderBoardBox-Header {
+    font-size: 1.5em;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+  /* for leaderboardpage */
+  .LeaderBoardBox {
+   
+    width: 80%;
+    margin: 20% auto
+  }
+  .hero img {
+    height: 45px;
+  }
+  .LeaderBoardHeader-Wrapper, .LeaderBoardItem-li {
+    font-size: 0.4em;
+  }
+  .LeaderBoardBox-BtnContainer{
+    margin-top: 15px;
+  }
+  .LeaderBoardBox-Btn {
   
+    padding: 0.4rem 0.75rem;
+ 
+  }
 }
 
-.LeaderBoardBox-BtnStyle {
-  text-decoration: none;
-  color:black;
-}
+/*for phone with 4.7 inch screen or 5.5 inch screen*/
 
-.LeaderBoardBox-BtnStyle:hover {
-  text-decoration: none;
-  color:black;
+@media (max-width: 450px) {
+  /* for leaderboardpage */
+ 
+  .hero img {
+    height: 40px;
+  }
+  .LeaderBoardBox-Btn {
+  
+    padding: 0.2rem 0.75rem;
+ 
+  }
 }

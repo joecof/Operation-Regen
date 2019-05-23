@@ -25,10 +25,11 @@ export default class Transition extends Component {
     for (let i = 0; i < this.state.transitionImage; i++) {
       if (score < this.state.baseUpgradeScore * (i + 1)) {
         return i;
+      } else {
+        return this.state.transitionImage - 1;
       }
     }
   }
-
 
   // Apply number format
   formatNumber(num) {

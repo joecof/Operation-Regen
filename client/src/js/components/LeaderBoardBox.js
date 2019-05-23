@@ -29,7 +29,7 @@ class LeaderBoardBox extends Component {
     // Stores leaderboard query result
     // let list = this.state.leaderboard;
     // Initiate rank to 0
-    let value = 0;
+    // let value = 0;
 
     // var style = {
     //   backgroundImage: 'url(../img/bg_river_forest2.jpg)'
@@ -43,7 +43,7 @@ class LeaderBoardBox extends Component {
           {
             this.state.leaderboard.map((temp, i) => (
               <LeaderBoardItem key = {i} 
-                rank = {++value}
+                rank = {++i}
                 hero = {temp.heroNo}
                 name = {temp.userName}
                 level = {temp.levelNo}

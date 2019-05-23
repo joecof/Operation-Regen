@@ -16,7 +16,7 @@ class Progress extends Component {
       winScore: 1000,
       loseScore: 300,
       score: 0,
-      life: 1,
+      life: 0,
       round: 1,
       level: 1,
       numOfGames: 5,
@@ -29,18 +29,22 @@ class Progress extends Component {
     this.toggleGame = this.toggleGame.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.reset = this.reset.bind(this);
-    //this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount() {
+    fetch('/Quote')
+      .then(res => res.json())
+      .then(quote => (this.setState({ quote })));
+
+  }
   // Fetch quote query result
   componentDidMount() {
     this.setState({
       hero: this.props.location.state.hero,
       name: this.props.location.state.name
     });
-    fetch('/Quote')
-      .then(res => res.json())
-      .then(quote => (this.setState({ quote })));
+
     fetch('/ListNo')
       .then(res => res.json())
       .then(listNo => (this.setState({ listNo })));
@@ -95,22 +99,17 @@ class Progress extends Component {
     this.toggleGame();
   }
 
-  handleSubmit(e) {
-    fetch('/Progress', { 
-      method: 'POST',
-      header: {'Content-Type' : 'application/JSON'},
+  handleSubmit = () => {
+    fetch('/Progress', {
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
-        user: this.state.name
-        //list: list[0],
-        //userName: this.state.name
-        //score: score,
-        //heroNo: this.state.hero,
-        //levelNo: level
-      })
+        name: this.state.name
+      }),
     })
-      .then(res => res.json())
-      .then(() => {console.log("hello");});
-  }
+      .then(res=>res.json())
+      .then(data=>{ console.log("success!"); })
+  };
 
   // updates progress after game 
   updateProgress(con) {
@@ -138,29 +137,11 @@ class Progress extends Component {
       });
 
       console.log("user: " + name);
-      /*fetch('/Progress', { 
-        method: 'POST',
-        header: {'Content-Type' : 'application/JSON'},
-        //body: {name: 'yo'}
-        body: JSON.stringify({
-          user: name
-          //list: list[0],
-          //userName: this.state.name
-          //score: score,
-          //heroNo: this.state.hero,
-          //levelNo: level
-        })
-      })
-        .then(res => res.json())
-        .then(() => {console.log("hello");});*/
+      
     }
   }
 
   render() {
-    // var style = {
-    //   backgroundImage: 'url(../../img/bg_transition_brown.jpg)'
-    // }
-
     var regen = {
       display: this.state.life === 0 ? "none" : "block"
     }
@@ -183,7 +164,7 @@ class Progress extends Component {
     }
 
     return (
-      <div className = "Progress" >
+      <div className="Progress" >
         {(this.state.transition === true) ?
           <div>
             <p className="Transition-Header">Level {this.state.level}</p>
@@ -193,6 +174,7 @@ class Progress extends Component {
             <div className="Quote-Box">
               <p className="Quote-Content">{randQuote.content}</p>
               <p className="Quote-Person">{randQuote.person}</p>
+              <button onClick={this.handleSubmit}>Test</button>
             </div>
             <div className="Progress-Btn">
               <Link className ="Progress-LeaderBoardBtn" style = {leaderboard} to = "/LeaderBoard">LEADERBOARD</Link>

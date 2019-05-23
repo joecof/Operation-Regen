@@ -20,6 +20,9 @@ connection.connect(function(err) {
 app.get('/LeaderBoard', (req, res) => {
   connection.query('SELECT userName, score, heroNo, levelNo FROM leaderboard ORDER BY score DESC, userName LIMIT 5', function(err, result) {
     if (!err) {
+      // const intervalObj = setInterval(() => {
+      //   console.log('interviewing the interval');
+      // }, 500);
       res.json(result);
     } else {
       console.log('Error while retrieving leaderboard data');
@@ -49,27 +52,23 @@ app.get('/Quote', (req, res) => {
   });
 });
 
-// listen to post request: insert into leaderboard
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json()); 
+app.use('/', express.static(path.join(__dirname,'../', 'public')));
+
+//listen to post request: insert into leaderboard
 app.post('/Progress', (req, res) => {
-  console.log("req: " + req.body.user);
-  connection.query('INSERT INTO leaderboard VALUES (3, ?, 333, 1, 3)', req.body.user, function(err, result) {  // , req.body
+  console.log('name: ' + req.body.name);
+  //res.send(req.body);
+  connection.query("INSERT INTO leaderboard VALUES (3, ?, 300, 2, 3)", req.body.name, function(err, result) {  // , req.body
     if (!err) {
       res.json(result);
     } else {
       console.log('Error while inserting progress data into leaderboard');
     }
   });
-  //res.end('Success');
+  res.end('Success');
 });
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json()); 
-app.use('/', express.static(path.join(__dirname,'../', 'public')));
-
-app.post('/', (req, res) => {
-  console.log(req.body);
-  res.send(`${req.body.post}`,);
-})
 
 app.use(express.static(path.join(__dirname, '/../client/build')));
 app.get('/', (req, res) => {

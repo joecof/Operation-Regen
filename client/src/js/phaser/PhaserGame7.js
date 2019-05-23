@@ -80,10 +80,10 @@ class GameScene7 extends Phaser.Scene {
     this.load.image('garbageP', '../img/trashPicked.png');
     this.load.image('instruction', '../img/instruction_river.png');
 
-    this.load.audio('pick', '../img/pickup.mp3');
-    this.load.audio('river', '../img/river.mp3');
-    this.load.audio('truck', '../img/sound.wav');
-    this.load.audio('loaded', '../img/winAlt.mp3');
+    this.load.audio('pick', '../sound/pickup.mp3');
+    this.load.audio('river', '../sound/river.mp3');
+    this.load.audio('truck', '../sound/sound.wav');
+    this.load.audio('loaded', '../sound/winAlt.mp3');
     this.load.audio('win', '../sound/3win.mp3');
   }
 

@@ -5,7 +5,6 @@ import PhaserGame2 from '../phaser/PhaserGame2';
 import PhaserGame3 from '../phaser/PhaserGame3';
 import PhaserGame4 from '../phaser/PhaserGame4';
 import PhaserGame5 from '../phaser/PhaserGame5';
-import { resetWarningCache } from 'prop-types';
 
 class GameContainer extends Component {
   constructor(props) {

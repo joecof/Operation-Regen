@@ -49,26 +49,28 @@ app.get('/Quote', (req, res) => {
   });
 });
 
-// listen to post request: insert into leaderboard
-app.post('/Progress', (req, res) => {
-  connection.query("INSERT INTO leaderboard VALUES (2, 'Duck', 300, 2, 1)", function(err, result) {  // , req.body
-    if (!err) {
-      res.json(result);
-    } else {
-      console.log('Error while inserting progress data into leaderboard');
-    }
-  });
-  //res.end('Success');
-});
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); 
 app.use('/', express.static(path.join(__dirname,'../', 'public')));
 
-app.post('/', (req, res) => {
-  console.log(req.body);
-  res.send(`${req.body.post}`,);
-})
+//listen to post request: insert into leaderboard
+app.post('/Progress', (req, res) => {
+
+  console.log('name'+req.body.name);
+  res.send(req.body);
+  // connection.query("INSERT INTO leaderboard VALUES (2, 'Duck', 300, 2, 1)", function(err, result) {  // , req.body
+  //   if (!err) {
+  //     res.json(result);
+  //   } else {
+  //     console.log('Error while inserting progress data into leaderboard');
+  //   }
+  // });
+  //res.end('Success');
+});
+
+
+
+
 
 app.use(express.static(path.join(__dirname, '/../client/build')));
 app.get('/', (req, res) => {

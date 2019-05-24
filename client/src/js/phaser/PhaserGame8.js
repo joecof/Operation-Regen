@@ -47,6 +47,7 @@ let winSound;
 let dump;
 let jump;
 let pick;
+let bgMusic;
 let grabTrash = false;
 
 
@@ -54,7 +55,6 @@ var target;
 var timedEvent;
 var timeLast = 30;
 
-let bgMusic;
 let instruction;
 var instr   = true;
 var back    = false;
@@ -66,15 +66,15 @@ var LOOP    = 2;
  */
 class GameScene8 extends Phaser.Scene {
   constructor() {
-    super({key: 'GameScene8'});
+    super({key: 'GameScene3'});
   }
 
   preload() {
-
+  
     this.load.image('bgImg', '../img/bkgr.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
-    this.load.image('dude', '../img/garbageman.png');
+    this.load.image('dude', '../img/hero' + this.game.react.props.hero + 'H.png');
     this.load.image('target', '../img/trashcan.png');
     this.load.image('instruction', '../img/instructionTrash.png');
 
@@ -102,7 +102,6 @@ class GameScene8 extends Phaser.Scene {
     jump = this.sound.add('jump');
     pick = this.sound.add('pick');
     bgMusic = this.sound.add('bgmusic');
-
     bgMusic.play();
 
     instruction = this.add.image(800, 100, 'instruction').setDepth(2);
@@ -118,10 +117,10 @@ class GameScene8 extends Phaser.Scene {
     platforms = this.physics.add.staticGroup();
 
     platforms.create(1200, 600, 'platform');
-    platforms.create(50, 250, 'platform');
-    platforms.create(750, 220, 'platform');
+    platforms.create(50, 400, 'platform');
+    platforms.create(750, 350, 'platform');
 
-    player = this.physics.add.sprite(100, 0, 'dude').setScale(0.5);
+    player = this.physics.add.sprite(100, 0, 'dude').setScale(1.1);
     target = this.physics.add.sprite(1200, 500, 'target').setScale(0.4)
 
     player.setCollideWorldBounds(true);
@@ -137,18 +136,19 @@ class GameScene8 extends Phaser.Scene {
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(trash, platforms);
     this.physics.add.collider(target, platforms);
-    this.physics.add.overlap(target, trash, this.reachTarget, null, this);
   }
 
   update() {
     text.setText('Timer: ' + timeLast);
+
+    this.physics.add.overlap(trash, target, this.reachTarget, null, this);
+
 
     if (instr) {
       this.showInstruction();
     }
 
     if (gameOver || player.y > 700) {
-      bgMusic.stop();
       this.game.destroy(true);
       this.game.react.props.updateProgress(gameOver);
       this.game.react.props.handleClick();
@@ -173,6 +173,7 @@ class GameScene8 extends Phaser.Scene {
   //reach target
   reachTarget(target, trash) {
     trash.disableBody(true, true);
+    
     score += 10;
     text.setText('Score: ' + score);
     //win
@@ -233,9 +234,7 @@ class GameScene8 extends Phaser.Scene {
   }
 
   gameOver() {
-    bgMusic.stop();
     this.physics.pause();
-    player.setTint(0xff0000);
 
     setInterval(() => {
       gameOver = true;

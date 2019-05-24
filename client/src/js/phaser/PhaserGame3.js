@@ -117,10 +117,10 @@ class GameScene3 extends Phaser.Scene {
     platforms = this.physics.add.staticGroup();
 
     platforms.create(1200, 600, 'platform');
-    platforms.create(50, 250, 'platform');
-    platforms.create(750, 220, 'platform');
+    platforms.create(50, 400, 'platform');
+    platforms.create(750, 350, 'platform');
 
-    player = this.physics.add.sprite(100, 0, 'dude').setScale(128/227);
+    player = this.physics.add.sprite(100, 0, 'dude').setScale(1.1);
     target = this.physics.add.sprite(1200, 500, 'target').setScale(0.4)
 
     player.setCollideWorldBounds(true);
@@ -140,6 +140,9 @@ class GameScene3 extends Phaser.Scene {
 
   update() {
     text.setText('Timer: ' + timeLast);
+
+    this.physics.add.overlap(trash, target, this.reachTarget, null, this);
+
 
     if (instr) {
       this.showInstruction();
@@ -170,6 +173,7 @@ class GameScene3 extends Phaser.Scene {
   //reach target
   reachTarget(target, trash) {
     trash.disableBody(true, true);
+    
     score += 10;
     text.setText('Score: ' + score);
     //win
@@ -231,7 +235,6 @@ class GameScene3 extends Phaser.Scene {
 
   gameOver() {
     this.physics.pause();
-    player.setTint(0xff0000);
 
     setInterval(() => {
       gameOver = true;

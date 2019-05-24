@@ -76,8 +76,6 @@ class GameScene1 extends Phaser.Scene {
     this.load.image('tree', '../img/tree.png');
     this.load.image('bull', '../img/enemy.png');
     this.load.image('hero', '../img/hero' + this.game.react.props.hero + 'H.png');
-    // this.load.image('hero', '../img/dick.png');
-
 
     this.load.audio('truck', '../sound/sound.wav');
     this.load.audio('win', '../sound/3win.mp3');

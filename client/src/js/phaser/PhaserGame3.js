@@ -70,12 +70,11 @@ class GameScene3 extends Phaser.Scene {
   }
 
   preload() {
-    //load image   parkBG.png
-    // this.load.image('bgImg', ' ../img/park1.png');
+  
     this.load.image('bgImg', '../img/bkgr.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
-    this.load.image('dude', '../img/garbageman.png');
+    this.load.image('dude', '../img/hero' + this.game.react.props.hero + 'H.png');
     this.load.image('target', '../img/trashcan.png');
     this.load.image('instruction', '../img/instructionTrash.png');
 
@@ -121,7 +120,7 @@ class GameScene3 extends Phaser.Scene {
     platforms.create(50, 250, 'platform');
     platforms.create(750, 220, 'platform');
 
-    player = this.physics.add.sprite(100, 0, 'dude').setScale(0.5);
+    player = this.physics.add.sprite(100, 0, 'dude').setScale(128/227);
     target = this.physics.add.sprite(1200, 500, 'target').setScale(0.4)
 
     player.setCollideWorldBounds(true);
@@ -137,7 +136,6 @@ class GameScene3 extends Phaser.Scene {
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(trash, platforms);
     this.physics.add.collider(target, platforms);
-    this.physics.add.overlap(target, trash, this.reachTarget, null, this);
   }
 
   update() {

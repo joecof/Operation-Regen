@@ -71,7 +71,7 @@ class GameScene8 extends Phaser.Scene {
 
   preload() {
 
-    this.load.image('bgImg', ' ../img/transitionBase0.png');
+    this.load.image('bgImg', '../img/bkgr.png');
     this.load.image('platform', '../img/platform.png');
     this.load.image('trash', '../img/trashPicked.png');
     this.load.image('dude', '../img/garbageman.png');
